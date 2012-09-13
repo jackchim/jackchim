@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim index 高级php开发笔记_Blog_Wiki</title>
+<title>Jack_Chim php_imgthumb_class 高级php开发笔记_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
@@ -162,68 +162,145 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">index</a> Page</h1>
+<h1 ><a  href="">php_imgthumb_class</a> Page</h1>
+
+<pre  class = "brush:php">
+/**
+* 图片缩略类
+* @author foyon
+*
+*/
+
+class ImgThumb{
+
+/**
+* 生成的大小完全符合要求，但是会截图
+* @param unknown_type $src_file
+* @param unknown_type $dst_file
+* @param unknown_type $new_width
+* @param unknown_type $new_height
+*/
+function ImageResize($src_file, $dst_file , $new_width , $new_height) {
+$new_width= intval($new_width);
+$new_height=intval($new_height);
+
+if($new_width &lt;1 || $new_height &lt;1) {
+echo "params width or height error !";
+exit();
+}
+
+$src_img=imagecreatefromstring($src_file);
+$w=imagesx($src_img);
+$h=imagesy($src_img);
+$ratio_w=1.0 * $new_width / $w;
+$ratio_h=1.0 * $new_height / $h;
+$ratio=1.0;
+// 生成的图像的高宽比原来的都小，或都大 ，原则是 取大比例放大，取大比例缩小（缩小的比例就比较小了）
+if( ($ratio_w &lt; 1 &amp;&amp; $ratio_h &lt; 1) || ($ratio_w &gt; 1 &amp;&amp; $ratio_h &gt; 1)) {
+if($ratio_w &lt; $ratio_h) {
+$ratio = $ratio_h ; // 情况一，宽度的比例比高度方向的小，按照高度的比例标准来裁剪或放大
+}else {
+$ratio = $ratio_w ;
+}
+// 定义一个中间的临时图像，该图像的宽高比 正好满足目标要求
+$inter_w=(int)($new_width / $ratio);
+$inter_h=(int)($new_height / $ratio);
+$inter_img=imagecreatetruecolor($inter_w , $inter_h);
+//var_dump($inter_img);
+imagecopy($inter_img, $src_img, 0,0,0,0,$inter_w,$inter_h);
+// 生成一个以最大边长度为大小的是目标图像$ratio比例的临时图像
+// 定义一个新的图像
+$new_img=imagecreatetruecolor($new_width,$new_height);
+//var_dump($new_img);exit();
+imagecopyresampled($new_img,$inter_img,0,0,0,0,$new_width,$new_height,$inter_w,$inter_h);
+imagejpeg($new_img, $dst_file,100);
+ob_clean();
+header("Content-type: image/jpeg");	
+
+Imagejpeg($new_img);
 
 
-<h1 id="toc_1">Database</h1>
-<ol>
-<li>
-开源数据库：<a href="mysql.html">mysql</a>
+} // end if 1
+// 2 目标图像 的一个边大于原图，一个边小于原图 ，先放大平普图像，然后裁剪
+// =if( ($ratio_w &lt; 1 &amp;&amp; $ratio_h &gt; 1) || ($ratio_w &gt;1 &amp;&amp; $ratio_h &lt;1) )
+else{
+$ratio=$ratio_h&gt;$ratio_w? $ratio_h : $ratio_w; //取比例大的那个值
+// 定义一个中间的大图像，该图像的高或宽和目标图像相等，然后对原图放大
+$inter_w=(int)($w * $ratio);
+$inter_h=(int)($h * $ratio);
+$inter_img=imagecreatetruecolor($inter_w , $inter_h);
+//将原图缩放比例后裁剪
+imagecopyresampled($inter_img,$src_img,0,0,0,0,$inter_w,$inter_h,$w,$h);
+// 定义一个新的图像
+$new_img=imagecreatetruecolor($new_width,$new_height);
+imagecopy($new_img, $inter_img, 0,0,0,0,$new_width,$new_height);
+imagejpeg($new_img, $dst_file,100);
+ob_clean();
+header("Content-type: image/jpeg");
 
-</ol>
+Imagejpeg($new_img);
+}
+}
+
+/**
+* 图片处理函数
+* @param unknown_type $img 传入的原图像流（MONGO二进制）
+* @param unknown_type $dst_file 转换后的图像存储路径
+* @param unknown_type $toW 生成的宽度
+* @param unknown_type $toH 生成的高度
+*/
+public function ImageChange($img, $dst_file, $toW='', $toH=''){
+
+$im = imagecreatefromstring($img);
+$srcW=ImageSX($im);
+$srcH=ImageSY($im);
+
+
+if(!$toW){
+$toW = $srcW;
+}
+
+if(!$toH){
+$toH = $srcH;
+}
+
+$toWH=$toW/$toH; //生成宽高比
+$srcWH=$srcW/$srcH; //原图宽高比
+
+if($toWH &lt;= $srcWH){
+$ftoW=$toW;
+$ftoH=$ftoW*($srcH/$srcW);
+}else{
+$ftoH=$toH;
+$ftoW=$ftoH*($srcW/$srcH);
+}
+
+if(function_exists("imagecreatetruecolor")){
+@$ni = ImageCreateTrueColor($ftoW,$ftoH);
+imagealphablending($ni,false);
+imagesavealpha($ni,true);
+if($ni){ 
+ImageCopyResampled($ni,$im,0,0,0,0,$ftoW,$ftoH,$srcW,$srcH);
+}else{
+$ni=ImageCreate($ftoW,$ftoH);
+ImageCopyResized($ni,$im,0,0,0,0,$ftoW,$ftoH,$srcW,$srcH);
+}
+
+}else{
+$ni=ImageCreate($ftoW,$ftoH);
+ImageCopyResized($ni,$im,0,0,0,0,$ftoW,$ftoH,$srcW,$srcH);
+}
+
+imagejpeg($ni, $dst_file,100);
+ob_clean();	  		
+header("Content-type: image/jpeg");	  		
+imagejpeg($ni);	  		
+}
+
+}
+</pre>
 
 <hr />
-<h1 id="toc_2">Tools</h1>
-
-
-<ol>
-<li>
-网络配置:<a href="http://yishanhe.net/wiki/networktools.html ">网络工具</a> | <a href="vimwiki-guide.html">Vimwiki配置</a>
-
-<li>
-版本控制: <a href="https://github.com/ ">Git</a> | <a href="gti_help.html">Git 首次使用 </a>
-
-<li>
-<a href="github_pages.html">Github pages 页面的的设置</a>
-
-</ol>
-
-<h1 id="toc_3">php</h1>
-
-<p>
-<a href="php_imgthumb_class.html">基于GD库的缩略图图 生成类</a>
-</p>
-
-<hr />
-<h1 id="toc_4">未归类</h1>
-
-<p>
-<a href="vim_links_blogs.html">关于vim的一些资源和blog</a>
-</p>
-
-<p>
-<a href="blog_collect.html">技术blog的收集和分类</a>
-</p>
-
-<p>
-<a href="css.html">css</a>
-</p>
-
-<p>
-<a href="jQuery_php_cookies.html">用jQuery和php设置cookies</a>
-</p>
-
-<hr />
-<ol>
-<li>
-<a href="my_vimwiki_test.html">vimwiki配置的测试页面</a>
-
-</ol>
-
-<h1 id="toc_5"><a href="hi.html">hi</a></h1>
-<h2 id="toc_5.1"><a href="vim.html">vim</a></h2>
-<h2 id="toc_5.2"><a href="about.html">about</a></h2>
-<h2 id="toc_5.3"><a href="my_vimwiki_test.html">my_vimwiki_test</a></h2>
 
 
 <!--// commentwrap Start-->

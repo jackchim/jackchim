@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim index 高级php开发笔记_Blog_Wiki</title>
+<title>Jack_Chim jQuery_php_cookies 高级php开发笔记_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
@@ -162,68 +162,100 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">index</a> Page</h1>
-
-
-<h1 id="toc_1">Database</h1>
-<ol>
-<li>
-开源数据库：<a href="mysql.html">mysql</a>
-
-</ol>
-
-<hr />
-<h1 id="toc_2">Tools</h1>
-
-
-<ol>
-<li>
-网络配置:<a href="http://yishanhe.net/wiki/networktools.html ">网络工具</a> | <a href="vimwiki-guide.html">Vimwiki配置</a>
-
-<li>
-版本控制: <a href="https://github.com/ ">Git</a> | <a href="gti_help.html">Git 首次使用 </a>
-
-<li>
-<a href="github_pages.html">Github pages 页面的的设置</a>
-
-</ol>
-
-<h1 id="toc_3">php</h1>
+<h1 ><a  href="">jQuery_php_cookies</a> Page</h1>
 
 <p>
-<a href="php_imgthumb_class.html">基于GD库的缩略图图 生成类</a>
+或者是来设置cookies，这里我们讲解一下如果用js和php来读写cookies。用js读写cookies，我们用了一个jQuery插件。
 </p>
-
-<hr />
-<h1 id="toc_4">未归类</h1>
-
+<h2 id="toc_0.1">用PHP读写cookies</h2>
 <p>
-<a href="vim_links_blogs.html">关于vim的一些资源和blog</a>
+创建cookies
 </p>
 
 <p>
-<a href="blog_collect.html">技术blog的收集和分类</a>
+在php中创建cookies很容易，用setcookie就可以了。
 </p>
+<pre>
+bool setcookie ( string name [, string value [, int expire [, string path [, string domain [, int secure]]]]])
+</pre>
 
 <p>
-<a href="css.html">css</a>
+下面我们来做个cookies访问量计数器。创建为pageVisits的cookies项，值为$visitd,保存时间为7天，针对域名是blog.luluui.com。
 </p>
+<pre  class="brush:php">
+setcookie(
+	    'pageVisits',               // cookie名称
+	    $visited,                   // 值，例子中的访问量
+            time()+7*24*60*60,   // 失效时间，单位为秒，如果不写或者为0，就保存到浏览器关闭为止
+    	    '/',                           // 保存路径
+	    'blog.luluui.com'           // 针对域名，一般不用写，只用到前4个参数就可以了。
+	);
+</pre>
+
+<h2 id="toc_0.2">读取cookies</h2>
 
 <p>
-<a href="jQuery_php_cookies.html">用jQuery和php设置cookies</a>
+在php中读取cookies就简单得多了，php将所有的cookies变量保存到全局变量 $ _COOKIE。
+</p>
+<pre class="brush:php">
+$visits = (int)$_COOKIE['pageVisits']+1;//用$_COOKIE['pageVisits']取得访问量，再加1
+echo "你访问了: ".$visits." 次";
+</pre>
+
+<h2 id="toc_0.3">删除cookies</h2>
+
+<p>
+删除cookies只需要将cookies设置为过期 就可以 了。
 </p>
 
-<hr />
-<ol>
-<li>
-<a href="my_vimwiki_test.html">vimwiki配置的测试页面</a>
+<pre class="brush:php">
+setcookie(
+	    'pageVisits',
+	    $visited,
+	    time()-7*24*60*60,      // 设置为前7天，该cookie就会自动删除了
+	    '/',
+	    'demo.tutorialzine.com'
+	);
+</pre>
 
-</ol>
+<h2 id="toc_0.4">用jQuery读写cookies</h2>
 
-<h1 id="toc_5"><a href="hi.html">hi</a></h1>
-<h2 id="toc_5.1"><a href="vim.html">vim</a></h2>
-<h2 id="toc_5.2"><a href="about.html">about</a></h2>
-<h2 id="toc_5.3"><a href="my_vimwiki_test.html">my_vimwiki_test</a></h2>
+<p>
+用jquery来读写cookies，我们要用一个jquery cookie 插件
+</p>
+<pre class="brush:js">
+$(document).ready(function(){
+	    // 设置一个名为kittens的cookie，值为7只狗子，保存时间到浏览器关闭
+	    $.cookie("kittens","7只狗子");
+	    // 设置一个名为demoCookie的cookie,值'8只狗',保存7天，路径为'/',域名为blog.luluui.com
+	    $.cookie("demoCookie",'8只狗',{expires: 7, path: '/', domain: 'blog.luluui.com'});
+	});
+</pre>
+
+<h2 id="toc_0.5">读取cookies</h2>
+<pre class="brush:js">
+$(document).ready(function(){
+	    // 取得kittens的值，赋给str
+	    var str = $.cookie("kittens");
+	});
+</pre>
+
+<h2 id="toc_0.6">删除cookies</h2>
+
+<p>
+删除cookies,只需要将设置项设置为null就可以了。
+</p>
+<pre class="brush:js">
+$(document).ready(function(){
+          //删除kittens 的cookies
+	    var str = $.cookie("kittens",null);
+	});
+</pre>
+
+
+<p>
+来源： <a href="http://blog.luluui.com/use-jquery-or-php-setcookies/">http://blog.luluui.com/use-jquery-or-php-setcookies/</a>
+</p>
 
 
 <!--// commentwrap Start-->

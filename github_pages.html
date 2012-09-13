@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim index 高级php开发笔记_Blog_Wiki</title>
+<title>Jack_Chim github_pages 高级php开发笔记_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
@@ -162,68 +162,219 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">index</a> Page</h1>
+<h1 ><a  href="">github_pages</a> Page</h1>
 
-
-<h1 id="toc_1">Database</h1>
-<ol>
-<li>
-开源数据库：<a href="mysql.html">mysql</a>
-
-</ol>
-
+<h1 id="toc_1">建立自己的项目</h1>
 <hr />
-<h1 id="toc_2">Tools</h1>
-
-
-<ol>
-<li>
-网络配置:<a href="http://yishanhe.net/wiki/networktools.html ">网络工具</a> | <a href="vimwiki-guide.html">Vimwiki配置</a>
-
-<li>
-版本控制: <a href="https://github.com/ ">Git</a> | <a href="gti_help.html">Git 首次使用 </a>
-
-<li>
-<a href="github_pages.html">Github pages 页面的的设置</a>
-
-</ol>
-
-<h1 id="toc_3">php</h1>
-
 <p>
-<a href="php_imgthumb_class.html">基于GD库的缩略图图 生成类</a>
+登录 GitHub，到 GitHub 面板，右下方可以创建一个新的 Repository
 </p>
 
+<p>
+create-new-repository
+</p>
+
+<p>
+填写完名字和描述之后，点击 Create Repository  之后，就会刷新到一个页面，该页面会教你如何在自己本地建立相应的库，并建立连接。正常情况下你可以看到下面的代码：
+</p>
+<pre>
+mkdir test //创建 test 文件夹
+cd test //切换到 test 文件夹
+git init //初始化
+//接着会在这里输出 Initialized empty Git repository in yourUrl/test/.git/
+touch README //新文件
+git add README //添加
+git commit -m 'first commit' /commit 信息
+//接着会在这里输出 [master (root-commit) 4f8d7e8] first commit
+// 0 files changed, 0 insertions(+), 0 deletions(-)
+// create mode 100644 README
+git remote add origin git@github.com:pizn/test.git
+git push -u origin master //上传到 Master 目录
+//接着会在这里输出 00% (3/3), 203 bytes, done.
+// Total 3 (delta 0), reused 0 (delta 0)
+// To git@github.com:yourUserName/test.git
+// * [new branch]      master -&gt; master
+//Branch master set up to track remote branch master from origin.
+</pre>
+
+
+
+<h1 id="toc_2">创建 GitHub Pages</h1>
 <hr />
-<h1 id="toc_4">未归类</h1>
-
 <p>
-<a href="vim_links_blogs.html">关于vim的一些资源和blog</a>
+在相应的项目，例如 test ，通过 Admin 进入项目的控制面板。
 </p>
 
 <p>
-<a href="blog_collect.html">技术blog的收集和分类</a>
+click-admin
 </p>
 
 <p>
-<a href="css.html">css</a>
+然后建立点击 GitHub 建立自己的页面。
 </p>
 
 <p>
-<a href="jQuery_php_cookies.html">用jQuery和php设置cookies</a>
+create-pages
 </p>
 
+<p>
+点击弹出窗口的链接，自动创建一个 Pages，当然，这还需要填写一个表单，关于这个页面的。你也可以直接点击继续跳过。当页面建立好之后，你就可以通过这样的一个路径访问到了：<a href="http://yourUserName.github.com/test">http://yourUserName.github.com/test</a>
+</p>
+
+<h1 id="toc_3">建立本地与页面分支的连接</h1>
+
+<p>
+在终端下切换到刚刚的 test 文件夹
+</p>
+<pre>
+git fetch origin
+//输出内容：remote: Counting objects: 3, done.
+//remote: Compressing objects: 100% (2/2), done.
+//remote: Total 3 (delta 0), reused 0 (delta 0)
+//Unpacking objects: 100% (3/3), done.
+//From github.com:pizn/test
+//* [new branch]      gh-pages   -&gt; origin/gh-pages
+git checkout -b gh-pages origin/gh-pages//切换分支
+//输出内容Branch gh-pages set up to track remote branch gh-pages from origin.
+//Switched to a new branch 'gh-pages'
+</pre>
+<h1 id="toc_4">使用 Jekyll 配置 Pages 模板</h1>
 <hr />
-<ol>
+<p>
+一般的 pages 所需要具备的目录结构：
+</p>
+
+<pre>
+.
+|-- _config.yml
+|-- _layouts
+| |-- default.html
+| `-- post.html
+|-- _posts
+| |-- 2011-09-23-markdown.md
+| `-- 2011-09-23-helloworld.md
+|-- _site
+`-- index.html
+</pre>
+
+<p>
+_layouts 目录是用来存放模板的，在这里你可以定义页面中不同的头部和底部。
+</p>
+
+<p>
+_posts 目录是用来存放你的文章的，一般以日期的形式书写标题。
+</p>
+
+<p>
+index.html是你的页面首页。
+</p>
+
+<p>
+_config.yml 是配置文件。
+</p>
+
+<p>
+明确了这个文件目录之后，应该如何动手来写自己的页面呢？简单的方法就是查看别人是怎么写的，这里有很多。具体的就不说了，当你在本地建立起这些目录和文件之后，你还需要将他们上传到你的 gh-pages 分支下。这样的话访问你的主页才能看到。
+</p>
+
+<p>
+一般使用到的命令有：
+</p>
+
+<p>
+<code>git add .</code>
+<code>git commit -m 'commit messages'</code>
+<code>git push origin gh-pages</code>
+</p>
+
+<p>
+因为你可能要修改很多次，需要重复提交才能看到修改过的地方。这频繁的修改并不利于你的效率，所以最好能在本地搭建好 Jekyll 环境，直接运行 jekyll –server 你就可以通过 localhost:4000 进行本地访问。如何搭建本地 jekyll 环境，请查看这里。
+</p>
+
+<h1 id="toc_5">使用一些函数来获取你的数据</h1>
+
+<h2 id="toc_5.1">站点的</h2>
+
+<ul>
 <li>
-<a href="my_vimwiki_test.html">vimwiki配置的测试页面</a>
+site.time//时间
 
-</ol>
+<li>
+site.posts//文章
 
-<h1 id="toc_5"><a href="hi.html">hi</a></h1>
-<h2 id="toc_5.1"><a href="vim.html">vim</a></h2>
-<h2 id="toc_5.2"><a href="about.html">about</a></h2>
-<h2 id="toc_5.3"><a href="my_vimwiki_test.html">my_vimwiki_test</a></h2>
+<li>
+site.related_posts
+
+<li>
+site.categories.CATEGORY //分类
+
+<li>
+site.tages.TAG//标签
+
+</ul>
+
+<h2 id="toc_5.2">页面</h2>
+
+<ul>
+<li>
+page.url //页面路径
+
+<li>
+page.content//页面内容
+
+</ul>
+
+<h2 id="toc_5.3">文章</h2>
+
+<ul>
+<li>
+post.title //标题
+
+<li>
+post.url//路径
+
+<li>
+post.date //数据
+
+<li>
+post.id
+
+<li>
+post.categories//分类
+
+<li>
+post.tags
+
+<li>
+post.content
+
+</ul>
+
+<h2 id="toc_5.4">分页</h2>
+
+<ul>
+<li>
+paginator.per_page
+
+<li>
+paginator.posts
+
+<li>
+paginator.total_posts
+
+<li>
+paginator.total_pages
+
+<li>
+paginator.page
+
+<li>
+paginator.previous_page
+
+<li>
+paginator.next_page
+
+</ul>
 
 
 <!--// commentwrap Start-->
