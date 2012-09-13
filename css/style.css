@@ -435,7 +435,20 @@ code {
     background-position: 0 -65px;
 }
 
-ul.li {
-/* list-style: none outside none; */
+#content ul li {
+list-style: none outside none;
+background: url("../images/mark101.gif") no-repeat scroll left center transparent;
+margin-bottom: 5px;
+margin-top: 5px;
+padding-left: 12px;
+}
+#sidebar  ul li .cat-item {
+list-style: none outside none;
+background: url("../images/sign.gif") no-repeat scroll left center transparent;
+font-size: 10pt;
+margin: 3px 0;
+padding-left: 10px;
+text-decoration: none;
 
 }
+
