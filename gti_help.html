@@ -187,6 +187,25 @@ git rm [filename]
 git branch [branch-name]
 </pre>
 
+<hr />
+<h2 id="toc_0.4">Push到Github时提示输入用户名密码的解决方式</h2>
+
+<p>
+由于HTTPS没有使用SSH的机制，所以也就无从使用ssh key的认证方式了。
+</p>
+
+<p>
+重新设定一下本地repo的remote URL为git协议就可以了。
+</p>
+
+<pre class="brush:shell">
+git remote set-url origin git://newurl
+</pre>
+
+<p>
+另外，可以在repo下.git/config文件中查看正在使用的URL。
+</p>
+
 
 <!--// commentwrap Start-->
 <!-- 加载duoshuo.com 评论插件 -->
