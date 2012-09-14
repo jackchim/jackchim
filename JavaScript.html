@@ -1,0 +1,629 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Jack_Chim JavaScript 开发笔记_Blog_Wiki</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
+<!-- <link rel="shortcut icon" href="" /> -->
+<link rel='stylesheet' id='wp-pagenavi-css'  href='./css/pagenavi-css.css' type='text/css' media='all' />
+<script type='text/javascript' src='./js/jquery.js'></script>
+
+
+<!-- for SyntaxHighlighter core -->
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shCore.js"></script>
+<link type="text/css" rel="stylesheet" href="./syntaxhighlighter/styles/shCore.css"/>
+<!-- for SyntaxHighlighter theme -->
+<link type="text/css" rel="stylesheet" href="./syntaxhighlighter/styles/shThemeMidnight.css"/>
+<!-- for SyntaxHighlighter syntax -->
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="./syntaxhighlighter/scripts/shBrushPlain.js"></script>
+
+<script type="text/javascript" src="./js/jquery.js"></script>
+
+<!-- for SyntaxHighlighter execute -->
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
+<meta name="generator" content="" />
+</head>
+
+<body>
+<div align="center">
+<div id="wrapper">
+<!--// header Start-->
+<div id="hd">
+	<div id="sitemeta">
+		<ul>
+			<li class="rss"><a href="http://feed.feedsky.com/">Subscribe to articles using RSS Feed</a></li>
+  		</ul>
+	</div>
+	<div id="titlewrapper">
+		<div id="blogtitle">
+			<h1><a href="index.html">Jack Chim'Code Notes</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><div id="blogdescription"> Keep It Simple and Stupid.</div></li>
+				<li><a href="index.html">Home</a></li>
+				<li class="page_item page-item-2"><a href="about.html">About</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="clear">&nbsp;</div>
+
+	<div class="clear">&nbsp;</div>
+</div>
+<!--// header End-->
+
+
+<!--// sidebar Start-->
+<div id="sidebar" class="yui-b">
+<ul class="sidebar">
+<li id="search-3" class="widget widget_search"><form method="get" id="searchform" action="">
+<input type="text" size="14" value="" name="s" id="s" class="s" />
+<input type="submit" id="searchsubmit" value="GO" />
+</form>
+<BR><BR></li>
+<li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Me</h2>
+<br>
+<div class="tagcloud">
+
+	<span class="icons_github"></span> <a href='https://github.com/ziikii' target="_blank"  >GitHub </a><br>
+	<span class="icons_twitter"></span> <a href='#'  target="_blank" >Twitter </a> <br>
+	<span class="icons_linkedin"></span> <a href='http://www.linkedin.com/in/jackchim' target="_blank"  >Linkedin </a><br>
+	<span class="icons_sinaweibo"></span> <a href='#' target="_blank" >Sina Weibo</a><br>
+	<span class="icons_mail"></span>     <a href='#'  target="_blank" >Mail:ziikii1#qq.com</a><br>
+
+</div>
+</li>
+<br>
+<li id="categories-4" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+	<li class="cat-item cat-item-67"><a href="" title="View all posts filed under Database">Database</a>
+</li>
+		<li class="cat-item cat-item-6"><a href="" title="View all posts filed under Windows">Windows</a>
+</li>
+		</ul>
+</li>
+<li id="google-reader" class="widget widget_googlereader">
+
+<h2 class="widgettitle">Google Reader Shared Items</h2>
+<ul>
+
+
+	</ul>
+<a href="http://www.google.com/reader/shared/13444098006933559883" style="float:right;">Shared Items</a></li>
+<li id="recent-comments-3" class="widget widget_recent_comments">
+
+<h2 class="widgettitle">Recent Comments</h2>
+<ul id="recentcomments">
+
+
+	</ul></li>
+
+
+<li id="archives-4" class="widget widget_archive"><h2 class="widgettitle">Archives</h2>
+		<ul>
+	<li><a href='http://blog.sonitech.org/2011/07/' title='July 2011'>July 2011</a></li>
+	<li><a href='http://blog.sonitech.org/2011/05/' title='May 2011'>May 2011</a></li>
+		</ul>
+</li>
+<li id="linkcat-2" class="widget widget_links"><h2 class="widgettitle">Site & Tools</h2>
+
+	<ul class='xoxo blogroll'>
+<li><a href="http://stackoverflow.com/" target="_blank">Stackoverflow </a></li>
+<li><a href="http://www.ostools.net/">ostools</a></li>
+
+	</ul>
+</li>
+
+</ul>
+</div>
+<!--// sidebar End-->
+
+
+
+<!--// content Start-->
+<div id="content">
+
+<h1 ><a  href="">JavaScript</a> Page</h1>
+
+<blockquote>
+JSConf.eu
+JSConf 2010 汇总一些资料
+Douglas Crockford's Wrrrld Wide Web 2
+ecmascript
+Javascript 森林(jsforest)
+Sizzle src - JavaScript CSS selector.
+JS1K, 1k Javascript contest
+JSMock JSMock node-jsmock @google.code
+JSCoverage
+jsdt - Debug javascript in ie,firefox,chrome,safari,opera and all browsers support ajax
+Perfection Kills
+JSMentors
+JavaScript 秘密花园
+JavaScript 之神 Douglas Crockford 座談會 (@ OSDC 會前技術饗宴)
+The cost of privacy 
+</blockquote>
+
+<h2 id="toc_0.1">JavaScript MVC</h2>
+<blockquote>
+Backbone
+backbone mini-book
+前端 MVC - 豆瓣说 
+</blockquote>
+
+<h2 id="toc_0.2">Syntax</h2>
+<blockquote>
+google-styleguide - Style Google JavaScript 编码规范指南 guides for Google-originated open-source project.
+Code Conventions for the JavaScript Programming Language
+JQuery Core Style Guidelines
+Douban Javascript Core Style Guideline 
+</blockquote>
+
+<h2 id="toc_0.3">闭包</h2>
+<blockquote>
+闭包 (计算机科学)
+Javascript Closures
+什么是闭包
+Javascript Closures 中文 2
+学习Javascript闭包（Closure）
+作用域链 词法作用域 与 闭包（一） （二） 
+</blockquote>
+
+<h2 id="toc_0.4">UI</h2>
+<blockquote>
+Calendar/DateTime
+My97 DatePicker - 蛮强大的日期时间控件。 
+TreeView
+jsTree<sup><small>2</small></sup>
+eXtree eXtree—(Extended XTree) 扩展Xtree. 
+DataGrid/Table
+12款Javascript表格控件(DataGrid)
+Select UI 
+</blockquote>
+<blockquote>
+Rotate Image 
+</blockquote>
+
+<h2 id="toc_0.5">Tips</h2>
+<blockquote>
+不询问关闭窗口
+</blockquote>
+<blockquote>
+window.opener = null;
+window.close();
+</blockquote>
+
+<p>
+tr.rowIndex
+</p>
+
+<p>
+位于字符串加法拼接的表达式中，三元符号需要被括在括号中，否则下面的表达式报错。
+</p>
+
+<p>
+var a = null;
+"" + a ? a.toString() : ""
+</p>
+
+<p>
+需要：
+</p>
+
+<p>
+var a = null;
+"" + (a ? a.toString() : "")
+</p>
+
+<p>
+Javascript 性能的细节
+</p>
+<h2 id="toc_0.6">BUGs</h2>
+<blockquote>
+The dreaded Operation Aborted error - IE “操作已取消”的问题。
+理解并解决IE的内存泄漏方式 2 3 4
+Understanding and Solving Internet Explorer Leak Patterns
+Javascript内存泄漏 
+</blockquote>
+
+<p>
+由标点符号不正确造成的变量未预定义，成为全局变量而导致框架页的名字被修改，然后指定到这个框架页的导航失效，全部在_self中打开。示例代码：
+</p>
+
+<p>
+function(){
+</p>
+<blockquote>
+var key = "key";
+name = "name",
+desc = "desc";
+</blockquote>
+<p>
+}
+</p>
+<blockquote>
+IE运行时设置name属性的BUG
+Creating Dynamic Forms with MVC and jQuery
+document.createElement()赋值name属性，在IE下的疑问
+ie 下使用 name 属性 
+</blockquote>
+
+<h2 id="toc_0.7">WYSIWYG Editor</h2>
+<blockquote>
+XHEditor
+KindSoft
+wmd - The Wysiwym Markdown Editor
+Vim-like Web Editor
+jsvi - 让 TextArea 也可以用 Vi，待改进。
+vim.js - jsvim 
+</blockquote>
+
+<h2 id="toc_0.8">Framework</h2>
+<blockquote>
+Vapor.js - The World's Smallest &amp; Fastest JavaScript Library. @github
+ComoJS - 国产Javascript框架。
+Rapid framework Rapid javascript validation rramework
+rapid-framework @google.code
+Coffee Script 一种可编译成 JavaScript 的小型语言，提供了一些不错的特性。
+RequireJS JavaScript file and module loader.
+sea.js
+CommonJS
+PhantomJS 
+</blockquote>
+
+<h2 id="toc_0.9">测试</h2>
+<blockquote>
+Web 2.0 浏览器端可靠性测试，第 1 部分: 带你走进 Web 2.0 浏览器端可靠性测试
+Web 2.0 浏览器端可靠性测试，第 2 部分: 如何发现和分析 Web 2.0 浏览器端的内存泄漏
+js-test-driver - 牛X测试工具，顺便尝试开发一个基于 Vim 的插件试试。
+JavaScript Performance Rundown (翻译)JavaScript性能测试 2
+Javascript性能测试工具 FireJSPT @google.code
+JSBenchmark
+Web Browser Javascript Benchmark 
+</blockquote>
+
+<h2 id="toc_0.10">Project</h2>
+<blockquote>
+ZKoss
+jsPerf : JavaScript performance playground.
+php.js
+Underscore.js DocumentCloud Projects 
+</blockquote>
+
+<h2 id="toc_0.11">Tools</h2>
+<blockquote>
+evilpie/jsctags
+Getting jsctags to work with taglist.vim
+DoctorJS
+Vim, Javascript, DoctorJS (jsctags) and Taglist (Source code browsing).
+Tagging Javascript source code : jsctags 
+jslint
+JSLint
+JavaScript Lint
+Fork of hallettj/jslint.vim JSLint的Vim插件，支持高亮显示错误代码以及Quickfix模式。Fork过来打了个读取~/.jslintrc的小补丁。 JsLint Helper - 在 sign 栏显示验证状态。 Closure Linter 
+Google Closure Compiler
+Google Closure Tools
+Closure Compiler Service
+Google Closure Compiler with PHP
+Google Closure Compiler压缩优化规则初探
+使用Google 的Closure Compiler来压缩javascript
+在项目中使用Google Closure Compiler
+Mac下用Closure compiler
+JS 库浅析之 Google Closure
+Closure Compiler 高级模式及更多思考 
+YUI
+TBCompressor 2.4.2
+TBCompressor for Vim 
+Closure Compiler vs YUICompressor
+Minify JS
+Javascript Docs
+jsDoc-toolkit<sup><small>2</small></sup>
+Helper tools &amp; scripts
+JsDoc Toolkit:Javascript文档利器
+jGrouseDoc 
+JsUnit @github JsUnit
+FireUnit @github
+QUnit @github
+Less
+jsbeautify
+Online Javascript jsbeautifier github, vimscript
+js beautifier - plugin for Chrome. 
+Auto execute Yuicompressor - 保存时自动压缩，也支持 Google Closure Compiler, less ，代码同见 gist#182971。
+Jasmine - BDD for JavaScript
+repl.it 
+</blockquote>
+<blockquote>
+thomasfrank.se
+OkSoClap: Open-Sourced! - 一款轻巧的在线协作文档编辑工具，支持多种文件格式。
+JsFiddle
+Share JavaScript, HTML5 and CSS 
+</blockquote>
+
+<h2 id="toc_0.12">User-Script</h2>
+<blockquote>
+Greasemonkey 2
+Dive Into Greasemonkey
+Dive into Greasemonkey 中文翻譯計畫
+深入浅出 Greasemonkey
+userscripts.org
+如何为greasemonkey开发userScript
+GreaseMonkey 简介与使用教程
+User Script Compiler
+GreaseMonkey 开发教程 
+</blockquote>
+
+<h2 id="toc_0.13">Detector</h2>
+<blockquote>
+Detecting event support without browser sniffing
+Browser detect blog
+Using the navigator object to detect client's browser
+Browser Detect - Description
+mobile
+Detect Mobile Browser
+Auto detect mobile browser (via user-agent?) 
+</blockquote>
+
+<h2 id="toc_0.14">MD5</h2>
+<blockquote>
+JavaScript md5 - php.js
+Javascript MD5
+JavaScript MD5 
+</blockquote>
+
+<h2 id="toc_0.15">Games</h2>
+<blockquote>
+辣妈.植物大战僵尸
+JS游戏引擎列表
+地址栏游戏 
+</blockquote>
+
+<h2 id="toc_0.16">Books</h2>
+<blockquote>
+DOM Scripting: Web Design with JavaScript and the Document Object Model
+Eloquent JavaScript: A Modern Introduction to Programming - Online.
+JavaScript: The Good Parts
+ppk on JavaScript
+Object-Oriented JavaScript: Create scalable, reusable high-quality JavaScript applications and libraries
+Professional JavaScript for Web Developers
+Secrets of JavaScript
+slideshare:Secrets of JavaScript Libraries
+High Performance JavaScript - WebDirections USA 2010 
+</blockquote>
+
+<h2 id="toc_0.17">Error</h2>
+<blockquote>
+JavaScript Error 
+</blockquote>
+
+<h2 id="toc_0.18">screen</h2>
+
+<p>
+IE: Internet Explorer, F: Firefox, O: Opera. Screen 对象属性
+</p>
+
+
+<table>
+<tr>
+<th>
+属性
+</th>
+<th>
+描述
+</th>
+<th>
+IE
+</th>
+<th>
+F
+</th>
+<th>
+O
+</th>
+</tr>
+<tr>
+<td>
+vailHeight
+</td>
+<td>
+返回显示屏幕的高度(除 Windows 任务栏之外)
+</td>
+<td>
+4
+</td>
+<td>
+-
+</td>
+<td>
+-
+</td>
+</tr>
+<tr>
+<td>
+availWidth
+</td>
+<td>
+返回显示屏幕的宽度(除 Windows 任务栏之外)
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+bufferDepth
+</td>
+<td>
+设置或返回调色板的比特深度。
+</td>
+<td>
+4
+</td>
+<td>
+0
+</td>
+<td>
+0
+</td>
+</tr>
+<tr>
+<td>
+colorDepth
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+deviceXDPI
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+
+
+
+<p>
+screen 屏幕对象 反映了当前用户的屏幕设置。 width 返回屏幕的宽度（像素数）。 height
+availHeight
+</p>
+<blockquote>
+返回屏幕的可用高度。
+</blockquote>
+<p>
+colorDepth
+</p>
+<blockquote>
+返回当前颜色设置所用的位数 -1：黑白；8：256色；16：增强色；24/32：真彩色
+</blockquote>
+
+<h2 id="toc_0.19">console</h2>
+<blockquote>
+Blackbird 
+</blockquote>
+
+
+<!--// commentwrap Start-->
+<!-- 加载duoshuo.com 评论插件 -->
+<div id="commentwrap">
+<h2>Leave a comment?</h2>
+<hr>
+    <div id="disqus_thread" style=""></div>
+
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jackchim'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+
+
+        
+</div>
+<!--// commentwrap End-->
+
+</div>
+<!--// content  End-->
+<!--// footer Start-->
+<div class="clear">&nbsp;</div>
+<div id="footnote" align="center">
+	  Cheers!! Vimwiki  © Copyright 2012 Jack Chim. All Rights Reserved.
+</div>
+<!--// footer End-->
+<!-- http://blog.sonitech.org/2011/07/06/sshscp-through-gateway/ -->
+</div>
+
+</div>
+<a href="javascript:;" id="returnTop" style="bottom: 200px;">回到顶部</a>
+<script type="text/javascript">
+$(document).ready(function(){
+    initTxt();
+    //$('#returnTop').hide();
+    $(window).scroll(function(){
+        if($(document).scrollTop()>=100){
+            if($.browser.msie&&($.browser.version == "6.0")){
+                $('#returnTop').css("_top","expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight/2)-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))-0);");
+            }
+            $('#returnTop').animate({bottom:"200px"},{ queue: false, duration: 10 });
+        }else{
+            $('#returnTop').css("_top","1000");
+            $('#returnTop').animate({bottom:"-200px"},{ queue: false, duration: 10 });
+        }
+    });
+    $('#returnTop').click(function(){
+        $('html, body').animate({scrollTop:0}, 'slow');
+        return false;
+    });
+ 
+     
+});
+ 
+function initTxt(){
+    for(var i=0;i<=300;i++){
+        $("#bigBox").append("<p>这是第"+i+"行</p>");
+    }
+}
+</script>
+</body>
+</html>
