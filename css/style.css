@@ -452,3 +452,68 @@ text-decoration: none;
 
 }
 
+.icons_github {
+list-style: none outside none;
+background: url("../images/icons.gif")  no-repeat scroll left center transparent;
+background-position: -55px 1px;
+margin: 3px 0;
+padding: 5px 0 8px 30px;
+line-height: 26px;
+width:25px;
+height:25px;
+
+}
+.icons_twitter {
+list-style: none outside none;
+background: url("../images/icons.gif")  no-repeat scroll left center transparent;
+background-position: 3px 1px;
+margin: 3px 0;
+padding: 5px 0 8px 30px;
+line-height: 26px;
+width:25px;
+height:25px;
+
+}
+.icons_linkedin {
+list-style: none outside none;
+background: url("../images/icons.gif")  no-repeat scroll left center transparent;
+background-position: -84px 1px;
+margin: 3px 0;
+padding: 5px 0 8px 30px;
+line-height: 26px;
+width:25px;
+height:25px;
+
+}
+.icons_sinaweibo {
+list-style: none outside none;
+background: url("../images/icons.gif")  no-repeat scroll left center transparent;
+background-position: -24px 1px;
+margin: 3px 0;
+padding: 5px 0 8px 30px;
+line-height: 26px;
+width:25px;
+height:25px;
+
+}
+
+.icons_mail {
+list-style: none outside none;
+background: url("../images/icons.gif")  no-repeat scroll left center transparent;
+background-position: -143px 1px;
+margin: 3px 0;
+padding: 5px 0 8px 30px;
+line-height: 26px;
+width:25px;
+height:25px;
+
+}
+
+.tagcloud a {
+font-size: 11pt;
+line-height: 26px;
+text-decoration: none;
+font-weight: bold;
+
+
+}
