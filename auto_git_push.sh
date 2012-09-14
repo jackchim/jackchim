@@ -1,5 +1,6 @@
 #!/bin/bash 
-date = $(date)
+# date = $(date)
 git add .
-git commit -m "update all html at $date"
+git commit -m "update all html "
+git push origin gh-pages
 echo "update done!"
