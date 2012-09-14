@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim java 开发笔记_Blog_Wiki</title>
+<title>Jack_Chim git_help 开发笔记_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="./css/style.css" media="screen" />
@@ -136,11 +136,63 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">java</a> Page</h1>
+<h1 ><a  href="">git_help</a> Page</h1>
+
+<h2 id="toc_0.1">创建一个分支</h2>
+<pre class="brush:shell">
+git branch [branch-name] 
+</pre>
+
+<hr />
+
+<h2 id="toc_0.2">远程删除分支的文件或者目录</h2>
+<pre class="brush:shell">
+git rm [filename] 
+</pre>
+
+<hr />
+
+<h2 id="toc_0.3">git branch</h2>
+<p>
+创建一个分支 
+</p>
+<pre class="brush:shell">
+git branch [branch-name]
+</pre>
+
+<hr />
+<h2 id="toc_0.4">Push到Github时提示输入用户名密码的解决方式</h2>
 
 <p>
-This is a java page!
+由于HTTPS没有使用SSH的机制，所以也就无从使用ssh key的认证方式了。
 </p>
+
+<p>
+重新设定一下本地repo的remote URL为git协议就可以了。
+</p>
+
+<pre class="brush:shell">
+git remote set-url origin git://newurl
+</pre>
+
+<p>
+另外，可以在repo下.git/config文件中查看正在使用的URL。
+</p>
+
+<hr />
+<h2 id="toc_0.5">git rm</h2>
+
+<p>
+删除本地仓库的文件，设置为为跟踪状态，但保留工作区文件
+</p>
+
+<p>
+<code>-r</code> r 参数为递归目录
+</p>
+
+<pre class="brush :shell">
+git rm -r --cached [dir or file]
+</pre>
 
 
 <!--// commentwrap Start-->
