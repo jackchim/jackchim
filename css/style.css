@@ -436,12 +436,13 @@ code {
 }
 
 #content ul li {
-list-style: none outside none;
-background: url("../images/mark101.gif") no-repeat scroll left center transparent;
+/* list-style: none outside none; */
+/* background: url("../images/mark101.gif") no-repeat scroll left center transparent; */
 margin-bottom: 5px;
 margin-top: 5px;
 padding-left: 12px;
 }
+
 #sidebar  ul li .cat-item {
 list-style: none outside none;
 background: url("../images/sign.gif") no-repeat scroll left center transparent;
