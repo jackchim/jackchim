@@ -1,0 +1,584 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Jack_Chim css 开发笔记_Blog_Wiki</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+<!-- <link rel="shortcut icon" href="" /> -->
+<link rel='stylesheet' id='wp-pagenavi-css'  href='../css/pagenavi-css.css' type='text/css' media='all' />
+<script type='text/javascript' src='../js/jquery.js'></script>
+
+
+<!-- for SyntaxHighlighter core -->
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shCore.js"></script>
+<link type="text/css" rel="stylesheet" href="../syntaxhighlighter/styles/shCore.css"/>
+<!-- for SyntaxHighlighter theme -->
+<link type="text/css" rel="stylesheet" href="../syntaxhighlighter/styles/shThemeMidnight.css"/>
+<!-- for SyntaxHighlighter syntax -->
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushPlain.js"></script>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+
+<!-- for SyntaxHighlighter execute -->
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
+<meta name="generator" content="" />
+</head>
+
+<body>
+<div align="center">
+<div id="wrapper">
+<!--// header Start-->
+<div id="hd">
+	<div id="sitemeta">
+		<ul>
+			<li class="rss"><a href="http://feed.feedsky.com/">Subscribe to articles using RSS Feed</a></li>
+  		</ul>
+	</div>
+	<div id="titlewrapper">
+		<div id="blogtitle">
+			<h1><a href="../index.html">Jack Chim'Code Notes</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><div id="blogdescription"> Keep It Simple and Stupid.</div></li>
+				<li><a href="../index.html">Home</a></li>
+				<li class="page_item page-item-2"><a href="../about.html">About</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="clear">&nbsp;</div>
+
+	<div class="clear">&nbsp;</div>
+</div>
+<!--// header End-->
+
+
+<!--// sidebar Start-->
+<div id="sidebar" class="yui-b">
+<ul class="sidebar">
+<li id="search-3" class="widget widget_search"><form method="get" id="searchform" action="">
+<input type="text" size="14" value="" name="s" id="s" class="s" />
+<input type="submit" id="searchsubmit" value="GO" />
+</form>
+<BR><BR></li>
+<li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Me</h2>
+<br>
+<div class="tagcloud">
+
+	<span class="icons_github"></span> <a href='https://github.com/ziikii' target="_blank"  >GitHub </a><br>
+	<span class="icons_twitter"></span> <a href='#'  target="_blank" >Twitter </a> <br>
+	<span class="icons_linkedin"></span> <a href='http://www.linkedin.com/in/jackchim' target="_blank"  >Linkedin </a><br>
+	<span class="icons_sinaweibo"></span> <a href='#' target="_blank" >Sina Weibo</a><br>
+	<span class="icons_mail"></span>     <a href='#'  target="_blank" >Mail:ziikii1#qq.com</a><br>
+
+</div>
+</li>
+<br>
+<li id="categories-4" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+<li class="cat-item cat-item-67"><a href="../Programming_dir/Programming.html" >Programming</a></li>
+<li class="cat-item cat-item-6"><a href="../Security_dir/Security.html" >Security</a></li>
+<li class="cat-item cat-item-6"><a href="../Database_dir/Database.html" >Database</a></li>
+<li class="cat-item cat-item-6"><a href="../Docs_dir/Docs.html" >Docs</a></li>
+<li class="cat-item cat-item-6"><a href="../Desktop_dir/Desktop.html" >Desktop</a></li>
+<li class="cat-item cat-item-6"><a href="../OS_dir/OS.html" >OS</a></li>
+<li class="cat-item cat-item-6"><a href="../Web_dir/Web.html" >Web</a></li>
+<li class="cat-item cat-item-6"><a href="../Tools_dir/Tools.html" >Tools</a></li>
+<li class="cat-item cat-item-6"><a href="../Server_dir/Server.html" >Server</a></li>
+<li class="cat-item cat-item-6"><a href="../Editor_dir/Editor.html" >Editor</a></li>
+<li class="cat-item cat-item-6"><a href="../Design_dir/Design.html" >Design</a></li>
+<li class="cat-item cat-item-6"><a href="../English_dir/English.html" >English notes</a></li>
+
+		</ul>
+</li>
+
+<li id="archives-4" class="widget widget_archive"><h2 class="widgettitle">Archives</h2>
+		<ul>
+	<li><a href='' title='July 2011'>July 2011</a></li>
+	<li><a href='' title='May 2011'>May 2011</a></li>
+		</ul>
+</li>
+<li id="linkcat-2" class="widget widget_links"><h2 class="widgettitle">Site & Tools</h2>
+
+	<ul class='xoxo blogroll'>
+<li><a href="http://stackoverflow.com/" target="_blank">Stackoverflow </a></li>
+<li><a href="http://www.ostools.net/">ostools</a></li>
+
+	</ul>
+</li>
+
+</ul>
+</div>
+<!--// sidebar End-->
+
+
+
+<!--// content Start-->
+<div id="content">
+
+<h1 ><a  href="">css</a> Page</h1>
+
+<p>
+CSS 相关的笔记
+ Table 表格样式 
+</p>
+<ul>
+<li>
+<a href="http://pythoughts.com/table-style-css/ ">Table Style: CSS Examples of Good Looking HTML Tables</a>
+
+<li>
+<a href="http://designshack.net/articles/10-css-table-examples/ ">10 CSS Table Examples</a>
+
+</ul>
+
+
+<hr />
+<ul>
+<li>
+<a href="http://reference.sitepoint.com/css">SitePoint CSS Reference</a>
+
+<li>
+ <a href="https://developer.mozilla.org/en/CSS_Reference/Mozilla_Extensions">Mozilla CSS Extensions</a>
+
+<li>
+ <a href="https://developer.mozilla.org/En">Mozilla Developer Center</a>
+
+<li>
+ <a href="http://www.certifiedchinesetranslation.com/openaccess/CSS/">CSS 中文文档</a>
+
+<li>
+ <a href="http://www.cssdrive.com/">CSS Drive</a>
+
+<li>
+ <a href="http://www.cssportal.com/">CSS Portal</a>
+
+<li>
+ <a href="http://cssdesk.com/">CSSDesk</a> - Online CSS Sandbox.
+
+<li>
+ <a href="http://westciv.com/">westciv</a> - tools &amp;amp; resources for web professionals.
+
+<li>
+ <a href="http://haslayout.net/">hasLayout.net</a>
+
+<li>
+ <a href="http://www.iecss.com/">Internet Explorer UA Style Sheets</a>
+
+<li>
+ <a href="http://lesscss.org/">LESS</a> - Leaner CSS.
+
+<li>
+ <a href="http://www.k-zone.cn/zblog/post/less-css-1.html">用编程的方式来写CSS - LESS的应用</a>
+
+<li>
+ <a href="http://minipai.tw/post/107">LESS和Sass的不同</a>
+
+<li>
+ <a href="http://www.blueidea.com/tech/web/2006/3469.asp">css之自动换行</a>
+
+<li>
+ <a href="http://www.blueidea.com/tech/web/2008/6313.asp">连续字符自动换行的解决方案</a>
+
+<li>
+ <a href="http://www.css-101.org/">CSS 101</a>
+
+<li>
+ <a href="http://www.csszengarden.com/">css Zen Garden</a>
+
+<ul>
+<li>
+ <a href="http://www.csszengarden.com/tr/chinese/">CSS 设计之美(CSS 禅意花园)</a>
+
+<li>
+ <a href="http://yekai.net/?p=85">《CSS禅意花园》studyNote</a>
+
+</ul>
+<li>
+ <a href="http://css-tricks.com/examples/ShapesOfCSS/">The Shapes of CSS</a>
+
+<ul>
+<li>
+ <a href="http://css-tricks.com/show-and-edit-style-element/">Show and Edit Style Element</a>
+
+</ul>
+<li>
+ <a href="http://smacss.com/book/">Scalable and Modular Architecture for CSS</a>
+
+<li>
+ <a href="http://twitter.github.com/bootstrap/">Bootstrap, from Twitter</a>
+
+<ul>
+<li>
+ <a href="https://github.com/twitter/bootstrap">@github</a>
+
+</ul>
+</ul>
+<hr />
+<h2 id="toc_0.1" class="justcenter">Calendar stamp</h2>
+<ul>
+<li>
+ <a href="http://lucassmith.name/pub/calendar/stamp.html">Calendar stamp</a> - 显示日历
+
+<li>
+ <a href="http://css-tricks.com/date-display-with-sprites/">Date Display Technique with Sprites</a>
+
+<li>
+ <a href="http://www.css88.com/archives/1863">CSS 中的元素旋转</a> - 日历效果
+
+</ul>
+<hr />
+<h2 id="toc_0.2">CSS Button</h2>
+<ul>
+<li>
+ <a href="http://code.google.com/p/k-button/">k-button</a> -- 口碑团队开发的按钮样式框架，非常美观大方。
+
+<li>
+ <a href="http://code.google.com/p/sexybuttons/">Sexy Buttons</a> -- 背景图目前设计的很粗糙，设计理念和 k-button 类似。
+
+</ul>
+<hr />
+<h2 id="toc_0.3">Checkbox &amp;amp; Radio</h2>
+<ul>
+<li>
+ <a href="http://www.zhangxinxu.com/wordpress/?p=56">复选框单选框与文字对齐问题的研究与解决</a>
+
+<li>
+ <a href="http://hi.baidu.com/chapsticks/blog/item/a5cc123c3fb96afe3d6d9712.html">表单 提示文字 对齐 (input,checkbox文字对齐）垂直对齐</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.4" class="justcenter">CSS 圆角</h2>
+<ul>
+<li>
+ <a href="http://border-radius.com/">CSS 圆角</a>
+
+<li>
+ <a href="http://www.lesliesommer.com/wdw07/html/index.html">CSS Mojo: Adding Visual Polish To Your Pages</a>
+
+<li>
+ <a href="http://ued.taobao.com/blog/2010/08/04/css-border%E4%BD%BF%E7%94%A8%E5%B0%8F%E5%88%86%E4%BA%AB/">CSS Border使用小分享</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.5" class="justcenter">CSS Table</h2>
+<ul>
+<li>
+ <a href="http://veerle.duoh.com/blog/comments/a_css_styled_table/alt_rows.js">A CSS styled table</a>  <a href="http://www.duoh.com/csstutorials/csstables/">Demo</a>
+
+<li>
+ <a href="http://www.cnblogs.com/eazon/archive/2008/07/04/1235268.html">表格樣式集錦</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.6" class="justcenter">CSS 反轉</h2>
+<ul>
+<li>
+ <a href="http://snook.ca/archives/html_and_css/css-text-rotation">Text Rotation with CSS</a> - 使用 CSS 旋轉實現的日期樣式。
+
+</ul>
+<hr />
+<h2 id="toc_0.7">字体 (Fonts)</h2>
+<ul>
+<li>
+ <a href="http://www.sun.com/bigadmin/hubs/multilingual/simp_chinese/content/font_1.jsp">谈谈字体那些事（第一部分）</a>
+
+<li>
+ <a href="http://www.sun.com/bigadmin/hubs/multilingual/simp_chinese/content/font_2.jsp">谈谈字体那些事（第二部分）</a>
+
+<li>
+ <a href="http://www.sun.com/bigadmin/hubs/multilingual/simp_chinese/content/font_3.jsp">谈谈字体那些事（第三部分）</a>
+
+<li>
+ <a href="http://dancewithnet.com/2009/11/22/default-web-font-style/">默认Web字体样式</a> - 秦歌
+
+<li>
+ <a href="http://lifesinger.org/blog/2009/11/web-default-font/">再谈 Web 默认字体</a> - 玉伯
+
+<li>
+ <a href="http://www.comsharp.com/GetKnowledge/zh-CN/It_News_K830.aspx">关于 Web 字体：现状与未来</a>
+
+<li>
+ <a href="http://www.comsharp.com/GetKnowledge/zh-CN/It_News_K832.aspx">再谈 Web 字体的现状与未来</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.8">工具 (Tools)</h2>
+<ul>
+<li>
+ <a href="http://csstidy.sourceforge.net/index.php">CSSTidy</a>
+
+<li>
+ <a href="http://hotoo.googlecode.com/svn/trunk/tools/csstidy/index.html">cn</a>
+
+</ul>
+<p>
+Online (  <a href="http://www.css88.com/tool/csstidy/">1</a>,  <a href="http://www.life-studio.cn/csstidy/">2</a>,  <a href="http://www.osxcn.com/csstidy/">3</a>,  <a href="http://csswow.gox.cc/">4</a>,  <a href="http://www.azuresky.cn/csstidy/">5</a>,  <a href="http://www.isparkle.cn/show/csstidy/">6</a>,  <a href="http://www.cleancss.com/">7</a>)
+</p>
+<ul>
+<li>
+ <a href="http://dotnetperls.com/minify-css">Minify CSS Tutorial</a>
+
+<li>
+ <a href="http://csslint.net/">csslint</a>
+
+<ul>
+<li>
+ <a href="https://github.com/stubbornella/csslint">@github</a>
+
+</ul>
+<li>
+ <a href="http://www.adriansilva.org/2009/06/21/css-lint-in-gitc/">Css lint in git(git-hook)</a>
+
+<li>
+ <a href="http://blog.163.com/jinlu_hz/blog/static/1138301522011516104213719/">关注CSS Lint</a>
+
+<li>
+ <a href="http://stackoverflow.com/questions/6366185/finding-vim-efm-for-csslint-messages">finding vim efm for csslint messages</a>
+
+<li>
+ <a href="http://www.minifycss.com">Minify CSS - Compress CSS Code</a>
+
+<li>
+ <a href="http://developer.yahoo.com/yui/compressor/">YUI Compressor</a>
+
+<li>
+ <a href="http://code.google.com/p/minify/">minify</a>
+
+<li>
+ <a href="http://csssprites.org/">Smart Sprites</a> - CSS Sprites自动化工具。
+
+<li>
+ <a href="http://www.snook.ca/technical/colour_contrast/colour.html">Colour Contrast Check</a>
+
+<li>
+ <a href="http://userstyles.org/">userstyles.org</a> - Restyle the web with Stylish!
+
+<li>
+ <a href="http://helvetireader.com/">Helvetireader^2^</a> - A minimal, anti-social theme for Google Reader.
+
+<li>
+ <a href="http://blog.roodo.com/appleseed/archives/12234855.html">Helvetireader - 清爽好看的Google Reader美化套件</a>
+
+<li>
+ <a href="http://sass-lang.com/">Sass</a> - Syntactically Awesome Stylesheets.
+    将 CSS 变成可编程的“语言”，可以使用变量，嵌套，继承，甚至是特定的缩进式语法。
+
+<li>
+ <a href="http://the-echoplex.net/csscrush/">CSS-Crush</a>
+
+<li>
+ <a href="https://github.com/leafo/lessphp">lessphp</a>
+
+<li>
+ <a href="http://minipai.tw/post/76">快速撰寫HTML/CSS的工具組合</a>
+
+</ul>
+<h2 id="toc_0.9">CSSEdit</h2>
+<hr />
+<h2 id="toc_0.10">清除浮动(clearfix)</h2>
+<ul>
+<li>
+ <a href="http://www.qianduan.net/universal-to-remove-floating-style.html">万能清除浮动样式</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.11">网格(Grid System)</h2>
+<ul>
+<li>
+ <a href="http://1kbgrid.com/">The 1Kb CSS Grid</a> - 拖放各个阈值并直接下载自动生成的CSS。
+
+<li>
+ <a href="http://www.spry-soft.com/grids/">Variable Grid System</a> - 可直接修改各个阈值并预览效果。
+
+<li>
+ <a href="http://grid.mindplay.dk">Grid Designer</a>
+
+<li>
+ <a href="http://builder.yaml.de/">YAML Builder</a> - A tool for visual development of YAML based CSS layouts.
+
+<li>
+ <a href="http://960.gs/">960 Grid System</a>
+
+<ul>
+<li>
+ <a href="http://github.com/nathansmith/960-Grid-System">960-Grid-System@github</a>
+
+</ul>
+<li>
+ <a href="http://lifesinger.org/blog/tag/grid/">岁月如歌#grid</a>
+
+<li>
+ <a href="http://lifesinger.org/blog/2008/10/grid-system-1/">网页栅格系统研究（1）：960的秘密</a>
+
+<ul>
+<li>
+ <a href="http://ued.taobao.com/blog/2008/10/22/grid_system_research_1/">2</a>
+
+</ul>
+<li>
+ <a href="http://lifesinger.org/blog/2008/10/grid-system-2/">网页栅格系统研究（2）：蛋糕的切法</a>
+
+<ul>
+<li>
+ <a href="http://ued.taobao.com/blog/2008/10/22/grid_system_research_2/">2</a>
+
+</ul>
+<li>
+ <a href="http://lifesinger.org/blog/2008/10/grid-system-3/">网页栅格系统研究（3）：粒度问题</a>
+
+<ul>
+<li>
+ <a href="http://ued.taobao.com/blog/2008/10/28/grid_system_research_3/">2</a>
+
+</ul>
+<li>
+ <a href="http://lifesinger.org/blog/2008/11/grid-system-4/">网页栅格系统研究（4）：技术实现</a>
+
+<ul>
+<li>
+ <a href="http://ued.taobao.com/blog/2008/11/05/grid_system_research_4/">2</a>
+
+</ul>
+<li>
+ <a href="http://lifesinger.org/blog/2008/11/reply-to-tecent-on-960/">回复腾讯兄弟，再谈谈960</a>
+
+<li>
+ <a href="http://ued.taobao.com/blog/2008/09/17/grid_systems/">网页的栅格系统设计</a> - 青云
+
+<li>
+ <a href="http://www.gracecode.com/archives/2363/">我的栅格系统</a> - 明城
+
+<li>
+ <a href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-1">Five simple steps to designing grid systems</a>
+
+<ul>
+<li>
+ <a href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-2">2</a>
+
+<li>
+ <a href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-3">3</a>
+
+<li>
+ <a href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-4">4</a>
+
+<li>
+ <a href="http://www.markboulton.co.uk/journal/comments/five-simple-steps-to-designing-grid-systems-part-5">5</a>
+
+</ul>
+</ul>
+<hr />
+<h2 id="toc_0.12">CSS Hacks</h2>
+<ul>
+<li>
+ <a href="CSS-Hacks.html.html">CSS-Hacks</a>
+
+<li>
+ <a href="http://www.happinesz.cn/archives/1331/">说说CSS Hack 和向后兼容</a> - 内附详细的各浏览器 Hacks 列表。
+
+<li>
+ <a href="http://www.satzansatz.de/cssd/onhavinglayout.html">On having layout</a>
+
+<li>
+ <a href="http://www.positioniseverything.net/explorer/expandingboxbug.html">Internet Explorer 6 and the Expanding Box Problem</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.13" class="justcenter">活动</h2>
+<ul>
+<li>
+ <a href="http://naked.dustindiaz.com/">CSS Naked Day</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.14" class="justcenter">PPT</h2>
+<ul>
+<li>
+ <a href="http://www.slideshare.net/stubbornella/css-wish-list">CSS Wish List @JSConf</a> - CSS继承、变量等愿望。
+
+<li>
+ <a href="http://www.slideshare.net/stubbornella/object-oriented-css">Object Oriented CSS</a>
+
+</ul>
+
+
+<!--// commentwrap Start-->
+<!-- 加载duoshuo.com 评论插件 -->
+<div id="commentwrap">
+<h2>Leave a comment?</h2>
+<hr>
+    <div id="disqus_thread" style=""></div>
+
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jackchim'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+
+
+        
+</div>
+<!--// commentwrap End-->
+
+</div>
+<!--// content  End-->
+<!--// footer Start-->
+<div class="clear">&nbsp;</div>
+<div id="footnote" align="center">
+	  Cheers!! Vimwiki  © Copyright 2012 Jack Chim. All Rights Reserved.
+</div>
+<!--// footer End-->
+<!-- http://blog.sonitech.org/2011/07/06/sshscp-through-gateway/ -->
+</div>
+
+</div>
+<a href="javascript:;" id="returnTop" style="bottom: 200px;">回到顶部</a>
+<script type="text/javascript">
+$(document).ready(function(){
+    initTxt();
+    //$('#returnTop').hide();
+    $(window).scroll(function(){
+        if($(document).scrollTop()>=100){
+            if($.browser.msie&&($.browser.version == "6.0")){
+                $('#returnTop').css("_top","expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight/2)-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))-0);");
+            }
+            $('#returnTop').animate({bottom:"200px"},{ queue: false, duration: 10 });
+        }else{
+            $('#returnTop').css("_top","1000");
+            $('#returnTop').animate({bottom:"-200px"},{ queue: false, duration: 10 });
+        }
+    });
+    $('#returnTop').click(function(){
+        $('html, body').animate({scrollTop:0}, 'slow');
+        return false;
+    });
+ 
+     
+});
+ 
+function initTxt(){
+    for(var i=0;i<=300;i++){
+        $("#bigBox").append("<p>这是第"+i+"行</p>");
+    }
+}
+</script>
+</body>
+</html>

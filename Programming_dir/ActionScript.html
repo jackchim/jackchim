@@ -1,0 +1,407 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Jack_Chim ActionScript 开发笔记_Blog_Wiki</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+<!-- <link rel="shortcut icon" href="" /> -->
+<link rel='stylesheet' id='wp-pagenavi-css'  href='../css/pagenavi-css.css' type='text/css' media='all' />
+<script type='text/javascript' src='../js/jquery.js'></script>
+
+
+<!-- for SyntaxHighlighter core -->
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shCore.js"></script>
+<link type="text/css" rel="stylesheet" href="../syntaxhighlighter/styles/shCore.css"/>
+<!-- for SyntaxHighlighter theme -->
+<link type="text/css" rel="stylesheet" href="../syntaxhighlighter/styles/shThemeMidnight.css"/>
+<!-- for SyntaxHighlighter syntax -->
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushPlain.js"></script>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+
+<!-- for SyntaxHighlighter execute -->
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
+<meta name="generator" content="" />
+</head>
+
+<body>
+<div align="center">
+<div id="wrapper">
+<!--// header Start-->
+<div id="hd">
+	<div id="sitemeta">
+		<ul>
+			<li class="rss"><a href="http://feed.feedsky.com/">Subscribe to articles using RSS Feed</a></li>
+  		</ul>
+	</div>
+	<div id="titlewrapper">
+		<div id="blogtitle">
+			<h1><a href="../index.html">Jack Chim'Code Notes</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><div id="blogdescription"> Keep It Simple and Stupid.</div></li>
+				<li><a href="../index.html">Home</a></li>
+				<li class="page_item page-item-2"><a href="../about.html">About</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="clear">&nbsp;</div>
+
+	<div class="clear">&nbsp;</div>
+</div>
+<!--// header End-->
+
+
+<!--// sidebar Start-->
+<div id="sidebar" class="yui-b">
+<ul class="sidebar">
+<li id="search-3" class="widget widget_search"><form method="get" id="searchform" action="">
+<input type="text" size="14" value="" name="s" id="s" class="s" />
+<input type="submit" id="searchsubmit" value="GO" />
+</form>
+<BR><BR></li>
+<li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Me</h2>
+<br>
+<div class="tagcloud">
+
+	<span class="icons_github"></span> <a href='https://github.com/ziikii' target="_blank"  >GitHub </a><br>
+	<span class="icons_twitter"></span> <a href='#'  target="_blank" >Twitter </a> <br>
+	<span class="icons_linkedin"></span> <a href='http://www.linkedin.com/in/jackchim' target="_blank"  >Linkedin </a><br>
+	<span class="icons_sinaweibo"></span> <a href='#' target="_blank" >Sina Weibo</a><br>
+	<span class="icons_mail"></span>     <a href='#'  target="_blank" >Mail:ziikii1#qq.com</a><br>
+
+</div>
+</li>
+<br>
+<li id="categories-4" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+<li class="cat-item cat-item-67"><a href="../Programming_dir/Programming.html" >Programming</a></li>
+<li class="cat-item cat-item-6"><a href="../Security_dir/Security.html" >Security</a></li>
+<li class="cat-item cat-item-6"><a href="../Database_dir/Database.html" >Database</a></li>
+<li class="cat-item cat-item-6"><a href="../Docs_dir/Docs.html" >Docs</a></li>
+<li class="cat-item cat-item-6"><a href="../Desktop_dir/Desktop.html" >Desktop</a></li>
+<li class="cat-item cat-item-6"><a href="../OS_dir/OS.html" >OS</a></li>
+<li class="cat-item cat-item-6"><a href="../Web_dir/Web.html" >Web</a></li>
+<li class="cat-item cat-item-6"><a href="../Tools_dir/Tools.html" >Tools</a></li>
+<li class="cat-item cat-item-6"><a href="../Server_dir/Server.html" >Server</a></li>
+<li class="cat-item cat-item-6"><a href="../Editor_dir/Editor.html" >Editor</a></li>
+<li class="cat-item cat-item-6"><a href="../Design_dir/Design.html" >Design</a></li>
+<li class="cat-item cat-item-6"><a href="../English_dir/English.html" >English notes</a></li>
+
+		</ul>
+</li>
+
+<li id="archives-4" class="widget widget_archive"><h2 class="widgettitle">Archives</h2>
+		<ul>
+	<li><a href='' title='July 2011'>July 2011</a></li>
+	<li><a href='' title='May 2011'>May 2011</a></li>
+		</ul>
+</li>
+<li id="linkcat-2" class="widget widget_links"><h2 class="widgettitle">Site & Tools</h2>
+
+	<ul class='xoxo blogroll'>
+<li><a href="http://stackoverflow.com/" target="_blank">Stackoverflow </a></li>
+<li><a href="http://www.ostools.net/">ostools</a></li>
+
+	</ul>
+</li>
+
+</ul>
+</div>
+<!--// sidebar End-->
+
+
+
+<!--// content Start-->
+<div id="content">
+
+<h1 ><a  href="">ActionScript</a> Page</h1>
+
+<ul>
+<li>
+ <a href="http://www.flashdevelop.org">FlashDevelop</a>
+
+<li>
+ <a href="http://www.aswing.org/">AsWing</a>
+
+<li>
+ <a href="http://osflash.org/">Open Source Flash</a>
+
+<li>
+ <a href="http://www.mtasc.org/">MTASC</a>
+
+<li>
+ <a href="http://zh.wikipedia.org/zh-cn/ActionScript">ActionScript@wikipedia</a>
+
+<li>
+ <a href="http://baike.baidu.com/view/7641.htm">Flash</a> - 百度百科
+
+<ul>
+<li>
+ <a href="http://baike.baidu.com/view/9376.htm">ActionScript</a>
+
+</ul>
+<li>
+ <a href="http://blog.harrspy.com/developas2_with_aswing_fd">用FlashDevelop+aswing开发AS2程序</a>
+
+<li>
+ <a href="http://www.xncat.com/2009/12/catflash/400.html">actionscript与javascript交互</a>
+
+<li>
+ <a href="http://www.9ria.com/">9RIA天地会</a>
+
+<li>
+ <a href="http://as3blog.com/">ActionScript 3 Lover</a>
+
+<li>
+ <a href="http://swfever.com/">SWFever.com</a> - Jinni's Blog – All about SWFs, Flash, Flex, AIR…
+
+<li>
+ <a href="http://www.klstudio.com/">Kinglong's Blog</a> - 专注研究 Flash, FMS, ActionScript, Javascript, Java, C# 等相关技术。
+
+<li>
+ <a href="http://www.isdada.com/">达达's Blog</a>
+
+<li>
+ <a href="http://zh-cn.mochimedia.com/">麻球网</a>
+
+<li>
+ <a href="http://nwhy.org/">豆腐's Blog</a>
+
+<li>
+ <a href="http://flash.qq.com/">腾讯动画频道</a>
+
+<li>
+ <a href="http://whiteappleer.tw/2011/11/12/why-mobile-flash-died-by-adobe-mike-chambers/">Adobe Flash平台首席產品經理Mike Chambers ── 移動平台上的Flash Player為何消亡，以及Flash平台未來的角色與發展</a>
+
+<ul>
+<li>
+ <a href="http://www.mikechambers.com/blog/2011/11/11/clarifications-on-flash-player-for-mobile-browsers-the-flash-platform-and-the-future-of-flash/">en</a>
+
+</ul>
+</ul>
+
+
+<ul>
+<li>
+ <a href="http://www.adobe.com/cn/devnet/flash/">Flash 开发人员中心</a>
+
+</ul>
+
+<hr />
+<h2 id="toc_0.1">Tools</h2>
+
+<ul>
+<li>
+ <a href="http://www.vim.org/scripts/script.php?script_id=2478">ActionScript 3 Omnicomplete.vim</a>
+
+</ul>
+
+<hr />
+<h2 id="toc_0.2">Slide &amp;amp; Share</h2>
+
+<ul>
+<li>
+ <a href="http://www.slideshare.net/taobaoued/flashxhtml-3432665">Flash对象在(X)Html中的格式和参数及安全性</a>
+
+</ul>
+
+<hr />
+<h2 id="toc_0.3">Books</h2>
+
+<ul>
+<li>
+ <a href="http://help.adobe.com/zh_CN/ActionScript/3.0_ProgrammingAS3/">Adobe Flash 的 Adobe ActionScript 3.0 编程</a>
+
+<ul>
+<li>
+ <a href="http://help.adobe.com/zh_TW/ActionScript/3.0_ProgrammingAS3/">繁体</a>
+
+<li>
+ <a href="http://help.adobe.com/zh_CN/AS3LCR/Flash_10.0/index.html">《ActionScript 3.0 语言和组件参考》</a>
+
+</ul>
+</ul>
+
+<p>
+《Adobe ActionScript 3.0 编程》 - Adobe 官方文档。
+《ActionScript 3.0 宝典》
+《ActionScript 3.0 Cookbook》
+《ActionScript 3 锦囊妙计》 - 【繁体中文】
+《Flash ActionScript 3.0 殿堂之路》
+</p>
+
+<hr />
+<h2 id="toc_0.4">系统剪贴板</h2>
+
+<ul>
+<li>
+ <a href="http://code.google.com/p/zeroclipboard/">Zero Clipboard</a>
+
+</ul>
+
+<p>
+Player
+</p>
+<ul>
+<li>
+ <a href="http://www.longtailvideo.com/players/jw-flv-player/">JW Player</a> - opensource flash Player
+
+</ul>
+
+<hr />
+<h2 id="toc_0.5">Upload File</h2>
+
+<ul>
+<li>
+ <a href="http://swfupload.org/">SWFUpload</a>   <a href="http://code.google.com/p/swfupload/">google code</a>
+
+<li>
+ <a href="http://developer.yahoo.com/yui/uploader/">YUI Uploader</a>
+
+<li>
+ <a href="http://xpz.javaeye.com/blog/126828">利用Flash上传大文件：swfupload修改以及详细说明</a>
+
+</ul>
+<hr />
+
+<h2 id="toc_0.6">Frameworks</h2>
+
+<ul>
+<li>
+ <a href="http://www.aswing.org/">AsWing</a> *  <a href="http://cn.aswing.org/">中文</a>
+
+</ul>
+
+<h1 id="toc_1">Project</h1>
+
+<hr />
+<h2 id="toc_1.1">Open Flash Chart</h2>
+
+<ul>
+<li>
+ <a href="http://teethgrinder.co.uk/open-flash-chart-2/">Open Flash Chart 2</a>   <a href="http://teethgrinder.co.uk/open-flash-chart/">v1</a>   <a href="http://openflashchart.com/">home</a>   <a href="http://sourceforge.net/projects/openflashchart/">project</a>
+
+<li>
+ <a href="http://code.google.com/p/jofc2/">Java API for Open Flash Chart 2</a>
+
+<li>
+ <a href="http://openflashchartlib.codeplex.com/">Open Flash Chart Lib</a> - A .NET library for OpenFlashChart control.
+
+<li>
+ <a href="http://code.google.com/p/open-flash-chart-python/">Python API for Open Flash Chart</a>
+
+<li>
+ <a href="http://code.google.com/p/ofcgwt/">Open Flash Chart for GWT</a>
+
+<li>
+ <a href="http://drupal.org/project/open_flash_chart_api">Open Flash Chart API</a>   <a href="http://drupal.org/project/ofc_api">old</a>
+
+<li>
+ <a href="http://ofc.net23.net/">Open Flash Chart 正体中文教程</a>   <a href="http://ofc.net23.net/v2/">显示数值的修改版</a>
+
+</ul>
+
+<hr />
+<h2 id="toc_1.2">中国地图</h2>
+
+<ul>
+<li>
+ <a href="http://code.google.com/p/chinamapforflash/">China Map for Flash</a>
+
+<ul>
+<li>
+ <a href="http://www.richbox.net/blog/?p=445">中国地图Flash组件更新</a>
+
+</ul>
+<li>
+ <a href="http://www.taoper.com/blog/article/article/484.htm">各种各样的销售网络（FLASH中国地图，FLASH世界地图）</a>
+
+<li>
+ <a href="http://code.google.com/p/swfobject/">&amp;lt;SWFObject&amp;gt;</a>
+
+</ul>
+
+
+<!--// commentwrap Start-->
+<!-- 加载duoshuo.com 评论插件 -->
+<div id="commentwrap">
+<h2>Leave a comment?</h2>
+<hr>
+    <div id="disqus_thread" style=""></div>
+
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jackchim'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+
+
+        
+</div>
+<!--// commentwrap End-->
+
+</div>
+<!--// content  End-->
+<!--// footer Start-->
+<div class="clear">&nbsp;</div>
+<div id="footnote" align="center">
+	  Cheers!! Vimwiki  © Copyright 2012 Jack Chim. All Rights Reserved.
+</div>
+<!--// footer End-->
+<!-- http://blog.sonitech.org/2011/07/06/sshscp-through-gateway/ -->
+</div>
+
+</div>
+<a href="javascript:;" id="returnTop" style="bottom: 200px;">回到顶部</a>
+<script type="text/javascript">
+$(document).ready(function(){
+    initTxt();
+    //$('#returnTop').hide();
+    $(window).scroll(function(){
+        if($(document).scrollTop()>=100){
+            if($.browser.msie&&($.browser.version == "6.0")){
+                $('#returnTop').css("_top","expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight/2)-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))-0);");
+            }
+            $('#returnTop').animate({bottom:"200px"},{ queue: false, duration: 10 });
+        }else{
+            $('#returnTop').css("_top","1000");
+            $('#returnTop').animate({bottom:"-200px"},{ queue: false, duration: 10 });
+        }
+    });
+    $('#returnTop').click(function(){
+        $('html, body').animate({scrollTop:0}, 'slow');
+        return false;
+    });
+ 
+     
+});
+ 
+function initTxt(){
+    for(var i=0;i<=300;i++){
+        $("#bigBox").append("<p>这是第"+i+"行</p>");
+    }
+}
+</script>
+</body>
+</html>

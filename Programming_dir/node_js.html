@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Jack_Chim node_js 开发笔记_Blog_Wiki</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
+<!-- <link rel="shortcut icon" href="" /> -->
+<link rel='stylesheet' id='wp-pagenavi-css'  href='../css/pagenavi-css.css' type='text/css' media='all' />
+<script type='text/javascript' src='../js/jquery.js'></script>
+
+
+<!-- for SyntaxHighlighter core -->
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shCore.js"></script>
+<link type="text/css" rel="stylesheet" href="../syntaxhighlighter/styles/shCore.css"/>
+<!-- for SyntaxHighlighter theme -->
+<link type="text/css" rel="stylesheet" href="../syntaxhighlighter/styles/shThemeMidnight.css"/>
+<!-- for SyntaxHighlighter syntax -->
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushPlain.js"></script>
+
+<script type="text/javascript" src="../js/jquery.js"></script>
+
+<!-- for SyntaxHighlighter execute -->
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
+<meta name="generator" content="" />
+</head>
+
+<body>
+<div align="center">
+<div id="wrapper">
+<!--// header Start-->
+<div id="hd">
+	<div id="sitemeta">
+		<ul>
+			<li class="rss"><a href="http://feed.feedsky.com/">Subscribe to articles using RSS Feed</a></li>
+  		</ul>
+	</div>
+	<div id="titlewrapper">
+		<div id="blogtitle">
+			<h1><a href="../index.html">Jack Chim'Code Notes</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><div id="blogdescription"> Keep It Simple and Stupid.</div></li>
+				<li><a href="../index.html">Home</a></li>
+				<li class="page_item page-item-2"><a href="../about.html">About</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="clear">&nbsp;</div>
+
+	<div class="clear">&nbsp;</div>
+</div>
+<!--// header End-->
+
+
+<!--// sidebar Start-->
+<div id="sidebar" class="yui-b">
+<ul class="sidebar">
+<li id="search-3" class="widget widget_search"><form method="get" id="searchform" action="">
+<input type="text" size="14" value="" name="s" id="s" class="s" />
+<input type="submit" id="searchsubmit" value="GO" />
+</form>
+<BR><BR></li>
+<li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Me</h2>
+<br>
+<div class="tagcloud">
+
+	<span class="icons_github"></span> <a href='https://github.com/ziikii' target="_blank"  >GitHub </a><br>
+	<span class="icons_twitter"></span> <a href='#'  target="_blank" >Twitter </a> <br>
+	<span class="icons_linkedin"></span> <a href='http://www.linkedin.com/in/jackchim' target="_blank"  >Linkedin </a><br>
+	<span class="icons_sinaweibo"></span> <a href='#' target="_blank" >Sina Weibo</a><br>
+	<span class="icons_mail"></span>     <a href='#'  target="_blank" >Mail:ziikii1#qq.com</a><br>
+
+</div>
+</li>
+<br>
+<li id="categories-4" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+<li class="cat-item cat-item-67"><a href="../Programming_dir/Programming.html" >Programming</a></li>
+<li class="cat-item cat-item-6"><a href="../Security_dir/Security.html" >Security</a></li>
+<li class="cat-item cat-item-6"><a href="../Database_dir/Database.html" >Database</a></li>
+<li class="cat-item cat-item-6"><a href="../Docs_dir/Docs.html" >Docs</a></li>
+<li class="cat-item cat-item-6"><a href="../Desktop_dir/Desktop.html" >Desktop</a></li>
+<li class="cat-item cat-item-6"><a href="../OS_dir/OS.html" >OS</a></li>
+<li class="cat-item cat-item-6"><a href="../Web_dir/Web.html" >Web</a></li>
+<li class="cat-item cat-item-6"><a href="../Tools_dir/Tools.html" >Tools</a></li>
+<li class="cat-item cat-item-6"><a href="../Server_dir/Server.html" >Server</a></li>
+<li class="cat-item cat-item-6"><a href="../Editor_dir/Editor.html" >Editor</a></li>
+<li class="cat-item cat-item-6"><a href="../Design_dir/Design.html" >Design</a></li>
+<li class="cat-item cat-item-6"><a href="../English_dir/English.html" >English notes</a></li>
+
+		</ul>
+</li>
+
+<li id="archives-4" class="widget widget_archive"><h2 class="widgettitle">Archives</h2>
+		<ul>
+	<li><a href='' title='July 2011'>July 2011</a></li>
+	<li><a href='' title='May 2011'>May 2011</a></li>
+		</ul>
+</li>
+<li id="linkcat-2" class="widget widget_links"><h2 class="widgettitle">Site & Tools</h2>
+
+	<ul class='xoxo blogroll'>
+<li><a href="http://stackoverflow.com/" target="_blank">Stackoverflow </a></li>
+<li><a href="http://www.ostools.net/">ostools</a></li>
+
+	</ul>
+</li>
+
+</ul>
+</div>
+<!--// sidebar End-->
+
+
+
+<!--// content Start-->
+<div id="content">
+
+<h1 ><a  href="">node_js</a> Page</h1>
+
+<p>
+服务器端 JavaScript 编程。
+</p>
+<ul>
+<li>
+ <a href="http://nodejs.org/">nodeJS</a>
+
+<ul>
+<li>
+ <a href="https://github.com/joyent/node">@github</a>
+
+</ul>
+<li>
+ <a href="http://cnodejs.org/cman/">Node.js Manual &amp;amp; Documentation(中文)</a>
+
+<li>
+ <a href="http://jayli.github.com/whatisnode/index.html">什么是Node？</a>
+
+<li>
+ <a href="http://simonwillison.net/2009/Nov/23/node/">Node.js is genuinely exciting</a>
+
+<li>
+ <a href="http://www.douban.com/group/topic/9551477/">node.js专题</a>
+
+<li>
+ <a href="http://blog.csdn.net/fuadam/archive/2010/03/15/5380178.aspx">在cygwin环境下编译node.js</a>
+
+<li>
+ <a href="http://github.com/ry/node_chat">node char</a> - 用 nodeJS 写的聊天室。
+
+<li>
+ <a href="https://no.de/">Joyent Node</a>
+
+<ul>
+<li>
+ <a href="http://mattn.no.de/">mattn.no.de</a>
+
+</ul>
+<li>
+ <a href="http://nodeguide.com/">Felix's Node.js Guide</a>
+
+<li>
+ <a href="http://coding.smashingmagazine.com/2011/09/16/useful-node-js-tools-tutorials-and-resources/">Useful Node.js Tools, Tutorials And Resources</a>
+
+<li>
+ <a href="http://www.infoq.com/cn/articles/nodejs-module-mechanism">深入浅出Node.js（三）：深入Node.js的模块机制</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.1" class="justcenter">Docs</h2>
+<ul>
+<li>
+ <a href="http://www.nodebeginner.org/index-zh-cn.html">Node入门</a>
+
+<li>
+ <a href="http://howtonode.org/">http://howtonode.org/</a> Tim Caswell发起的社区博客
+
+<li>
+ <a href="http://blog.nodejitsu.com/">http://blog.nodejitsu.com/</a> 一家node.js咨询公司的博客, 目前主要在介绍第三方node.js模块
+
+<li>
+ <a href="http://dailyjs.com/">http://dailyjs.com/</a> JavaScript博客, node.js自从问世之后在这里占据了不少的篇幅
+
+<li>
+ <a href="http://twitter.com/\#%21/ryah">http://twitter.com/#!/ryah</a> 创造者Ryan Dahl的twitter, 话不多.
+
+<li>
+ <a href="http://www.ibm.com/developerworks/cn/opensource/os-nodejs/index.html?ca=drs-">Node.js 究竟是什么？</a>
+
+<li>
+ <a href="http://www.nowamagic.net/javascript/js_BeginToUseNodejs.php">开始使用node.js</a>
+
+<li>
+ <a href="http://blog.csdn.net/zhangxin09/article/category/726487">NodeJS 学习笔记</a>
+
+<li>
+ <a href="http://cnodejs.org/">Cnode.js - 专业中文社区</a>
+
+<li>
+ <a href="http://www.grati.org/?cat=35">移动开发博客#Node.js</a>
+
+<li>
+ <a href="http://wiki.grati.org/index.php?title=NodeJS%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3">NodeJS 中文文档</a>
+
+<li>
+ <a href="http://dailyjs.com/2011/02/07/node-tutorial-12/">Node Tutorial</a>
+
+<li>
+ <a href="http://www.devthought.com/2011/12/22/a-string-is-not-an-error/">A String is not an Error</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.2" class="justcenter">Framework</h2>
+<ul>
+<li>
+ <a href="http://expressjs.com/">ExpressJS</a>
+
+<li>
+ <a href="http://howtonode.org/express-mongodb">Blog rolling with mongoDB, express and Node.js</a>
+
+<li>
+ <a href="http://www.csser.com/tools/express-js/express-guide-reference-zh-CN.html">Express JS 中文入门指引手册</a>
+
+<li>
+ <a href="http://snoopyxdy.blog.163.com/blog/static/6011744020111115105953153/">expressjs源码解读(一) —— http(s)模块</a>
+
+<li>
+ <a href="http://snoopyxdy.blog.163.com/blog/static/601174402011111685728816/">expressjs源码解读(二) —— middleware</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.3">Project</h2>
+<ul>
+<li>
+ <a href="http://strophe.im/">Strophe.js</a> - libraries for XMPP poets
+
+<ul>
+<li>
+ <a href="https://github.com/metajack/strophejs">@github</a>
+
+</ul>
+<li>
+ <a href="http://xmppjs.prosody.im/">xmppjs</a>
+
+<ul>
+<li>
+ <a href="https://github.com/mwild1/xmppjs">@github</a>
+
+</ul>
+<li>
+ <a href="https://github.com/astro/node-xmpp">node-xmpp.js</a>
+
+<li>
+ <a href="http://ldapjs.org/">ldapjs</a>
+
+<ul>
+<li>
+ <a href="https://github.com/mcavage/node-ldapjs">@github</a> - LDAP
+
+</ul>
+<li>
+ <a href="http://blog.nodejs.org/2011/09/08/ldapjs-a-reprise-of-ldap/">ldapjs: A reprise of LDAP</a>
+
+<li>
+ <a href="https://github.com/kof/node-jqtpl">jqtpl</a> - jquery template.
+
+<li>
+ <a href="http://www.nodemailer.org/">NodeMailer</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.4" class="justcenter">第三方模块/组件:</h2>
+<ul>
+<li>
+ <a href="http://github.com/ry/node/wiki/modules">http://github.com/ry/node/wiki/modules</a>
+    其中较为重要的项目:
+
+</ul>
+<p>
+包管理器npm:   <a href="http://github.com/isaacs/npm">http://github.com/isaacs/npm</a>
+多版本共存nave:   <a href="http://github.com/isaacs/nave">http://github.com/isaacs/nave</a>
+多版本共存nvm:   <a href="http://github.com/creationix/nvm">http://github.com/creationix/nvm</a>
+中间件Connect:   <a href="http://github.com/senchalabs/connect">http://github.com/senchalabs/connect</a>
+</p>
+<h2 id="toc_0.5">PDF</h2>
+<ul>
+<li>
+ <a href="http://pdfkit.org/">pdfkit</a>
+
+<ul>
+<li>
+ <a href="https://github.com/devongovett/pdfkit">@github</a>
+
+</ul>
+<li>
+ <a href="https://github.com/Marak/pdf.js">pdf.js</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.6" class="justcenter">社区</h2>
+<ul>
+<li>
+ <a href="http://www.douban.com/group/node.js/">node.js 豆瓣小组</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.7" class="justcenter">Servers</h2>
+<ul>
+<li>
+ <a href="http://www.heroku.com">heroku.com</a>
+
+<li>
+ <a href="https://www.dotcloud.com/">dotcloud.com</a>
+
+<li>
+ <a href="http://www.jsapp.us">jsapp.us</a>
+
+<ul>
+<li>
+ <a href="http://blog.frost.tw/code/poston-2011-03-07/postid-1141">JSApp.US – 免費的 Node.JS 伺服器</a>
+
+</ul>
+<li>
+ <a href="http://www.cloudfoundry.com/">Cloud Foundry</a>
+<pre>
+npm install express
+npm install jqtpl
+</pre>
+
+</ul>
+<hr />
+<h2 id="toc_0.8">See Also</h2>
+<ul>
+<li>
+ <a href="JavaScript.html.html">JavaScript</a>
+
+<li>
+ <a href="mongoDB.html.html">mongoDB</a>
+
+</ul>
+
+
+<!--// commentwrap Start-->
+<!-- 加载duoshuo.com 评论插件 -->
+<div id="commentwrap">
+<h2>Leave a comment?</h2>
+<hr>
+    <div id="disqus_thread" style=""></div>
+
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jackchim'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+
+
+        
+</div>
+<!--// commentwrap End-->
+
+</div>
+<!--// content  End-->
+<!--// footer Start-->
+<div class="clear">&nbsp;</div>
+<div id="footnote" align="center">
+	  Cheers!! Vimwiki  © Copyright 2012 Jack Chim. All Rights Reserved.
+</div>
+<!--// footer End-->
+<!-- http://blog.sonitech.org/2011/07/06/sshscp-through-gateway/ -->
+</div>
+
+</div>
+<a href="javascript:;" id="returnTop" style="bottom: 200px;">回到顶部</a>
+<script type="text/javascript">
+$(document).ready(function(){
+    initTxt();
+    //$('#returnTop').hide();
+    $(window).scroll(function(){
+        if($(document).scrollTop()>=100){
+            if($.browser.msie&&($.browser.version == "6.0")){
+                $('#returnTop').css("_top","expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight/2)-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))-0);");
+            }
+            $('#returnTop').animate({bottom:"200px"},{ queue: false, duration: 10 });
+        }else{
+            $('#returnTop').css("_top","1000");
+            $('#returnTop').animate({bottom:"-200px"},{ queue: false, duration: 10 });
+        }
+    });
+    $('#returnTop').click(function(){
+        $('html, body').animate({scrollTop:0}, 'slow');
+        return false;
+    });
+ 
+     
+});
+ 
+function initTxt(){
+    for(var i=0;i<=300;i++){
+        $("#bigBox").append("<p>这是第"+i+"行</p>");
+    }
+}
+</script>
+</body>
+</html>
