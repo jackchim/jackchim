@@ -240,11 +240,11 @@ li.vategories ul {
 	border-bottom: 1px solid #e0e0e0;
 	margin-bottom: 20px;
 }
-#content a {
+#content a[href^="http://"]{
     background: url("../images/arrow.gif") no-repeat scroll right 4px transparent;
     padding: 0 13px 0 0;
 }
-#content a:hover {
+#content a[href^="http://"]:hover {
     color: #C50001;
     text-decoration: underline;
 }
