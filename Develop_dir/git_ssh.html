@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim OS 开发笔记_高级_工程师_Blog_Wiki</title>
+<title>Jack_Chim git_ssh 开发笔记_高级_工程师_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
@@ -129,86 +129,56 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">OS</a> Page</h1>
+<h1 ><a  href="">git_ssh</a> Page</h1>
 
-<ul>
-<li>
- <a href="OS.html">操作系统(Operating System)</a>
-
-<li>
- <a href="Linux.html">Linux</a>
-
-<ul>
-<li>
- <a href="Ubuntu.html">Ubuntu</a>) | <a href="centos.html">centos</a>  | <a href="debian.html">Debian</a> | <a href="Macintosh.html">Macintosh</a> |   <a href="Windows.html">Windows</a>
-
-</ul>
-<li>
- <a href="Android.html">Android</a>
-
-<li>
- <a href="Virtual-Machine.html">虚拟机(Virtual Machine)</a>
-
-<li>
- <a href="RAID.html">磁盘阵列</a>
-
-<li>
-<a href="Cygwin.html">Cygwin</a>
-
-</ul>
 
 <hr />
-<h2 id="toc_0.1">系统清理工具</h2>
+<p>
+配置 ip 为github.com , root 为 git 
+</p>
 
-<ul>
-<li>
- <a href="http://www.piriform.com/ccleaner">CCleaner</a>
+<pre class="brush:shell">
+#!/bin/bash
+#set main vps name
 
-</ul>
+vpsname="vps1"
+echo "Please input name:"
+read -p "(Default name: vps1):" vpsname
+if [ "$vpsname" = "" ]; then
+vpsname="vps1"
+fi
+echo "==========================="
+echo vpsname="$vpsname"
+echo "==========================="
 
-<hr />
-<h2 id="toc_0.2">磁盘检测工具</h2>
+#set main vps ip
 
-<ul>
-<li>
- <a href="http://www.hdtune.com/">HD tune</a>
+vpsip="198.71.90.13"
+echo "Please input ip:"
+read -p "(Default name: 198.71.90.13):" vpsip
+if [ "$vpsip" = "" ]; then
+vpsip="198.71.90.13"
+fi
+echo "==========================="
+echo vpsip="$vpsip"
+echo "==========================="
+ssh-keygen -t rsa -f ~/.ssh/id_rsa.$vpsname -C "Key for Work $vpsname"
+cd ~/.ssh
+mv id_rsa.$vpsname.pub authorized_keys
+chmod 600 authorized_keys
 
-</ul>
+#同时管理多个ssh私钥
+touch ~/.ssh/config
+chmod 600 ~/.ssh/config
+cat &gt; ~/.ssh/config &lt;&lt;eof
+Host $vpsip
+    IdentityFile ~/.ssh/id_rsa.$vpsname
+    User root
+eof
 
-<hr />
-<h2 id="toc_0.3">内存检测工具</h2>
-
-<ul>
-<li>
- <a href="http://www.memtest.org/">Memtest86+</a>
-
-<li>
- <a href="http://cpu.rightmark.org">CPU Rightmark</a>
-
-<ul>
-<li>
- <a href="http://cpu.rightmark.org/products/rmma.shtml">RMMA</a>
-
-</ul>
-<li>
- <a href="http://oca.microsoft.com/en/mtinst.exe">mtinst.exe</a>
-
-<li>
- <a href="http://blog.yiyidu.com/2009_1438.html">3个最好最权威的内存检测工具下载</a>
-
-</ul>
-
-<hr />
-<h2 id="toc_0.4">杀毒软件 &amp;amp; 防火墙</h2>
-
-<ul>
-<li>
- <a href="http://www.avast.com/zh-cn/index">Avira AntiVir</a> |   <a href="http://www.avg.com/ww-en/homepage">AVG</a>
-
-<li>
- <a href="http://www.filseclab.com/products/firewall.htm">费尔个人防火墙</a>
-
-</ul>
+echo "把私钥~/.ssh/id_rsa.$vpsname保存到自己的电脑同样的位置"
+echo "~/.ssh/config 对应的 配置粘贴到本地电脑~/.ssh/config里"
+</pre>
 
 
 <!--// commentwrap Start-->

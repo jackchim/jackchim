@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim OS 开发笔记_高级_工程师_Blog_Wiki</title>
+<title>Jack_Chim nginx_502_bad_getaway 开发笔记_高级_工程师_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
@@ -129,86 +129,58 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">OS</a> Page</h1>
+<h1 ><a  href="">nginx_502_bad_getaway</a> Page</h1>
 
-<ul>
-<li>
- <a href="OS.html">操作系统(Operating System)</a>
 
+<ol>
 <li>
- <a href="Linux.html">Linux</a>
-
-<ul>
-<li>
- <a href="Ubuntu.html">Ubuntu</a>) | <a href="centos.html">centos</a>  | <a href="debian.html">Debian</a> | <a href="Macintosh.html">Macintosh</a> |   <a href="Windows.html">Windows</a>
-
-</ul>
-<li>
- <a href="Android.html">Android</a>
+查看当前的PHP FastCGI进程数是否够用：
+<pre class="brush:shell">
+netstat -anpo | grep "php-cgi" | wc -l
+</pre>
 
 <li>
- <a href="Virtual-Machine.html">虚拟机(Virtual Machine)</a>
+增加FastCGI进程数
 
-<li>
- <a href="RAID.html">磁盘阵列</a>
+</ol>
 
-<li>
-<a href="Cygwin.html">Cygwin</a>
+<p>
+FastCGI进程数
+</p>
+<pre>
+; If this number of child processes exit with SIGSEGV or SIGBUS within the time
+; interval set by emergency_restart_interval then FPM will restart. A value
+; of '0' means 'Off'.
+; Default Value: 0
+emergency_restart_threshold = 5
+ 
+; Interval of time used by emergency_restart_interval to determine when
+; a graceful restart will be initiated.  This can be useful to work around
+; accidental corruptions in an accelerator's shared memory.
+; Available Units: s(econds), m(inutes), h(ours), or d(ays)
+; Default Unit: seconds
+</pre>
 
-</ul>
+<p>
+nginx 502 自动重启脚本
+</p>
 
-<hr />
-<h2 id="toc_0.1">系统清理工具</h2>
+<pre class="brush:shell">
+#!/bin/bash
 
-<ul>
-<li>
- <a href="http://www.piriform.com/ccleaner">CCleaner</a>
+MY_URL="http://www.site.com"
+RESULT=`curl -I $MY_URL|grep "HTTP/1.1 502"`
 
-</ul>
+if [ -n "$RESULT" ]; then
+	#如果502则会执行这里的内容，随便加或改
+	#reboot
+	#...
+	echo "restart php-fpm nginx" | mail mail@xx.com -s "vps 502 "
+	/usr/local/php/sbin/php-fpm restart
+        service nginx restart
 
-<hr />
-<h2 id="toc_0.2">磁盘检测工具</h2>
-
-<ul>
-<li>
- <a href="http://www.hdtune.com/">HD tune</a>
-
-</ul>
-
-<hr />
-<h2 id="toc_0.3">内存检测工具</h2>
-
-<ul>
-<li>
- <a href="http://www.memtest.org/">Memtest86+</a>
-
-<li>
- <a href="http://cpu.rightmark.org">CPU Rightmark</a>
-
-<ul>
-<li>
- <a href="http://cpu.rightmark.org/products/rmma.shtml">RMMA</a>
-
-</ul>
-<li>
- <a href="http://oca.microsoft.com/en/mtinst.exe">mtinst.exe</a>
-
-<li>
- <a href="http://blog.yiyidu.com/2009_1438.html">3个最好最权威的内存检测工具下载</a>
-
-</ul>
-
-<hr />
-<h2 id="toc_0.4">杀毒软件 &amp;amp; 防火墙</h2>
-
-<ul>
-<li>
- <a href="http://www.avast.com/zh-cn/index">Avira AntiVir</a> |   <a href="http://www.avg.com/ww-en/homepage">AVG</a>
-
-<li>
- <a href="http://www.filseclab.com/products/firewall.htm">费尔个人防火墙</a>
-
-</ul>
+fi
+</pre>
 
 
 <!--// commentwrap Start-->
