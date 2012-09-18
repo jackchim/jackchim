@@ -136,19 +136,94 @@
 </p>
 
 <p>
-Git 配置文件
+Git 全局配置文件
 </p>
 <pre class="brush:shell">
 git config --global user.name "Your Name"
 git config --global user.email you@example.com
+git config --global core.editor vim
+git config --global merge.tool vimdiff
 </pre>
 
+<p>
+列出配置列表
+git config –list
+</p>
 
+<p>
+配置文件
+.git/config
 <hr />
+</p>
 <h2 id="toc_0.1">git add</h2>
 <p>
 Add file contents to the indexqa
 </p>
+<ul>
+<li>
+use:
+
+<ul>
+<li>
+<code>git add &lt;file_or_dir&gt;</code>
+
+</ul>
+</ul>
+
+<ul>
+<li>
+批量批评添加
+
+<ul>
+<li>
+<code>git add Documentation/\*.txt</code>
+
+<li>
+<code>git add git-*.sh</code>
+
+</ul>
+</ul>
+
+<ul>
+<li>
+Options
+
+<ul>
+<li>
+<code>-n</code>, --dry-run Don't actually add the file(s), just show if they exist.
+
+<li>
+<code>-v</code>, --verbose Be verbose.
+
+<li>
+<code>-f</code>, --force Allow adding otherwise ignored files.
+
+<li>
+<code>-i</code>, --interactive Add modified contents in the working tree interactively to the index. Optional path arguments may be supplied to limit operation to a subset of the working tree. See "Interactive mode" for details.
+
+<li>
+<code>-p</code>, --patch Interactively choose hunks of patch between the index and the work tree and add them to the index. This gives the user a chance to review the difference before adding modified contents to the index.  This effectively runs add --interactive, but bypasses the initial command menu and directly jumps to the patch subcommand. See "Interactive mode" for details.
+
+<li>
+<code>-e</code>, --edit Open the diff vs. the index in an editor and let the user edit it. After the editor was closed, adjust the hunk headers and apply the patch to the index.
+
+<li>
+<code>-u</code>, --update Only match &lt;filepattern&gt; against already tracked files in the index rather than the working tree. That means that it will never stage new files, but that it will stage modified new contents of tracked files and that it will remove files from the index if the corresponding files in the working tree have been removed. If no &lt;filepattern&gt; is given, default to "."; in other words, update all tracked files in the current directory and its subdirectories.
+
+<li>
+<code>-A</code>, --all  Like -u, but match &lt;filepattern&gt; against files in the working tree in addition to the index. That means that it will find new files as well as staging modified content and removing files that are no longer in the working tree.
+
+<li>
+<code>-N</code>, --intent-to-add Record only the fact that the path will be added later. An entry for the path is placed in the index with no content. This is useful for, among other things, showing the unstaged content of such files with git diff and committing them with git commit -a.
+
+<li>
+ <code>--refresh</code> Don't add the file(s), but only refresh their stat() information in the index.
+
+<li>
+<code>--ignore-errors</code> If some files could not be added because of errors indexing them, do not abort the operation, but continue adding the others. The command shall still exit with non-zero status.
+
+</ul>
+</ul>
 
 <hr />
 <h2 id="toc_0.2">git bisect</h2>
@@ -273,6 +348,26 @@ Reset current HEAD to the specified state
 Remove files from the working tree and from the index
 </p>
 
+<ul>
+<li>
+从当前的工作目录中和索引中删除文件
+
+</ul>
+<p>
+递归删除参数 <code>-r</code>
+</p>
+
+<p>
+<code>git rm –r *</code> （进入某个目录中，执行此语句，会删除该目录下的所有文件和子目录） 
+</p>
+
+<p>
+<code>git rm f1</code>    (删除文件f1，包含本地目录和index中的此文件记录) 
+</p>
+
+<p>
+<code>git rm --cached f1</code> (删除文件f1，不会删除本地目录文件，只删除index中的文件记录；将已经git add的文件remove到cache中,这样commit的时候不会提交这个文件, 适用于一下子添加了很多文件, 却又想排除其中个别几个文件的情况.) 
+</p>
 
 <hr />
 <h2 id="toc_0.19">git show</h2>
