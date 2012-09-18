@@ -154,6 +154,7 @@
 <a href="http://www.open.collab.net/scdocs/ddUsingSVN_command-line.html.zh-cn ">SVN 命令行 </a>
 
 </ul>
+ 
 
 <h2 id="toc_0.1">Docs</h2>
 
@@ -211,59 +212,227 @@ for Mac
 <h2 id="toc_0.5">Notes</h2>
 
 <p>
-svn co
-</p>
-<blockquote>
-svn checkout
-</blockquote>
-
-<p>
-svn log file.name --limit 1 svn diff -r olderVersion:newerVersion file.name svn -r 1033:1191 diff file.name
+从SVN仓库中检索出代码到工作拷贝：
 </p>
 
 <p>
-A
+<code>svn checkout https://svn.sinaapp.com/appname [workcopy]</code>
 </p>
-<blockquote>
-add, 新增
-</blockquote>
-<p>
-C
-</p>
-<blockquote>
-conflict, 冲突
-</blockquote>
-<p>
-D
-</p>
-<blockquote>
-delete，删除
-</blockquote>
-<p>
-M
-</p>
-<blockquote>
-modify，本地已经修改
-</blockquote>
-<p>
-G
-</p>
-<blockquote>
-modify and merGed, 本地文件修改并且和服务器的进行合并
-</blockquote>
-<p>
-U
-</p>
-<blockquote>
-update，从服务器更新
-</blockquote>
-<p>
-R
-</p>
-<blockquote>
-replace，从服务器替换
-</blockquote>
 
+<p>
+其中workcopy是可选的，如果不写workcopy，SVN会默认将appname做为workcopy。
+</p>
+
+<p>
+如果只检索某个版本：
+</p>
+
+<p>
+<code>svn checkout https://svn.sinaapp.com/appname/appversion [workcopy]</code>
+</p>
+
+<p>
+只检索某个版本的某个目录：
+</p>
+
+<p>
+<code>svn checkout https://svn.sinaapp.com/appname/appversion/folder [workcopy]</code>
+</p>
+
+<p>
+2. 向SVN仓库提交代码：
+</p>
+
+<p>
+<code>svn commit -m "here is message"</code>
+</p>
+
+<p>
+3. 将本地文件添加到工作拷贝：
+</p>
+
+<p>
+<code>svn add something</code>
+注：如果something为文件，svn会将这个文件添加到工作拷贝；如果something是目录，svn会将目录及里面的文件全添加到工作拷贝。something也可以是通配符*，这样会忽略已经添加过的文件。
+</p>
+
+<p>
+4. 从工作拷贝中删除一个文件：
+</p>
+
+<p>
+<code>svn delete something</code>
+</p>
+
+<p>
+注：如果something为文件，svn会将这个文件从工作拷贝中删除；如果something是目录，svn会将目录及里面的文件全部从工作拷贝中删除。
+</p>
+
+<p>
+5. 直接从SVN仓库中删除文件：
+</p>
+
+<p>
+<code>svn delete -m "delete something" https://svn.sinaapp.com/appname/appversion/something</code>
+注：可以从SVN仓库中直接删除单个文件或单个目录甚至某个版本。
+</p>
+
+<p>
+6. 将一个本地项目导入到SVN仓库：
+</p>
+
+<p>
+导入应用的某个版本：
+</p>
+
+<p>
+<code>svn import localdir https://svn.sinaapp.com/appname/appversion</code>
+</p>
+
+<p>
+注：要确保目前应用的appversion不冲突。
+</p>
+
+<p>
+7. 查看工作拷贝中的文件或目录状态：
+</p>
+
+<p>
+<code>svn status [something]</code>
+</p>
+
+<p>
+8. 更新自己的工作拷贝：
+</p>
+
+<p>
+<code>svn update</code>
+注：从SVN仓库下载最新版本，此命令会导致本地没有提交的更改丢失，建议使用此命令前先查看一下本地拷贝状态（svn status）。
+</p>
+
+<p>
+9. 取消对代码修改
+取消对代码的修改分为两种情况。
+</p>
+
+<p>
+第一种情况：改动没有被提交（commit）。
+这种情况下，使用svn revert就能取消之前的修改。
+</p>
+
+<p>
+svn revert用法如下：
+</p>
+
+<p>
+<code>svn revert [-R] something</code>
+</p>
+
+<p>
+其中something可以是（目录或文件的）相对路径也可以是绝对路径。
+当something为单个文件时，直接svn revert something就行了；当something为目录时，需要加上参数-R(Recursive,递归)，否则只会将something这个目录的改动。
+</p>
+
+<p>
+在这种情况下也可以使用svn update命令来取消对之前的修改，但不建议使用。因为svn update会去连接仓库服务器，耗费时间。
+注意：svn revert本身有固有的危险，因为它的目的是放弃未提交的修改。一旦你选择了恢复，Subversion没有方法找回未提交的修改。
+</p>
+
+<p>
+第二种情况：改动已经被提交（commit）。这种情况下，用svn merge命令来进行回滚。 
+回滚的操作过程如下： 
+1). 保证我们拿到的是最新代码： 
+</p>
+
+<p>
+<code>svn update </code>
+</p>
+
+<p>
+假设最新版本号是28。 
+</p>
+
+<p>
+2). 然后找出要回滚的确切版本号： 
+</p>
+
+<p>
+<code>svn log [something]</code>
+</p>
+
+<p>
+假设根据svn log日志查出要回滚的版本号是25，此处的something可以是文件、目录或整个项目
+</p>
+
+<p>
+如果想要更详细的了解情况，可以使用svn diff -r 28:25 [something]
+</p>
+
+<p>
+3). 回滚到版本号25：
+</p>
+
+<p>
+<code>svn merge -r 28:25 something</code>
+</p>
+
+<p>
+为了保险起见，再次确认回滚的结果：
+</p>
+
+<p>
+<code>svn diff [something]</code>
+发现正确无误，提交。
+</p>
+
+<p>
+4). 提交回滚：
+</p>
+
+<p>
+<code>svn commit -m "Revert revision from r28 to r25,because of ..." </code>
+提交后版本变成了29。
+</p>
+
+<p>
+将以上操作总结为三条如下：
+</p>
+
+<ul>
+<li>
+a. <code>svn update</code>，<code>svn log</code>，找到最新版本（latest revision）
+
+<li>
+b. 找到自己想要回滚的版本号（rollbak revision）
+
+<li>
+c. 用<code>svn merge</code>来回滚： <code>svn merge -r : something</code>
+
+</ul>
+
+<p>
+10. 查看SVN仓库日志信息：
+</p>
+
+<p>
+<code>svn log [workcopy]</code>
+</p>
+
+<p>
+查看所有本地的历史日志，如果workcopy为某文件，那么就是查看某个文件的日志信息。
+</p>
+
+<p>
+查看SVN仓库所有文件的日志信息：
+</p>
+
+<p>
+<code>svn log https://svn.sinaapp.com/appname/</code>
+</p>
+
+<p>
+这个命令会查看所有修改过的日志。
+</p>
 <h2 id="toc_0.6">ignore</h2>
 
 <p>
