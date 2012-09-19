@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim java 开发笔记_高级_工程师_Blog_Wiki</title>
+<title>Jack_Chim nginx_tips 开发笔记_高级_工程师_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
@@ -129,44 +129,110 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">java</a> Page</h1>
+<h1 ><a  href="">nginx_tips</a> Page</h1>
 
-<ul>
-<li>
-<a href="http://blog.csdn.net/huanghm88/archive/2009/03/07/3965218.aspx ">java环境变量配置</a> - 非常详细。
+<h2 id="toc_0.1">Nginx Rewrite</h2>
 
-<li>
-<a href="http://www.ibm.com/developerworks/cn/java/j-jtp04247.html ">Java</a> 理论与实践: 闭包之争 
+<p>
+Nginx Rewrite 基本标记(flags)
+</p>
+<pre>
+last - 基本上都用这个flags
+break - 中止Rewirte，不再继续匹配
+redirect - 返回临时重定向的HTTP状态302
+permanent - 返回永久重定向的HTTP状态301
+</pre>
 
-</ul>
+<p>
+正则表达式匹配
+</p>
+<pre>
+~ 为区分大小写匹配
+~* 为不区分大小写匹配
+!~和!~* 分别为区分大小写不匹配及不区分大小写不匹配
+</pre>
+
+<p>
+文件及目录匹配
+</p>
+<pre>
+-f和!-f用来判断是否存在文件
+-d和!-d用来判断是否存在目录
+-e和!-e用来判断是否存在文件或目录
+-x和!-x用来判断文件是否可执行
+</pre>
 
 <hr />
-<h2 id="toc_0.1">基础Servlet jdbc</h2>
+<h2 id="toc_0.2">全局变量</h2>
 
+<pre>
+$args 
+$content_length
+$content_type
+$document_root
+$document_uri
+$host 
+$http_user_agent
+$http_cookie
+$limit_rate
+$request_body_file
+$request_method
+$remote_addr
+$remote_port
+$remote_user
+$request_filename 
+$request_uri 
+$query_string 
+$scheme 
+$server_protocol 
+$server_addr 
+$server_name 
+$server_port 
+$uri
+</pre>
+
+<hr />
+<h2 id="toc_0.3">Nginx 目录自动加斜线</h2>
+
+<pre>
+if (-d $request_filename){ 
+rewrite ^/(.*)([^/])$ http://$host/$1$2/ permanent; 
+}
+</pre>
 
 
 <hr />
-<h2 id="toc_0.2">Web框架 (Frameworks)</h2>
+<h2 id="toc_0.4">Nginx Location</h2>
 
-<ul>
-<li>
-<a href="java/Spring_Framework .html">Spring Framework </a>
+<p>
+示例
+</p>
 
-<li>
-<a href="java/playframework .html">Play framework </a>
+<pre>
+location ^~ /images/ {
+}
+</pre>
 
-<li>
-<a href="java/ServcieFramework.html">ServcieFramework</a> Java MVC 框架 ,国内的开源框架. <a href="https://github.com/allwefantasy/ServiceFramework ">@Github</a>
+<pre>
+location ~* \.(gif|jpg|jpeg)$ {
+}
+</pre>
 
-</ul>
 <hr />
-<h2 id="toc_0.3">Tools</h2>
+<h2 id="toc_0.5">Nginx 访问控制</h2>
 
-<ul>
-<li>
-<a href="http://junit.org/ ">JUnit</a> <sup><small>sf </small></sup>
+<p>
+Nginx 禁止访问某类型的文件.
+</p>
 
-</ul>
+<pre>
+location ~* \.(txt|doc)$ {
+if (-f $request_filename) {
+root /data/www/wwwroot/linuxtone/test;
+deny all;
+}
+}
+</pre>
 
 
 <!--// commentwrap Start-->
