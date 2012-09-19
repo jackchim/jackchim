@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim android 开发笔记_高级_工程师_Blog_Wiki</title>
+<title>Jack_Chim Google_3D_JavaScript 开发笔记_高级_工程师_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
@@ -129,54 +129,102 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">android</a> Page</h1>
+<h1 ><a  href="">Google_3D_JavaScript</a> Page</h1>
 
-<ul>
-<li>
-<a href="http://source.android.com/source/index.html ">Android source</a>
 
-<li>
-<a href="audition_question.html">Android开发面试题</a>
-
-</ul>
+<p>
+主站点： <a href="http://code.google.com/apis/o3d/">http://code.google.com/apis/o3d/</a>
+</p>
 
 <hr />
-<h2 id="toc_0.1">游戏引擎</h2>
-<ul>
-<li>
-<a href="http://code.google.com/p/angle/ ">Angle</a>
 
-<li>
-<a href="http://code.google.com/p/rokon/ ">Rokon</a>
+<p>
+1.简单地使用O3D的API的如何创建一个立方体
+</p>
+<pre class="brush:js">
+function createCube(material) {
+  var cubeShape = g_pack.createObject('Shape');
+  var cubePrimitive = g_pack.createObject('Primitive');
+  var streamBank = g_pack.createObject('StreamBank');
+ 
+  cubePrimitive.material = material;
+  cubePrimitive.owner(cubeShape);
+  cubePrimitive.streamBank = streamBank;
+  .
+  .
+</pre>
 
-<li>
-<a href="http://code.google.com/p/loon-simple/ ">LGame</a>
 
-<li>
-<a href="http://code.google.com/p/andengine/ ">AndEngine</a>
+<p>
+2.指定一些顶点信息
+</p>
+<pre class="brush:js">
+cubePrimitive.primitiveType = g_o3d.Primitive.TRIANGLELIST;
+cubePrimitive.numberPrimitives = 12; // 12 triangles
+cubePrimitive.numberVertices = 8;    // 8 vertices in total
+cubePrimitive.createDrawElement(g_pack, null);   // Create the draw element for this primitive.
+</pre>
 
-<li>
-<a href="http://code.google.com/p/libgdx/  ">libgdx</a>
 
-<li>
-<a href="http://www.jpct.net/jpct-ae/  ">jPCT</a>
+<p>
+3.指定一下8个顶点的坐标
+</p>
 
-<li>
-<a href="http://code.google.com/p/alien3d/  ">Alien3d </a>
+<pre class="brush:js">
+var positionArray = [
+    -0.5, -0.5,  0.5,  // vertex 0
+     0.5, -0.5,  0.5,  // vertex 1
+    -0.5,  0.5,  0.5,  // vertex 2
+     0.5,  0.5,  0.5,  // vertex 3
+    -0.5,  0.5, -0.5,  // vertex 4
+     0.5,  0.5, -0.5,  // vertex 5
+    -0.5, -0.5, -0.5,  // vertex 6
+     0.5, -0.5, -0.5   // vertex 7
+  ];
+</pre>
 
-</ul>
+<p>
+4.把顶点坐标数组加入Buffer中
+</p>
+<pre class="brush:js">
+// Create buffers containing the vertex data.
+var positionsBuffer = g_pack.createObject('VertexBuffer');
+var positionsField = positionsBuffer.createField('FloatField', 3);
+positionsBuffer.set(positionArray);
+</pre>
 
-<hr />
-<h2 id="toc_0.2">第三方集成</h2>
 
-<ul>
-<li>
-微博
+<p>
+5.把Buffer放到Stream Bank中
+</p>
+<pre class="brush:js">
+// Associate the positions Buffer with the StreamBank.
+streamBank.setVertexStream(
+  g_o3d.Stream.POSITION, // semantic: This stream stores vertex positions
+  0,                     // semantic index: First (and only) position stream
+  positionsField,        // field: the field this stream uses.
+  0);                    // start_index: How many elements to skip in the field.
+</pre>
 
-<li>
-Google 服务/API
-
-</ul>
+<p>
+6.连接点成为三角面，并把三角面两两一组组成立方面
+</p>
+<pre class="brush:js">
+var indicesArray = [
+      0, 1, 2,  // face 1
+      2, 1, 3,
+      2, 3, 4,  // face 2
+      4, 3, 5,
+      4, 5, 6,  // face 3
+      6, 5, 7,
+      6, 7, 0,  // face 4
+      0, 7, 1,
+      1, 7, 3,  // face 5
+      3, 7, 5,
+      6, 0, 4,  // face 6
+      4, 0, 2
+  ];
+</pre>
 
 
 <!--// commentwrap Start-->
