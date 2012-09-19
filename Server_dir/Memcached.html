@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim Programming 开发笔记_高级_工程师_Blog_Wiki</title>
+<title>Jack_Chim Memcached 开发笔记_高级_工程师_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
@@ -129,167 +129,138 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">Programming</a> Page</h1>
+<h1 ><a  href="">Memcached</a> Page</h1>
 
-<ol>
-<li>
-   <a href="Web_Design.html">Web-Design</a> | <a href="Links.html">blog收集</a> | <a href="MIME_Type.html">MIME Type</a>
+<p>
+memcached是高性能的分布式内存缓存服务器。一般的使用目的
+是，通过缓存数据库查询结果，减少数据库访问次数，以提高动态Web应用的速度、提高可扩展
+性。
+</p>
 
-<li>
-  <a href="JavaScript.html">JavaScript</a> | <a href="jQuery.html">jQuery</a> | <a href="YUI.html">YUI</a> | <a href="Prototype.html">Prototype</a> | <a href="MooTools.html">MooTools</a> | <a href="ExtJS].html">ExtJS</a> | <a href="http://www.dojotoolkit.org/ ">Dojo</a> | <a href="http://www.asp.net/ajax/ ">MS Ajax</a> | <a href="http://directwebremoting.org/ ">DWR</a> | <a href="http://ajaxrpc.com/ ">AJAXRPC(中文)</a>
-
-<li>
-  <a href="Kissy.html">Kissy - Taobao </a> | <a href="http://arale.alipay.net/ ">Arale - Alipay</a> | <a href="http://tangram.baidu.com/ ">Tangram - Baidu </a>
-
-<li>
-  <a href="node_js.html">node.js</a> | <a href="CommonJS.html">CommonJS</a>
-
-<li>
-  <a href="css.html">CSS</a> | <a href="css3.html">CSS3</a> <a href="CSS_Framework.html">CSS-Framework</a>
-
-<li>
-  <a href="HTML5.html">HTML5</a> |  <a href="Microformats.html">Microformats</a> |  <a href="json.html">JSON</a> | <a href="YAML.html">YAML</a>
-
-<li>
-  <a href="LaTeX.html">LaTeX</a> | <a href="Markdown.html">Markdown</a> | <a href="Textile.html">Textile</a>  <a href="http://haml-lang.com/ ">HAML</a> <a href="http://antbsd.twbbs.org/~ant/wordpress/?p=2720 ">淺談輕量級標記語言</a>
-
-<li>
-   <a href="FreeMarker.html">FreeMarker</a> | <a href="template-lang.html">模板语言</a>
-
-<li>
-  <a href="RSS.html">RSS</a> | <a href="http://wiki.hotoo.me/Atom.html ">Atom</a>
-
-<li>
-  <a href="C_Cpp.html">C/Cpp</a> | <a href="Java.html">Java</a> | <a href="Scala.html">Scala</a> | <a href="php.html">PHP</a> | <a href="python.html">Python</a> | <a href="Perl.html">Perl</a> | <a href="http://www.ruby-lang.org/ ">Ruby</a> <a href="Groovy.html">Groovy</a> | <a href="http://erlang-china.org/ ">Dart Erlang 中文社区</a>
-
-<li>
-  <a href="ActionScript.html">ActionScript/Flash</a> | <a href="Flex.html">Flex</a>  | <a href="Processing.html">Processing</a>
-
-<li>
-  <a href="RegExp.html">正则表达式(RegExp)</a> | <a href="shell.html">Shell</a> | <a href="autoHotKey.html">AutoHotKey</a>
-
-<li>
- <a href="Programming-Lnaguage.html">编程语言</a> |   <a href="Functional-programming.html">函数式编程</a>
-
-<li>
- <a href="Debugger.html">Debugger</a> - 测试(test)
-
-</ol>
 
 <hr />
-<h2 id="toc_0.1">code Prettify/Syntax Highligjht</h2>
+<h2 id="toc_0.1">基本内容</h2>
 
-<ol>
-<li>
- <a href="http://codemirror.net/">CodeMirror</a>
+<p>
+的memcached启动选项的内容
+</p>
 
-<li>
- <a href="http://codepress.sourceforge.net/">CodePress</a>
 
-<li>
- <a href="http://shjs.sourceforge.net/">SHJS</a> |
+<table>
+<tr>
+<th>
+选项
+</th>
+<th>
+说明
+</th>
+</tr>
+<tr>
+<td>
+-p
+</td>
+<td>
+使用的TCP端口。默认为11211
+</td>
+</tr>
+<tr>
+<td>
+-m
+</td>
+<td>
+最大内存大小。默认为64M
+</td>
+</tr>
+<tr>
+<td>
+-vv
+</td>
+<td>
+用very vrebose模式启动，调试信息和错误输出到控制台
+</td>
+</tr>
+<tr>
+<td>
+-d
+</td>
+<td>
+作为daemon在后台启动
+</td>
+</tr>
+</table>
 
-<li>
-      -  <a href="http://alexgorbatchev.com/SyntaxHighlighter/">SyntaxHighlighter</a> |
-
-<li>
-      -  <a href="http://code.google.com/p/jssc/">jssc</a>(  <a href="http://army8735.org/">army8735.org</a>) |
-
-<li>
-      -  <a href="http://alexgorbatchev.com/SyntaxHighlighter">SyntaxHighlighter</a>
-
-<li>
- <a href="http://code.google.com/p/google-code-prettify/">Google Code Prettify</a>
-
-<li>
- <a href="https://github.com/hail2u/google-code-prettify-language-handlers">google-code-prettify-language-handlers</a>
-
-<li>
- <a href="http://hail2u.net/blog/coding/google-code-prettify-language-handler-for-vim-script.html">Vimスクリプト用Google Code Prettifyの言語ハンドラー</a>
-
-</ol>
-
-<ol>
-<li>
- <a href="http://hail2u.net/pub/test/332.html">Demo</a>
-
-<li>
- <a href="Email.html">Email</a> |   <a href="Images.html">Images</a>
-
-<li>
- <a href="Google.html">Google</a> |   <a href="http://msdn.microsoft.com/en-us/library">MSDN Library</a> |   <a href="Baidu.html">百度</a> |   <a href="Taobao.html">淘宝</a>
-
-<li>
- <a href="Compiler.html">编译器</a> |   <a href="Algorithm.html">算法</a> |   <a href="Cryptography.html">密码技术(加密解密)</a>
-
-<li>
- <a href="Agile-Development.html">敏捷开发</a>
-
-<li>
- <a href="http://www.canonical.org/%7Ekragen/tao-of-programming.html">The Tao Of Programming</a>,
-
-<li>
-  -  <a href="http://osiris.urbanna.net/tao.html">2</a>,
-
-<li>
-  -  <a href="http://livecn.huasing.org/tao_of_programming.htm">《编程之道》</a> 文言文版 by Livecn，
-
-<li>
-  -  <a href="http://202.118.74.32/doc/Science/Computer/TaoOfProg.pdf">2</a> 白话文版 by 小赵(翻译的一般，第一条就把 Debug 查错翻译成抢走水晶球)
-
-<li>
-  -  <a href="http://www.aka.org.cn/Docs/hacker-history.html">Hacker文化简史</a>
-
-<li>
- <a href="Spider.html">爬虫</a>
-
-<li>
- <a href="distributed-computing.html">分布式计算</a>
-
-<li>
- <a href="http://stackoverflow.com/">http://stackoverflow.com/</a>
-
-</ol>
 
 <hr />
-<h2 id="toc_0.2">语法/词法校验</h2>
+<h2 id="toc_0.2">客户端连接</h2>
 
-<ol>
-<li>
-  <a href="http://www.languagetool.org/">LanguageTool</a> - Style and Grammar Checker
+<p>
+memcached 客户端API：<a href="http://www.danga.com/memcached/apis.bml">http://www.danga.com/memcached/apis.bml</a>
+</p>
 
-<li>
- <a href="http://www.douban.com/group/topic/13667800/">终于有好用的语法检查工具了！</a>
+<p>
+<strong>保存数据</strong>
+</p>
 
-</ol>
+<p>
+方法
+</p>
+<pre>
+my $add = $memcached &gt; add( '键', '值', '期限' );
+my $replace = $memcached &gt; replace( '键', '值', '期限' );
+my $set = $memcached &gt; set( '键', '值', '期限' );
+</pre>
 
-<hr />
-<h2 id="toc_0.3">API</h2>
-<ol>
-<li>
-<a href="http://open.weibo.com">新浪微博api</a>
 
-<li>
-<a href="http://open.taobao.com/index.htm ">淘宝api</a>
+<table>
+<tr>
+<th>
+选项
+</th>
+<th>
+说明
+</th>
+</tr>
+<tr>
+<td>
+add
+</td>
+<td>
+仅当存储空间中不存在键相同的数据时才保存
+</td>
+</tr>
+<tr>
+<td>
+replace
+</td>
+<td>
+仅当存储空间中存在键相同的数据时才保存
+</td>
+</tr>
+<tr>
+<td>
+set
+</td>
+<td>
+与add和replace不同，无论何时都保存
+</td>
+</tr>
+</table>
 
-<li>
-<a href="https://developers.google.com/ ">google</a>
 
-<li>
-<a href="http://www.twitter.com">Twitter api</a>
+<p>
+<strong>获取数据</strong>
+</p>
+<pre>
+my $val = $memcached &gt; get('键');
+my $val = $memcached &gt; get_multi('键1', '键2', '键3', '键4', '键5');
+</pre>
 
-</ol>
-
-<hr />
-<h2 id="toc_0.4">移动开发</h2>
-<ol>
-<li>
-<a href="android/android.html">android</a>
-
-<li>
-<a href="ios.html">iOS/iphone</a>
-
-</ol>
+<p>
+<strong>删除数据</strong>
+</p>
+<pre>
+$memcached &gt; delete('键', '阻塞时间(秒)');
+</pre>
 
 
 <!--// commentwrap Start-->

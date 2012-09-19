@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim Programming 开发笔记_高级_工程师_Blog_Wiki</title>
+<title>Jack_Chim crontab 开发笔记_高级_工程师_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
@@ -129,167 +129,177 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">Programming</a> Page</h1>
+<h1 ><a  href="">crontab</a> Page</h1>
 
-<ol>
-<li>
-   <a href="Web_Design.html">Web-Design</a> | <a href="Links.html">blog收集</a> | <a href="MIME_Type.html">MIME Type</a>
-
-<li>
-  <a href="JavaScript.html">JavaScript</a> | <a href="jQuery.html">jQuery</a> | <a href="YUI.html">YUI</a> | <a href="Prototype.html">Prototype</a> | <a href="MooTools.html">MooTools</a> | <a href="ExtJS].html">ExtJS</a> | <a href="http://www.dojotoolkit.org/ ">Dojo</a> | <a href="http://www.asp.net/ajax/ ">MS Ajax</a> | <a href="http://directwebremoting.org/ ">DWR</a> | <a href="http://ajaxrpc.com/ ">AJAXRPC(中文)</a>
-
-<li>
-  <a href="Kissy.html">Kissy - Taobao </a> | <a href="http://arale.alipay.net/ ">Arale - Alipay</a> | <a href="http://tangram.baidu.com/ ">Tangram - Baidu </a>
-
-<li>
-  <a href="node_js.html">node.js</a> | <a href="CommonJS.html">CommonJS</a>
-
-<li>
-  <a href="css.html">CSS</a> | <a href="css3.html">CSS3</a> <a href="CSS_Framework.html">CSS-Framework</a>
-
-<li>
-  <a href="HTML5.html">HTML5</a> |  <a href="Microformats.html">Microformats</a> |  <a href="json.html">JSON</a> | <a href="YAML.html">YAML</a>
-
-<li>
-  <a href="LaTeX.html">LaTeX</a> | <a href="Markdown.html">Markdown</a> | <a href="Textile.html">Textile</a>  <a href="http://haml-lang.com/ ">HAML</a> <a href="http://antbsd.twbbs.org/~ant/wordpress/?p=2720 ">淺談輕量級標記語言</a>
-
-<li>
-   <a href="FreeMarker.html">FreeMarker</a> | <a href="template-lang.html">模板语言</a>
-
-<li>
-  <a href="RSS.html">RSS</a> | <a href="http://wiki.hotoo.me/Atom.html ">Atom</a>
-
-<li>
-  <a href="C_Cpp.html">C/Cpp</a> | <a href="Java.html">Java</a> | <a href="Scala.html">Scala</a> | <a href="php.html">PHP</a> | <a href="python.html">Python</a> | <a href="Perl.html">Perl</a> | <a href="http://www.ruby-lang.org/ ">Ruby</a> <a href="Groovy.html">Groovy</a> | <a href="http://erlang-china.org/ ">Dart Erlang 中文社区</a>
-
-<li>
-  <a href="ActionScript.html">ActionScript/Flash</a> | <a href="Flex.html">Flex</a>  | <a href="Processing.html">Processing</a>
-
-<li>
-  <a href="RegExp.html">正则表达式(RegExp)</a> | <a href="shell.html">Shell</a> | <a href="autoHotKey.html">AutoHotKey</a>
-
-<li>
- <a href="Programming-Lnaguage.html">编程语言</a> |   <a href="Functional-programming.html">函数式编程</a>
-
-<li>
- <a href="Debugger.html">Debugger</a> - 测试(test)
-
-</ol>
 
 <hr />
-<h2 id="toc_0.1">code Prettify/Syntax Highligjht</h2>
+<h2 id="toc_0.1">命令参数</h2>
 
-<ol>
+
+<table>
+<tr>
+<th>
+参数
+</th>
+<th>
+说明
+</th>
+</tr>
+<tr>
+<td>
+crontab -u
+</td>
+<td>
+设定某个用户的cron服务
+</td>
+</tr>
+<tr>
+<td>
+crontab -l
+</td>
+<td>
+列出某个用户cron服务的周详内容
+</td>
+</tr>
+<tr>
+<td>
+crontab -r
+</td>
+<td>
+删除没个用户的cron服务
+</td>
+</tr>
+<tr>
+<td>
+crontab -e
+</td>
+<td>
+编辑某个用户的cron服务
+</td>
+</tr>
+</table>
+
+
+<p>
+查看自己的cron设置：<code>crontab -u root -l</code>
+</p>
+
+<p>
+再例如，root想删除fred的cron设置：<code>crontab -u fred -r</code>
+</p>
+
+<p>
+在编辑cron服务时，编辑的内容有一些格式和约定，输入：<code>crontab -u root -e </code>
+</p>
+
+<p>
+Crontab文件的每一行由六个域(minutes、hours、day of month、month、day of week、 command)组 成，域之间用空格或Tab分开，其中：
+</p>
+<ul>
 <li>
- <a href="http://codemirror.net/">CodeMirror</a>
-
-<li>
- <a href="http://codepress.sourceforge.net/">CodePress</a>
-
-<li>
- <a href="http://shjs.sourceforge.net/">SHJS</a> |
-
-<li>
-      -  <a href="http://alexgorbatchev.com/SyntaxHighlighter/">SyntaxHighlighter</a> |
-
-<li>
-      -  <a href="http://code.google.com/p/jssc/">jssc</a>(  <a href="http://army8735.org/">army8735.org</a>) |
-
-<li>
-      -  <a href="http://alexgorbatchev.com/SyntaxHighlighter">SyntaxHighlighter</a>
-
-<li>
- <a href="http://code.google.com/p/google-code-prettify/">Google Code Prettify</a>
-
-<li>
- <a href="https://github.com/hail2u/google-code-prettify-language-handlers">google-code-prettify-language-handlers</a>
-
-<li>
- <a href="http://hail2u.net/blog/coding/google-code-prettify-language-handler-for-vim-script.html">Vimスクリプト用Google Code Prettifyの言語ハンドラー</a>
-
-</ol>
-
-<ol>
-<li>
- <a href="http://hail2u.net/pub/test/332.html">Demo</a>
-
-<li>
- <a href="Email.html">Email</a> |   <a href="Images.html">Images</a>
-
-<li>
- <a href="Google.html">Google</a> |   <a href="http://msdn.microsoft.com/en-us/library">MSDN Library</a> |   <a href="Baidu.html">百度</a> |   <a href="Taobao.html">淘宝</a>
-
-<li>
- <a href="Compiler.html">编译器</a> |   <a href="Algorithm.html">算法</a> |   <a href="Cryptography.html">密码技术(加密解密)</a>
-
-<li>
- <a href="Agile-Development.html">敏捷开发</a>
-
-<li>
- <a href="http://www.canonical.org/%7Ekragen/tao-of-programming.html">The Tao Of Programming</a>,
-
-<li>
-  -  <a href="http://osiris.urbanna.net/tao.html">2</a>,
-
-<li>
-  -  <a href="http://livecn.huasing.org/tao_of_programming.htm">《编程之道》</a> 文言文版 by Livecn，
-
-<li>
-  -  <a href="http://202.118.74.32/doc/Science/Computer/TaoOfProg.pdf">2</a> 白话文版 by 小赵(翻译的一般，第一条就把 Debug 查错翻译成抢走水晶球)
-
-<li>
-  -  <a href="http://www.aka.org.cn/Docs/hacker-history.html">Hacker文化简史</a>
-
-<li>
- <a href="Spider.html">爬虫</a>
-
-<li>
- <a href="distributed-computing.html">分布式计算</a>
+minutes： 分钟域，值的范围是0到59
 
 <li>
- <a href="http://stackoverflow.com/">http://stackoverflow.com/</a>
+hours： 小时域，值的范围是0到23
 
-</ol>
+<li>
+day of month： 日期，值的范围是1到31
+
+<li>
+month： 月份，值的范围是1到12
+
+<li>
+day of week： 星期，值的范围是0到6，星期日值为0
+
+</ul>
+<p>
+command： 所要运行的命令
+如果一个域是*，表明命令能在该域所有可能的取值范围内执行。
+</p>
+
+<p>
+如果一个域是由连字符隔开的两个数字，表明命令能在两个数字之间的范围内执行（包括两个数字 本身）。
+</p>
+
+<p>
+如果一个域是由逗号隔开的一系列值组成的，表明命令能在这些值组成的范围内执行。
+</p>
+
+<p>
+如果日期域和星期域都有值，则这两个域都有效。
+</p>
+
+<p>
+编写一个文件，用以启动自动备份进程。
+</p>
 
 <hr />
-<h2 id="toc_0.2">语法/词法校验</h2>
+<h2 id="toc_0.2">例</h2>
 
-<ol>
-<li>
-  <a href="http://www.languagetool.org/">LanguageTool</a> - Style and Grammar Checker
+<p>
+<strong>每天早上6点</strong>
+106* * * date
+</p>
 
-<li>
- <a href="http://www.douban.com/group/topic/13667800/">终于有好用的语法检查工具了！</a>
+<p>
+#每两个小时
+0*/2* * * date
+</p>
 
-</ol>
+<p>
+#晚上11点到早上8点之间每两个小时，早上部点
+0 23-7/2，8* * * date
+</p>
+
+<p>
+#每个月的4号和每个礼拜的礼拜一到礼拜三的早上11点
+0 11 4* mon-wed date
+</p>
+
+<p>
+#1月份日早上4点
+0 4 1 jan* date 
+</p>
+
+<p>
+每月每天每小时的第 0 分钟执行一次 /bin/ls :
+0 * * * * /bin/ls
+</p>
+
+<p>
+在 12 月内, 每天的早上 6 点到 12 点中，每隔 20 分钟执行一次 /usr/bin/backup :
+*/20 6-12 * 12 * /usr/bin/backup
+</p>
+
+<p>
+周一到周五每天下午 5:00 寄一封信给 alex@domain.name :
+0 17 * * 1-5 mail -s “hi” alex@domain.name &lt; /tmp/maildata
+</p>
+
+<p>
+每月每天的午夜 0 点 20 分, 2 点 20 分, 4 点 20 分….执行 echo “haha”
+20 0-23/2 * * * echo “haha”
+</p>
+
+<p>
+晚上11点到早上8点之间每两个小时，早上8点
+0 23-7/2，8 * * * date
+</p>
+
+<p>
+在hp unix,中，每20分钟执行一次，表示为：0,20,40 * * * * 而不能采用*/n方式，否则出现语法错误
+</p>
+
 
 <hr />
-<h2 id="toc_0.3">API</h2>
-<ol>
-<li>
-<a href="http://open.weibo.com">新浪微博api</a>
+<h2 id="toc_0.3">注意</h2>
+<p>
+不想输出结果到屏幕
+</p>
 
-<li>
-<a href="http://open.taobao.com/index.htm ">淘宝api</a>
-
-<li>
-<a href="https://developers.google.com/ ">google</a>
-
-<li>
-<a href="http://www.twitter.com">Twitter api</a>
-
-</ol>
-
-<hr />
-<h2 id="toc_0.4">移动开发</h2>
-<ol>
-<li>
-<a href="android/android.html">android</a>
-
-<li>
-<a href="ios.html">iOS/iphone</a>
-
-</ol>
+<p>
+每一行空一格之后加上 &gt; /dev/null 2&gt;&amp;1 即可
+</p>
 
 
 <!--// commentwrap Start-->

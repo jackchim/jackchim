@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Jack_Chim audition_question 开发笔记_高级_工程师_Blog_Wiki</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
+<!-- <link rel="shortcut icon" href="" /> -->
+<link rel='stylesheet' id='wp-pagenavi-css'  href='../../css/pagenavi-css.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../js/jquery.js'></script>
+
+
+<!-- for SyntaxHighlighter core -->
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shCore.js"></script>
+<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shCore.css"/>
+<!-- for SyntaxHighlighter theme -->
+<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shThemeMidnight.css"/>
+<!-- for SyntaxHighlighter syntax -->
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushPlain.js"></script>
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+
+<!-- for SyntaxHighlighter execute -->
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
+<meta name="generator" content="" />
+</head>
+
+<body>
+<div align="center">
+<div id="wrapper">
+<!--// header Start-->
+<div id="hd">
+	<div id="sitemeta">
+		<ul>
+			<li class="rss"><a href="http://feed.feedsky.com/">Subscribe to articles using RSS Feed</a></li>
+  		</ul>
+	</div>
+	<div id="titlewrapper">
+		<div id="blogtitle">
+			<h1><a href="../../index.html">Jack Chim'Code Notes</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><div id="blogdescription"> Keep It Simple and Stupid.</div></li>
+				<li><a href="../../index.html">Home</a></li>
+				<li class="page_item page-item-2"><a href="../../about.html">About</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="clear">&nbsp;</div>
+
+	<div class="clear">&nbsp;</div>
+</div>
+<!--// header End-->
+
+
+<!--// sidebar Start-->
+<div id="sidebar" class="yui-b">
+<ul class="sidebar">
+<li id="search-3" class="widget widget_search"><form method="get" id="searchform" action="">
+<input type="text" size="14" value="" name="s" id="s" class="s" />
+<input type="submit" id="searchsubmit" value="GO" />
+</form>
+<BR><BR></li>
+<li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Me</h2>
+<br>
+<div class="tagcloud">
+
+	<span class="icons_github"></span> <a href='https://github.com/ziikii' target="_blank"  >GitHub </a><br>
+	<span class="icons_twitter"></span> <a href='https://twitter.com/jack_chim'  target="_blank" >Twitter </a> <br>
+	<span class="icons_linkedin"></span> <a href='http://www.linkedin.com/in/jackchim' target="_blank"  >Linkedin </a><br>
+	<span class="icons_sinaweibo"></span> <a href='http://weibo.com/u/1893763090' target="_blank" >Sina Weibo</a><br>
+	<span class="icons_mail"></span>     <a href='#'  target="_blank" >Mail:ziikii1#qq.com</a><br>
+
+</div>
+</li>
+<br>
+<li id="categories-4" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+<li class="cat-item cat-item-67"><a href="../../Programming_dir/Programming.html" >Programming</a></li>
+<li class="cat-item cat-item-6"><a href="../../Security_dir/Security.html" >Security</a></li>
+<li class="cat-item cat-item-6"><a href="../../Database_dir/Database.html" >Database</a></li>
+<li class="cat-item cat-item-6"><a href="../../Docs_dir/Docs.html" >Docs</a></li>
+<li class="cat-item cat-item-6"><a href="../../Desktop_dir/Desktop.html" >Desktop</a></li>
+<li class="cat-item cat-item-6"><a href="../../OS_dir/OS.html" >OS</a></li>
+<li class="cat-item cat-item-6"><a href="../../Web_dir/Web.html" >Web</a></li>
+<li class="cat-item cat-item-6"><a href="../../Develop_dir/Develop.html" >Develop/Tools</a></li>
+<li class="cat-item cat-item-6"><a href="../../Server_dir/Server.html" >Server</a></li>
+<li class="cat-item cat-item-6"><a href="../../Editor_dir/Editor.html" >Editor</a></li>
+<li class="cat-item cat-item-6"><a href="../../Design_dir/Design.html" >Design</a></li>
+<li class="cat-item cat-item-6"><a href="../../English_dir/English.html" >English notes</a></li>
+
+		</ul>
+</li>
+
+<li id="archives-4" class="widget widget_archive"><h2 class="widgettitle"><a href="../../diary/diary.html" target="_blank">Diary</a></h2>
+		<ul>
+	<li><a href='../../diary/2012.html' title=''>2012 Year</a></li>
+	<li><a href='../../diary/2011.html' title=''>2011 Year</a></li>
+		</ul>
+</li>
+<li id="linkcat-2" class="widget widget_links"><h2 class="widgettitle">Site & Tools</h2>
+
+	<ul class='xoxo blogroll'>
+<li><a href="http://stackoverflow.com/" target="_blank">Stackoverflow </a></li>
+<li><a href="http://www.ostools.net/">ostools</a></li>
+
+	</ul>
+</li>
+
+</ul>
+</div>
+<!--// sidebar End-->
+
+
+
+<!--// content Start-->
+<div id="content">
+
+<h1 ><a  href="">audition_question</a> Page</h1>
+
+
+<ul>
+<li>
+<strong>1. Android dvm的进程和Linux的进程, 应用程序的进程是否为同一个概念</strong>
+
+</ul>
+<p>
+DVM指dalivk的虚拟机。每一个Android应用程序都在它自己的进程中运行，都拥有一个独立的Dalvik虚拟机实例。而每一个DVM都是在Linux 中的一个进程，所以说可以认为是同一个概念。
+</p>
+
+<ul>
+<li>
+<strong>2. sim卡的EF 文件有何作用</strong>
+
+</ul>
+<p>
+sim卡的文件系统有自己规范，主要是为了和手机通讯，sim本
+身可以有自己的操作系统，EF就是作存储并和手机通讯用的
+</p>
+
+<ul>
+<li>
+<strong>3. 嵌入式操作系统内存管理有哪几种，各有何特性 ?</strong>
+
+</ul>
+<p>
+页式，段式，段页，用到了MMU,虚拟空间等技术
+</p>
+
+<ul>
+<li>
+<strong>4. 什么是嵌入式实时操作系统, Android 操作系统属于实时操作系统吗?</strong>
+
+</ul>
+<p>
+嵌入式实时操作系统是指当外界事件或数据产生时，能够接受并以足够快的速度予以处理，其处理的结果又能在规定的时间之内来控制生产过程或对处理系统作出快速响应，并控制所有实时任务协调一致运行的嵌入式操作系统。主要用于工业控制、军事设备、
+航空航天等领域对系统的响应时间有苛刻的要求，这就需要使用实时系统。又可分为软实时和硬实时两种，而android是基于linux内核的，因此属于软实时。
+</p>
+
+<ul>
+<li>
+<strong>5.一条最长的短信息约占多少byte?</strong>
+
+</ul>
+<p>
+中文70(包括标点)，英文160个字节
+</p>
+
+<ul>
+<li>
+<strong>6.android中的动画有哪几类，它们的特点和区别是什么？</strong>
+
+</ul>
+<p>
+两种，一种是Tween动画、还有一种是Frame动画。Tween动画，这种实现方式可以使视图组件移动、放大、缩小以及产生透明度的变化；另一种Frame动画，传统的动画方法，通过顺序的播放排列好的图片来实现，类似电影。
+</p>
+
+<ul>
+<li>
+<strong>7.handler机制的原理</strong>
+
+</ul>
+<p>
+andriod提供了 Handler 和 Looper 来满足线程间的通信。Handler 先进先出原则。Looper类用来管理特定线程内对象之间的消息交换(Message Exchange)。
+1）Looper: 一个线程可以产生一个Looper对象，由它来管理此线程里的Message Queue(消息队列)。
+</p>
+
+<p>
+2）Handler: 你可以构造Handler对象来与Looper沟通，以便push新消息到Message Queue里；或者接收Looper从Message Queue取出)所送来的消息。
+</p>
+
+<p>
+3） Message Queue(消息队列):用来存放线程放入的消息。
+</p>
+
+<p>
+4）线程：UI thread 通常就是main thread，而Android启动程序时会替它建立一个Message Queue。
+</p>
+
+
+<ul>
+<li>
+<strong>8.mvc模式的原理，它在android中的运用</strong>
+
+</ul>
+<p>
+MVC(Model_view_contraller)” 模型_视图_控制器”。 MVC应用程序总是由这三个部分组成。Event(事件)导致Controller改变Model或View，或者同时改变两者。只要 Controller改变了Models的数据或者属性，所有依赖的View都会自动更新。类似的，只要Controller改变了View，View会
+从潜在的Model中获取数据来刷新自己。
+</p>
+
+<h2 id="toc_0.1">View重绘和内存泄露的好像是面试经常问的问题</h2>
+
+<p>
+1. View的刷新:
+在需要刷新的地方,使用handle.sendmessage发送信息,然后在handle的getmessage里面执行invaliate或者postinvaliate.
+</p>
+
+<p>
+2. GC内存泄露
+出现情况:
+1.数据库的cursor没有关闭
+2.构造adapter时,没有使用缓存contentview
+衍生listview的优化问题-----减少创建view的对象,充分使用contentview,可以使用一静态类来优化处理getview的过程/
+</p>
+
+<p>
+3.Bitmap对象不使用时采用recycle()释放内存
+</p>
+
+<p>
+4.activity中的对象的生命周期大于activity
+调试方法: DDMS==&gt; HEAPSZIE==&gt;dataobject==&gt;[Total Size]
+还有其他问题,大家欢迎提出阿,可以是整体架构的,还有这个Hal层.
+</p>
+
+<h2 id="toc_0.2">一 Activity的生命周期</h2>
+<p>
+和其他手机 平台 的应用程序一样，Android的应用程序的生命周期是被统一掌控的，也就是说我们写的应用程序命运掌握在别人（系统）的手里，我们不能改变它，只能学习并适应它。
+</p>
+
+
+<p>
+nPause -&gt; onStop -&gt; onDestroy ，这样就是一个完整的生命周期
+</p>
+
+<p>
+<strong>onCreate:</strong>
+在这里创建界面，做一些数据的初始化工作
+</p>
+
+<p>
+<strong>onStart:</strong>
+到这一步变成用户可见不可交互的
+</p>
+
+<p>
+<strong>onResume:</strong>
+变成和用户可交互的，（在activity 栈系统通过栈的方式管理这些个Activity的最上面，运行完弹出栈，则回到上一个Activity)
+</p>
+
+<p>
+<strong>onPause:</strong>
+到 这一步是可见但不可交互的，系统会停止动画等消耗CPU 的事情从上文的描述已经知道，应该在这里保存你的一些数据,因为这个时候你的程序的优先级降低，有可能被系统收回。在这里保存的数据，应该在 onResume里读出来，注意：这个方法里做的事情时间要短，因为下一个activity不会等到这个方法完成才启动
+</p>
+
+<p>
+<strong>onstop:</strong>
+变得不可见，被下一个activity覆盖了
+</p>
+
+<p>
+<strong>onDestroy:</strong>
+ 这是activity被干掉前最后一个被调用方法了，可能是外面类调用finish方法或者是系统为了节省空间将它暂时性的干掉，可以用 isFinishing()来判断它，如果你有一个Progress Dialog在线程中转动，请在onDestroy里把他cancel掉，不然等线程结束的时候，调用Dialog的cancel方法会抛异常的。
+</p>
+
+<p>
+onPause，onstop， onDestroy，三种状态下 activity都有可能被系统干掉为了保证程序的正确性，你要在onPause()里写上持久层操作的代码，将用户编辑的内容都保存到存储介质上（一般 都是数据库）。实际工作中因为生命周期的变化而带来的问题也很多，比如你的应用程序起了新的线程在跑，这时候中断了，你还要去维护那个线程，是暂停还是杀 掉还是数据回滚，是吧？因为Activity可能被杀掉，所以线程中使用的变量和一些界面元素就千万要注意了，一般我都是采用Android的消息机制 [Handler,Message]来处理多线程和界面交互的问题
+</p>
+
+<hr />
+<h2 id="toc_0.3">ctivity被系统回收怎么办：onSaveInstanceState</h2>
+
+<pre class="brush:java">
+public
+void onSaveInstanceState(Bundle outState) {
+	super.onSaveInstanceState(outState);
+	outState.putLong("id", 1234567890);
+}
+public void
+onSaveInstanceState(Bundle outState) {
+</pre>
+
+<p>
+当你的程序中某一个Activity A 在运行时中，主动或被动地运行另一个新的Activity B 这个时候A会执行
+B 完成以后又会来找A, 这个时候就有两种情况，一种是A被回收，一种是没有被回收，被回 收的A就要重新调用onCreate()方法，不同于直接启动的是这回 onCreate()里是带上参数 savedInstanceState，没被收回的就还是onResume就好了。
+</p>
+
+<p>
+savedInstanceState是一个Bundle对象，你基本上可以把他理解为系统帮你维护的一个Map对象。在onCreate()里你可能会用到它，如果正常启动onCreate就不会有它，所以用的时候要判断一下是否为空。
+</p>
+
+<pre class="brush:java">
+if(savedInstanceState !=null){
+	long id =savedInstanceState.getLong("id");
+}
+if(savedInstanceState !=null){
+</pre>
+
+<hr />
+<h2 id="toc_0.4">调用与被调用：我们的通信使者Intent</h2>
+
+<p>
+Intent就是这个这个意图，应用程序间Intent进行交流，打个电话啦，来个电话啦都会发Intent, 这个是Android架构的松耦合的精髓部分，大大提高了组件的复用性，比如你要在你的应用程序中点击按钮，给某人打电话，很简单啊，看下代码先：
+</p>
+<pre class="brush:java">
+Intent intent = new Intent();
+intent.setAction(Intent.ACTION_CALL);
+intent.setData(Uri.parse("tel:"+ number));
+startActivity(intent);
+</pre>
+
+<p>
+扔出这样一个意图，系统看到了你的意图就唤醒了电话拨号程序，打出来电话。什么读联系人，发短信啊，邮件啊，统统只需要扔出intent就好了
+</p>
+
+<pre class="brush:java">
+Intent intent = new Intent(this,MyActivity.class);
+intent.getExtras().putString("id","1");
+startActivity(intent);
+Intent intent = new Intent(this,MyActivity.class);
+intent.getExtras().putString("id","1");
+tartActivity(intent);
+</pre>
+
+<p>
+第一种方式很明显，直接指定了MyActivity为接受者,并且传了一些数据给MyActivity，在MyActivity里可以用getIntent()来的到这个intent和数据。
+</p>
+
+<hr />
+
+<h2 id="toc_0.5">其他</h2>
+<ul>
+<li>
+<strong>View如何刷新？</strong>
+
+</ul>
+<p>
+View 可以调用invalidate()和postInvalidate()这两个方法刷新
+</p>
+
+<ul>
+<li>
+<strong>DDMS与TraceView的区别？</strong>
+
+</ul>
+<p>
+DDMS是一个程序执行查看器，在里面你可以看见线程和堆栈等信息，TraceView是程序性能分析器
+</p>
+
+<ul>
+<li>
+<strong>activity被回收了怎么办？</strong>
+
+</ul>
+<p>
+.activity回收了，那就只有另起了
+</p>
+
+<ul>
+<li>
+<strong>在Java中如何引入C语言？</strong>
+
+</ul>
+<p>
+java调用C语言程序，可以用JNI接口来实现
+</p>
+
+
+<!--// commentwrap Start-->
+<!-- 加载duoshuo.com 评论插件 -->
+<div id="commentwrap">
+<h2>Leave a comment?</h2>
+<hr>
+    <div id="disqus_thread" style=""></div>
+
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jackchim'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+
+
+        
+</div>
+<!--// commentwrap End-->
+
+</div>
+<!--// content  End-->
+<!--// footer Start-->
+<div class="clear">&nbsp;</div>
+<div id="footnote" align="center">
+	  Cheers!! Vimwiki  © Copyright 2012 Jack Chim. All Rights Reserved.
+</div>
+<!--// footer End-->
+<!-- http://blog.sonitech.org/2011/07/06/sshscp-through-gateway/ -->
+</div>
+
+</div>
+<a href="javascript:;" id="returnTop" style="bottom: 200px;">回到顶部</a>
+<script type="text/javascript">
+$(document).ready(function(){
+    initTxt();
+    //$('#returnTop').hide();
+    $(window).scroll(function(){
+        if($(document).scrollTop()>=100){
+            if($.browser.msie&&($.browser.version == "6.0")){
+                $('#returnTop').css("_top","expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight/2)-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))-0);");
+            }
+            $('#returnTop').animate({bottom:"200px"},{ queue: false, duration: 10 });
+        }else{
+            $('#returnTop').css("_top","1000");
+            $('#returnTop').animate({bottom:"-200px"},{ queue: false, duration: 10 });
+        }
+    });
+    $('#returnTop').click(function(){
+        $('html, body').animate({scrollTop:0}, 'slow');
+        return false;
+    });
+ 
+     
+});
+ 
+function initTxt(){
+    for(var i=0;i<=300;i++){
+        $("#bigBox").append("<p>这是第"+i+"行</p>");
+    }
+}
+</script>
+</body>
+</html>
