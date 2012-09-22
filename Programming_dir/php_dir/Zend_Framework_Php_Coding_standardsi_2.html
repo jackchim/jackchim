@@ -1,0 +1,865 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Jack_Chim Zend_Framework_Php_Coding_standardsi_2 开发笔记_高级_工程师_Blog_Wiki</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
+<!-- <link rel="shortcut icon" href="" /> -->
+<link rel='stylesheet' id='wp-pagenavi-css'  href='../../css/pagenavi-css.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../js/jquery.js'></script>
+
+
+<!-- for SyntaxHighlighter core -->
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shCore.js"></script>
+<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shCore.css"/>
+<!-- for SyntaxHighlighter theme -->
+<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shThemeMidnight.css"/>
+<!-- for SyntaxHighlighter syntax -->
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushSql.js"></script>
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+
+<!-- for SyntaxHighlighter execute -->
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
+<meta name="generator" content="" />
+</head>
+
+<body>
+<div align="center">
+<div id="wrapper">
+<!--// header Start-->
+<div id="hd">
+	<div id="sitemeta">
+		<ul>
+			<li class="rss"><a href="http://feed.feedsky.com/">Subscribe to articles using RSS Feed</a></li>
+  		</ul>
+	</div>
+	<div id="titlewrapper">
+		<div id="blogtitle">
+			<h1><a href="../../index.html">Jack Chim'Code Notes</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><div id="blogdescription"> Keep It Simple and Stupid.</div></li>
+				<li><a href="../../index.html">Home</a></li>
+				<li class="page_item page-item-2"><a href="../../about.html">About</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="clear">&nbsp;</div>
+
+	<div class="clear">&nbsp;</div>
+</div>
+<!--// header End-->
+
+
+<!--// sidebar Start-->
+<div id="sidebar" class="yui-b">
+<ul class="sidebar">
+<li id="search-3" class="widget widget_search"><form method="get" id="searchform" action="">
+<input type="text" size="14" value="" name="s" id="s" class="s" />
+<input type="submit" id="searchsubmit" value="GO" />
+</form>
+<BR><BR></li>
+<li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Me</h2>
+<br>
+<div class="tagcloud">
+
+	<span class="icons_github"></span> <a href='https://github.com/ziikii' target="_blank"  >GitHub </a><br>
+	<span class="icons_twitter"></span> <a href='https://twitter.com/jack_chim'  target="_blank" >Twitter </a> <br>
+	<span class="icons_linkedin"></span> <a href='http://www.linkedin.com/in/jackchim' target="_blank"  >Linkedin </a><br>
+	<span class="icons_sinaweibo"></span> <a href='http://weibo.com/u/1893763090' target="_blank" >Sina Weibo</a><br>
+	<span class="icons_mail"></span>     <a href='#'  target="_blank" >Mail:ziikii1#qq.com</a><br>
+
+</div>
+</li>
+<br>
+<li id="categories-4" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+<li class="cat-item cat-item-67"><a href="../../Programming_dir/Programming.html" >Programming</a></li>
+<li class="cat-item cat-item-6"><a href="../../Security_dir/Security.html" >Security</a></li>
+<li class="cat-item cat-item-6"><a href="../../Database_dir/Database.html" >Database</a></li>
+<li class="cat-item cat-item-6"><a href="../../Docs_dir/Docs.html" >Docs</a></li>
+<li class="cat-item cat-item-6"><a href="../../Desktop_dir/Desktop.html" >Desktop</a></li>
+<li class="cat-item cat-item-6"><a href="../../OS_dir/OS.html" >OS</a></li>
+<li class="cat-item cat-item-6"><a href="../../Web_dir/Web.html" >Web</a></li>
+<li class="cat-item cat-item-6"><a href="../../Develop_dir/Develop.html" >Develop/Tools</a></li>
+<li class="cat-item cat-item-6"><a href="../../Server_dir/Server.html" >Server</a></li>
+<li class="cat-item cat-item-6"><a href="../../Editor_dir/Editor.html" >Editor</a></li>
+<li class="cat-item cat-item-6"><a href="../../Design_dir/Design.html" >Design</a></li>
+<li class="cat-item cat-item-6"><a href="../../English_dir/English.html" >English notes</a></li>
+
+		</ul>
+</li>
+
+<li id="archives-4" class="widget widget_archive"><h2 class="widgettitle"><a href="../../diary/diary.html" target="_blank">Diary</a></h2>
+		<ul>
+	<li><a href='../../diary/2012.html' title=''>2012 Year</a></li>
+	<li><a href='../../diary/2011.html' title=''>2011 Year</a></li>
+		</ul>
+</li>
+<li id="linkcat-2" class="widget widget_links"><h2 class="widgettitle">Site & Tools</h2>
+
+	<ul class='xoxo blogroll'>
+<li><a href="http://stackoverflow.com/" target="_blank">Stackoverflow </a></li>
+<li><a href="http://www.ostools.net/">ostools</a></li>
+
+	</ul>
+</li>
+
+</ul>
+</div>
+<!--// sidebar End-->
+
+
+
+<!--// content Start-->
+<div id="content">
+
+<h1 ><a  href="">Zend_Framework_Php_Coding_standardsi_2</a> Page</h1>
+
+<p>
+<strong>1. 类命名总是对应于其所属文件的目录结构。</strong>
+</p>
+
+ 
+
+<p>
+这源于 PEAR 命名约定，能让人从类名就能联想到该类的存放位置。
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<p>
+Zend_Acl_Role 就代表 Zend/Acl/Role.php 文件。 
+</p>
+
+ 
+
+
+
+ 
+<pre class='brush:php'>
+require_once 'Zend/Acl/Role/Interface.php';
+class Zend_Acl_Role implements Zend_Acl_Role_Interface
+{
+    ......
+}
+</pre>
+
+<p>
+这是规定实际上提供了一种伪命名空间机制，这在 php5.3 和 php6 里面都将得到支持，到时候 Zend Framework 可能会有一翻变革。
+</p>
+
+ 
+
+ 
+
+<p>
+<strong>2. 类名只允许有字母和数字字符，在大部分情况下不鼓励使用数字。下划线只允许做路径分隔符。</strong>
+</p>
+
+ 
+
+<p>
+这也源自 PEAR 命名约定，只不过 Zend Framework 在其基础上制定了更严格的规定。
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<p>
+Zend_Db_Table 是允许的。
+</p>
+
+<p>
+Zend_Db_Table2 则是不鼓励的。
+</p>
+
+<p>
+Zend-Db-Table 是不允许的。
+</p>
+
+ 
+
+ 
+
+<p>
+<strong>3. 当你为其他开发人员提供 API 接口的时候，如果他们需要用一个复合的名称来确认这个接口，那么你必须把这个名称用下滑线 (underline) 隔开，而不是使用驼峰的形式。而且最好是以常量 (contant) 的形式。</strong>
+</p>
+
+ 
+
+<p>
+这个规定可能有点难懂，让我们举个例子吧。例如在实例化 Zend_Db_Adapter_xxx 实例时，我们通常需要将 adapter 的名称作为参数传入到 Zend_Db::factory() 并由该工厂返回所需实例。
+</p>
+
+ 
+
+<p>
+我们可以实例化 MySQL PDO 驱动 ：
+</p>
+
+<pre class='brush:php'>
+$db = Zend_Db::factory('PDO_MYSQL', $config);
+</pre>
+
+<p>
+也可以实例化 MsSQL PDO 驱动 ：
+</p>
+
+<pre class='brush:php'>
+$db = Zend_Db::factory('PDO_MSSQL', $config);
+</pre>
+
+ 
+
+<p>
+<strong>4. 如果类名包含多个单词，每个单词的第一个字母必须大写，连续的大写是不允许的。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<p>
+Zend_PDF 是不允许的。
+</p>
+
+<p>
+Zend_Pdf 才是标准写法。
+</p>
+
+
+ 
+
+ 
+
+<p>
+<strong>5. 有 Zend 及其合作伙伴开发的 Zend Framework 类的命名必须总是以 "Zend_" 作为开头，并放在 "Zend/" 目录下。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<p>
+Zend_Db 是由 Zend 开发的，它通常以 “Zend/Db.php” 的形式存放。
+</p>
+
+<p>
+My_Db 则是用户自己定义或继承自 Zend_Db 的类，所以它不得以 "Zend_" 作为开头，而且通常以 "My/Db.php" 的形式存放。
+</p>
+
+ 
+
+ 
+
+<p>
+<strong>6. 接口类 (interface) 的定义必须遵循类名的定义规范，不同的是必须要以 _Interface 作为结尾。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<p>
+Zend_Controller_Dispatcher_Interface 对应的是 Zend/Controller/Dispatcher/Interface.php
+</p>
+
+ 
+
+
+
+ 
+
+ 
+
+<p>
+<strong>7. 对于文件名，只有字母、数字字符、下划线和短横线 ("-") 可用，空格是绝对不允许的。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<p>
+Zend/Controller/Front.php 是标准写法。
+</p>
+
+<p>
+My/Controller/Common-Action_2.php 也是允许的。
+</p>
+
+<p>
+My/Controller/Common Action.php 则是禁止的。
+</p>
+
+ 
+
+ 
+
+<p>
+<strong>8. 包含任何 PHP 代码的任何文件应当以 ".php" 扩展名结尾，视图脚本默认拓展名是 ".phtml"，也可以用 ".html" 等代替。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<p>
+Zend/Controller/Front.php 是标准 php 文件写法，index.phtml 是默认视图脚本名。
+</p>
+
+ 
+
+<p>
+我相信很多人都见过以下的一些 php 的拓展名 ：
+</p>
+
+<p>
+.php4
+</p>
+
+<p>
+.php5
+</p>
+
+<p>
+.phpx
+</p>
+
+<p>
+.class.php
+</p>
+
+<p>
+.include.php
+</p>
+
+<p>
+html (开玩笑？)
+</p>
+
+ 
+
+<p>
+而在 Zend Framework 中你只会见到一种，那就是 ".php"。
+</p>
+
+ 
+
+ 
+
+<p>
+<strong>9. 函数名只允许由数字或字母组成，下划线是不允许的，首字母要小写，其后每个单词首字母要大写，即所谓的 “camelCaps” 规则。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<p>
+filterInput()
+</p>
+
+<p>
+getElementById()
+</p>
+
+<p>
+widgetFactory()
+</p>
+ 
+
+<p>
+等都是规范的写法。
+</p>
+
+ 
+
+<p>
+而 ：
+</p>
+
+<p>
+FilterInput3()
+</p>
+
+<p>
+getelementbyid()
+</p>
+
+<p>
+widget_factory()
+</p>
+ 
+
+<p>
+等都是不允许的。
+</p>
+
+ 
+
+ 
+
+<p>
+<strong>10. 函数名越详细越好，应该能够描述清楚该函数的功能。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<p>
+getOne($id) // 描述的不清不楚。
+</p>
+
+<p>
+getOneRecordById($id) // 则非常详细而清晰。
+</p>
+ 
+
+ 
+
+<p>
+<strong>11. 对于对象成员的访问，我们必须始终使用 “get” 和 “set” 方法。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+ 
+
+<pre class='brush:php'>
+class Foo
+{
+    protected $_testObj;
+ 
+    public function getTestObj()
+    {
+        return $this-&gt;_testObj;
+    }
+ 
+    public function setTestObj($testObj)
+    {
+        $this-&gt;_testObj = $testObj;
+    }
+}
+ 
+</pre>
+ 
+
+<p>
+<strong>12. 当我们使用了某些设计模式的时候，我们的方法中应该含有该模式名。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<pre class='brush:php'>
+abstract class Zend_Cache
+{
+    // ......
+ 
+    public static function factory($frontend, $backend,
+        $frontendOptions = array(), $backendOptions = array(), 
+        $customFrontendNaming = false, $customBackendNaming = false, 
+        $autoload = false)
+    {
+        // ......
+    }
+}
+</pre>
+
+ 
+
+<p>
+<strong>13. 当类成员函数被声明为 private 或者 protected 时，函数必须以下划线 "_" 为开头，一般情况下的函数不含下划线。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<pre class='brush:php'>
+class Zend_Foo
+{
+    protected function _fooBar()
+    {
+        // ...
+    }
+}
+</pre>
+
+ 
+
+<p>
+<strong>14. 如果我们需要把一些经常使用的函数或方法定义为全局函数，那么应该把它们以静态 (static) 的形式定义在类中。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<pre class='brush:php'>
+class Zend_Debug
+{
+    // ......
+ 
+    public static function dump($var, $label = null, $echo = true)
+    {
+        // ......
+    }
+}
+</pre>
+
+ 
+
+<p>
+<strong>15. 在类中被声明为 static 的函数或变量不应该再被声明为 private 私有，而应该为 protected 或者public ，如果只是不想被子类继承，则应该用 final 声明它们。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<pre class='brush:php'>
+class Foo
+{
+    final public static function fooFinally()
+    {
+    }
+}
+ 
+class Bar extends Foo
+{
+}
+ 
+// This is wrong
+Bar::fooFinally();
+ 
+// Use Foo::fooFinally() instead
+Foo::fooFinally();
+</pre>
+
+ 
+
+<p>
+<strong>16. 函数或方法的初始中括号应该在函数声明的下一行顶格。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<pre class='brush:php'>
+function Myfunction($parameter1)
+{
+}
+</pre>
+
+ 
+
+<p>
+<strong>17. 当函数参数不一定需要被赋值的时候，用 "null" 来代替 "false" 作为函数参数的默认值，除非该参数是 boolean 值。</strong>
+</p>
+
+ 
+
+<p>
+例如，考虑如下代码 ：
+</p>
+
+<pre class='brush:php'>
+public function foo($required, $optional = null)
+{
+    if (isset($optional)) {
+        echo 'Echo something only when $optional is set and != null';
+    }
+}
+ 
+public function foo($required, $optional = false)
+{
+    if (isset($optional)) {
+        echo 'Always echo something';
+    }
+}
+</pre>
+
+ 
+
+<p>
+<strong>18. 变量只允许由字母组成，数字或下划线都是不允许的。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<p>
+$foo // 是正确的
+</p>
+
+<p>
+$foo_foo // 是错误的
+</p>
+
+<p>
+$foo2 // 也是错误的
+</p>
+ 
+
+ 
+
+<p>
+<strong>19. 被声明为 private 或者 protected 的类成员属性必须由下划线 "_" 作为开头，这也是唯一一种允许变量中出现下划线的情况，而声明为 public 的成员属性则在任何时候都不允许含有下划线。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<pre class='brush:php'>
+class Zend_Foo
+{
+    private $_barPrivate;
+    protected $_barProtected;
+    public $barPublic;
+}
+ 
+</pre>
+ 
+
+<p>
+<strong>20. 变量名必须像函数名那样，即首字母要小写，其后每个单词首字母要大写，即所谓的 “camelCaps” 规则。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<p>
+$compatibilityMode
+</p>
+
+<p>
+$registryClassName
+</p>
+ 
+
+ 
+
+<p>
+*21. 建议用描述性的变量的命名，变量名越详细越好，以至于像 \(i 或 \)n 等等都是不鼓励使用的，特别是在超过20行的循环里面。*
+</p>
+
+ 
+
+<p>
+例如 Zend_Search_Lucene 中的一段代码 ：
+</p>
+
+<pre class='brush:php'>
+// read segmentInfos
+for ($count = 0; $count &lt; $segments; $count++) {
+    $segName = $segmentsFile-&gt;readString();
+    ......
+}
+</pre>
+
+ 
+
+<p>
+<strong>22. 常量 constant 必须仅包括字母，数字和下划线，而且必须全部大写，各个单词之间用下划线分割。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<p>
+"MY_CONSTANT_ONE" // 是允许的
+</p>
+
+<p>
+"MYCONSTANTTWO" // 是不允许的
+</p>
+
+<p>
+"my_constant_two" // 也是不允许的
+</p>
+ 
+
+ 
+
+<p>
+<strong>23. 常量应该在类中由 const 声明并定义，全局范围内的 define 是不鼓励使用的。</strong>
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+<pre class='brush:php'>
+class Zend_Acl
+{
+    const TYPE_ALLOW = 'TYPE_ALLOW';
+
+    const TYPE_DENY  = 'TYPE_DENY';
+
+    ......
+}
+</pre>
+
+ 
+
+<p>
+<strong>24. 和 php 文档说明不一样的是，Zend Framework 中的 boolean 值和 null 值都是用小写的。</strong>
+</p>
+
+ 
+
+<p>
+例如 Zend_Mail 中的一段代码 ：
+</p>
+
+<pre class='brush:php'>
+public function setMessageId($id = true)
+{
+    if ($id === null || $id === false) {
+        return $this;
+    } elseif ($id === true) {
+        $id = $this-&gt;createMessageId();
+    }
+    ......
+}
+</pre>
+
+
+<!--// commentwrap Start-->
+<!-- 加载duoshuo.com 评论插件 -->
+<div id="commentwrap">
+<h2>Leave a comment?</h2>
+<hr>
+    <div id="disqus_thread" style=""></div>
+
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jackchim'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+
+
+        
+</div>
+<!--// commentwrap End-->
+
+</div>
+<!--// content  End-->
+<!--// footer Start-->
+<div class="clear">&nbsp;</div>
+<div id="footnote" align="center">
+	  Cheers!! Vimwiki  © Copyright 2012 Jack Chim. All Rights Reserved.
+</div>
+<!--// footer End-->
+<!-- http://blog.sonitech.org/2011/07/06/sshscp-through-gateway/ -->
+</div>
+
+</div>
+<a href="javascript:;" id="returnTop" style="bottom: 200px;">回到顶部</a>
+<script type="text/javascript">
+$(document).ready(function(){
+    initTxt();
+    //$('#returnTop').hide();
+    $(window).scroll(function(){
+        if($(document).scrollTop()>=100){
+            if($.browser.msie&&($.browser.version == "6.0")){
+                $('#returnTop').css("_top","expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight/2)-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))-0);");
+            }
+            $('#returnTop').animate({bottom:"200px"},{ queue: false, duration: 10 });
+        }else{
+            $('#returnTop').css("_top","1000");
+            $('#returnTop').animate({bottom:"-200px"},{ queue: false, duration: 10 });
+        }
+    });
+    $('#returnTop').click(function(){
+        $('html, body').animate({scrollTop:0}, 'slow');
+        return false;
+    });
+ 
+     
+});
+ 
+function initTxt(){
+    for(var i=0;i<=300;i++){
+        $("#bigBox").append("<p>这是第"+i+"行</p>");
+    }
+}
+</script>
+</body>
+</html>

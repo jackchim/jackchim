@@ -1,0 +1,1027 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Jack_Chim Zend_Framework_Php_Coding_standards 开发笔记_高级_工程师_Blog_Wiki</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
+<!-- <link rel="shortcut icon" href="" /> -->
+<link rel='stylesheet' id='wp-pagenavi-css'  href='../../css/pagenavi-css.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../js/jquery.js'></script>
+
+
+<!-- for SyntaxHighlighter core -->
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shCore.js"></script>
+<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shCore.css"/>
+<!-- for SyntaxHighlighter theme -->
+<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shThemeMidnight.css"/>
+<!-- for SyntaxHighlighter syntax -->
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushSql.js"></script>
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+
+<!-- for SyntaxHighlighter execute -->
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
+<meta name="generator" content="" />
+</head>
+
+<body>
+<div align="center">
+<div id="wrapper">
+<!--// header Start-->
+<div id="hd">
+	<div id="sitemeta">
+		<ul>
+			<li class="rss"><a href="http://feed.feedsky.com/">Subscribe to articles using RSS Feed</a></li>
+  		</ul>
+	</div>
+	<div id="titlewrapper">
+		<div id="blogtitle">
+			<h1><a href="../../index.html">Jack Chim'Code Notes</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><div id="blogdescription"> Keep It Simple and Stupid.</div></li>
+				<li><a href="../../index.html">Home</a></li>
+				<li class="page_item page-item-2"><a href="../../about.html">About</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="clear">&nbsp;</div>
+
+	<div class="clear">&nbsp;</div>
+</div>
+<!--// header End-->
+
+
+<!--// sidebar Start-->
+<div id="sidebar" class="yui-b">
+<ul class="sidebar">
+<li id="search-3" class="widget widget_search"><form method="get" id="searchform" action="">
+<input type="text" size="14" value="" name="s" id="s" class="s" />
+<input type="submit" id="searchsubmit" value="GO" />
+</form>
+<BR><BR></li>
+<li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Me</h2>
+<br>
+<div class="tagcloud">
+
+	<span class="icons_github"></span> <a href='https://github.com/ziikii' target="_blank"  >GitHub </a><br>
+	<span class="icons_twitter"></span> <a href='https://twitter.com/jack_chim'  target="_blank" >Twitter </a> <br>
+	<span class="icons_linkedin"></span> <a href='http://www.linkedin.com/in/jackchim' target="_blank"  >Linkedin </a><br>
+	<span class="icons_sinaweibo"></span> <a href='http://weibo.com/u/1893763090' target="_blank" >Sina Weibo</a><br>
+	<span class="icons_mail"></span>     <a href='#'  target="_blank" >Mail:ziikii1#qq.com</a><br>
+
+</div>
+</li>
+<br>
+<li id="categories-4" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+<li class="cat-item cat-item-67"><a href="../../Programming_dir/Programming.html" >Programming</a></li>
+<li class="cat-item cat-item-6"><a href="../../Security_dir/Security.html" >Security</a></li>
+<li class="cat-item cat-item-6"><a href="../../Database_dir/Database.html" >Database</a></li>
+<li class="cat-item cat-item-6"><a href="../../Docs_dir/Docs.html" >Docs</a></li>
+<li class="cat-item cat-item-6"><a href="../../Desktop_dir/Desktop.html" >Desktop</a></li>
+<li class="cat-item cat-item-6"><a href="../../OS_dir/OS.html" >OS</a></li>
+<li class="cat-item cat-item-6"><a href="../../Web_dir/Web.html" >Web</a></li>
+<li class="cat-item cat-item-6"><a href="../../Develop_dir/Develop.html" >Develop/Tools</a></li>
+<li class="cat-item cat-item-6"><a href="../../Server_dir/Server.html" >Server</a></li>
+<li class="cat-item cat-item-6"><a href="../../Editor_dir/Editor.html" >Editor</a></li>
+<li class="cat-item cat-item-6"><a href="../../Design_dir/Design.html" >Design</a></li>
+<li class="cat-item cat-item-6"><a href="../../English_dir/English.html" >English notes</a></li>
+
+		</ul>
+</li>
+
+<li id="archives-4" class="widget widget_archive"><h2 class="widgettitle"><a href="../../diary/diary.html" target="_blank">Diary</a></h2>
+		<ul>
+	<li><a href='../../diary/2012.html' title=''>2012 Year</a></li>
+	<li><a href='../../diary/2011.html' title=''>2011 Year</a></li>
+		</ul>
+</li>
+<li id="linkcat-2" class="widget widget_links"><h2 class="widgettitle">Site & Tools</h2>
+
+	<ul class='xoxo blogroll'>
+<li><a href="http://stackoverflow.com/" target="_blank">Stackoverflow </a></li>
+<li><a href="http://www.ostools.net/">ostools</a></li>
+
+	</ul>
+</li>
+
+</ul>
+</div>
+<!--// sidebar End-->
+
+
+
+<!--// content Start-->
+<div id="content">
+
+<h1 ><a  href="">Zend_Framework_Php_Coding_standards</a> Page</h1>
+
+<h1 id="toc_1">1. 文档块必须用 "/<strong>" 或者 "/</strong>*" 作为开头。"#" 是不允许的，而 “//” 的使用仅限于函数内部。</h1>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+ 
+<pre class="brush:php">
+/**
+ * 类描述
+ */
+class foo
+{
+    /* 变量描述 */
+    public $foo;
+
+    /**
+     * 函数描述
+     */
+    public function __construct()
+    {
+        // 用 '//' 进行注释仅允许在函数内部
+        $this-&gt;foo = 'foo';
+
+        # 用 '#' 进行注释是不允许的
+       $this-&gt;foo = 'bar';
+    }
+}
+ 
+</pre>
+<hr />
+
+
+<p>
+2. 一个文档块应当包含一个短描述以及最少一个描述参数 "@xxx" 。当然，一段较长的附加描述和多个描述参数都是允许且鼓励的。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+<pre class="brush:php">
+/**
+ * 至少一段短描述和一个描述参数
+ *
+ * @param
+ */
+
+/**
+ * 长描述以及多个描述参数
+ *
+ * 我们用空行分隔开 
+ * 短描述,
+ * 长描述,
+ * 以及参数描述
+ *
+ * @param
+ * @todo
+ */
+</pre>
+<hr />
+
+
+<h2 id="toc_1.1">4. 当描述变量信息时，例如关键词，变量名，变量描述，它们彼此间要保持缩进对齐。</h2>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+/**
+ * 正确, 所有描述都对齐
+ *
+ * @param string  $value      变量描述
+ * @param integer $othervalue 另一变量的描述
+ */
+
+/**
+ * 错误, 没有对齐
+ *
+ * @param string $value 变量描述
+ * @param integer $othervalue 另一变量的描述
+ */
+</pre>
+<hr />
+
+<p>
+17. 所有函数参数都必须是符合标准的。所有允许的类型罗列如下 ：
+</p>
+
+ 
+
+<p>
+(a) boolean
+</p>
+
+<p>
+(b) integer
+</p>
+
+<p>
+(c) string
+</p>
+
+<p>
+(d) float
+</p>
+
+<p>
+(e) array
+</p>
+
+<p>
+(f) false
+</p>
+
+<p>
+(g) true
+</p>
+
+<p>
+(h) null
+</p>
+
+<p>
+(i) Zend_Xxx (必须是存在的 Zend Framework 类)
+</p>
+
+
+<hr />
+
+<p>
+2. 当一个字符串是纯文字组成的时候（即不含有变量），则必须总是以单引号（'）或者撇号（`）作为定界符。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+$a = 'Example String';
+
+$b = `Excute Something`;
+</pre>
+<hr />
+
+<p>
+变量替换中的变量只允许用 $+变量名 的形式。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+$greeting = "Hello $name, welcome back!";   // 允许
+
+$greeting = "Hello {$name}, welcome back!"; // 允许
+
+$greeting = "Hello ${name}, welcome back!"; // 不允许
+
+</pre>
+<hr />
+
+<p>
+多个字符串必须用点号 "." 来连接，且字符串与点号间必须用一个空格隔开。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<p>
+$company = 'Zend' . 'Technologies';
+</p>
+
+
+<hr />
+
+<p>
+6. 当用点号 "." 连接各字符串的时候，我们允许把它分割成多行以增强可读性。在这种情况下，点号 "." 必须与等于号 "=" 对齐。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+$sql = "SELECT `id`, `name` FROM `people` " 
+     . "WHERE `name` = 'Susan' " 
+     . "ORDER BY `name` ASC ";
+</pre>
+<hr />
+
+<p>
+7. 任何负数都不允许作为数组的索引，数组索引必须以任何非负数作为开头，而且强烈建议以0作为默认开头。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+$sampleArray = array(-1 =&gt; -1, 0 =&gt; 0); // 错误
+$sampleArray = array(0 =&gt; -1, 1 =&gt; 0);  // 正确
+$sampleArray = array(1 =&gt; -1, 2 =&gt; 0);  // 正确
+</pre>
+
+<hr />
+
+<p>
+当用 array 类型符号来构造数组的时候，必须在每个逗号之后加上一个空格来增强可读性。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+$sampleArray = array(1, 2, 3, 'Zend', 'Studio');
+</pre>
+<hr />
+
+<p>
+多行的索引数组同样允许用 array 类型符号来构造，只是我们需要为每行的每个值加上必要的空格来保持其整齐美观。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+$sampleArray = array(1,        2,  3,  'Zend', 
+                     'Studio', $a, $b, $c, 
+                     56.44,    $d, 500);
+</pre>
+<hr />
+
+<p>
+当使用 array 类型符声明关联数组的时候，我们鼓励把它分成多个行，只是我们必须同时保证每行的键与值的对齐，以保持美观。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+$sampleArray = array('firstKey'  =&gt; 'firstValue', 
+                     'secondKey' =&gt; 'secondValue');
+
+</pre>
+<hr />
+
+
+<p>
+中括号的开始必须在类名的下一行顶格。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+class foo
+{
+    // 正确 {} 写法
+}
+
+class foo {
+    // 错误 {} 写法
+}
+</pre>
+<hr />
+
+<p>
+类定义必须拥有符合 phpDocumentor 标准的注释块。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+/**
+ * 类定义注释
+ */
+class Zend_Class
+{
+}
+</pre>
+<hr />
+
+<p>
+类中的所有代码都必须用4个空格来进行缩进。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+class Zend_Class
+{
+    $spaces = '4 spaces';
+    if ($spaces == '4 spaces') {
+        echo 'is permitted !';
+    }
+}
+
+class Zend_Class
+{
+  $spaces = 'less then 4 spaces';
+  if ($spaces != '4 spaces') {
+    echo 'is not permitted !';
+  }
+}
+</pre>
+
+<hr />
+
+
+<p>
+ 每个 php 文件只允许声明一个类。在类文件里面写其它代码是允许的，但并不鼓励这样做。假如真要附加代码的话，必须用空行来分隔。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+&lt;?php
+// 允许但并不鼓励这样做
+class Zend_Class
+{
+    static $foo = 'foo';
+}
+echo Zend_Class::$foo;
+?&gt;
+</pre>
+
+
+<pre class="brush:php">
+&lt;?php
+/**
+ * 在同一文件里声明超过两个类是不允许的
+ */
+class Class_One
+{
+}
+
+class Class_Two
+{
+}
+?&gt;
+</pre>
+
+
+<p>
+任何类变量的声明都必须放在类顶部，先于任何函数的声明。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+// 正确
+class right
+{
+    public $foo = '先于函数定义';
+
+    public function fun()
+    {
+    }
+}
+
+// 错误
+class wrong
+{
+    public function fun()
+    {
+    }
+
+    public $foo = '后于函数定义';
+}
+</pre>
+
+<hr />
+
+<p>
+不允许用 var 符号来声明变量，类成员变量必须以 private，protected 和 public 来声明。其次，把类成员声明为 public 而直接引用虽然是允许的，但通常更好的方法是使用 get 和 set 方法来访问类成员。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+<pre class="brush:php">
+class foo
+{
+    var $unpermitted = '这是不允许的!';
+
+    private $_privateVariable = '私有变量';
+
+    protected $_protectedVariable = '保护变量';
+
+    public $publicVariable = '公共变量';
+
+    public function setPrivateVariable($value)
+    {
+        $this-&gt;_privateVariable = $value;
+    }
+
+    public function getPrivateVariable()
+    (
+        return $this-&gt;_privateVariable;
+    )
+}
+
+$foo = new foo();
+
+// 不鼓励使用
+echo $foo-&gt;publicVariable;
+
+// 鼓励使用
+echo $foo-&gt;getPrivateVariable();
+
+</pre>
+<hr />
+
+
+<p>
+方法和函数必须总是用 private，protected 或者 public 来声明其作用域。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+class foo
+{
+    function goo()
+    {
+        // 不允许的
+    }
+
+    private function bar()
+    {
+        // 正确
+    }
+
+    protected function baz()
+    {
+        // 正确
+    }
+
+    public function zoo()
+    {
+        // 正确
+    }
+}
+</pre>
+
+<hr />
+
+
+<p>
+按照 php 社区的习惯，静态 static 方法应该声明其作用域。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+class foo
+{
+    static function baz()
+    {
+        // 不允许的
+    }
+
+    public static function bar()
+    {
+        // 正确
+    }
+}
+
+
+</pre>
+<hr />
+
+
+<p>
+对于类成员函数和方法，中括号的开始必须位于函数和方法名的下一行顶格。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+class foo
+{
+    public function braceIsUnderneath()
+    {
+        // 正确
+    }
+
+    public function braceIsNotUnderneath() {
+        // 错误
+    }
+}
+</pre>
+
+<hr />
+
+<p>
+在函数名与参数括号之间不允许出现多余的空格。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+class foo
+{
+    public function someSpacesAfterMe  ($a)
+    {
+        // 错误
+    }
+
+    public function noSpacesAfterMe($a)
+    {
+        // 正确
+    }
+}
+</pre>
+
+<hr />
+
+
+<p>
+ 引用只允许定义在函数参数中，实时传递引用是禁止的。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+function defineRefInMethod(&amp;$a)
+{
+    $a = 'a';
+}
+
+function callTimePassRef($a)
+{
+    $a = 'a';
+}
+
+$b = 'b';
+$c = 'c';
+
+// 允许的
+defineRefInMethod($b);
+echo $b; // 'a'
+
+// 禁止的
+callTimePassRef(&amp;$c);
+echo $c; // 'a'
+
+</pre>
+<hr />
+
+<p>
+函数返回值不可以用括号包住，不然会降低可读性，而且假如以后函数修改为返回引用的话，这将会抛出一个异常。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+class foo
+{
+    public $bar = 'bar';
+
+    public function goo()
+    {
+        return ($this-&gt;bar);
+    }
+
+    public function &amp; zoo()
+    {
+        return ($this-&gt;bar);
+    }
+}
+
+$foo = new foo();
+
+// 看起来没问题
+echo $foo-&gt;goo();
+
+/**
+ * 程序会抛出一个 notice 说 :
+ * "Only variable references should be returned by reference"
+ */
+echo $foo-&gt;zoo();
+
+</pre>
+<hr />
+
+
+<p>
+鼓励尽量使用类型提示，特别是在模块设计中。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+class Zend_Component 
+{ 
+    public function foo(SomeInterface $object) 
+    {} 
+ 
+    public function bar(array $options) 
+    {} 
+}
+</pre>
+
+<hr />
+<p>
+尽量避免同时使用异常处理和类型提示，来检验参数的有效性。
+</p>
+
+ 
+
+<p>
+例如 ：
+</p>
+
+ 
+
+<pre class="brush:php">
+class Not_Zend_Class
+{
+}
+
+class foo
+{
+    public function bar(Zend_Class $zc)
+    {
+    }
+
+    public function goo($zc)
+    {
+        if (!$zc instanceof Zend_Class) {
+            throw new Exception('$zc 不是 Zend_Class 的实例');
+        }
+    }
+}
+
+$foo = new foo();
+$zc  = new Not_Zend_Class();
+
+/**
+ * Catchable fatal error 错误显示 :
+ * "Argument 1 passed to foo::bar() must be an instance of Zend_Class,
+ * instance of Not_Zend_Class given"
+ */
+$foo-&gt;bar($zc);
+
+/**
+ * 错误信息 : '$zc 不是 Zend_Class 的实例'
+ */
+try {
+    $foo-&gt;goo($zc);
+} catch (Exception $e) {
+    echo $e-&gt;getMessage();
+}
+
+</pre>
+<hr />
+
+<p>
+函数参数必须用 逗号+空格 来分隔。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<p>
+// 正确
+threeArguments(1, 2, 3);
+</p>
+
+<p>
+// 错误
+threeArguments(1,2,3);
+</p>
+
+<hr />
+
+<p>
+对于参数为数组的函数，参数中的数组应该分成多行以增强可读性。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+<pre>
+threeArguments(array(1, 2, 3), 2, 3);
+
+threeArguments(array(1,        2,  3,    'Zend',
+                     'Studio', $a, $b,   $c,
+                     56.44,    $d, 500), 2,      3);
+</pre>
+<hr />
+
+
+<p>
+基于 “if”, "else" 和 "else if" 的条件控制里，我们必须用空格间隔开语句和括号。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+// 正确
+if ($spaceOutSide) {
+    // ...
+} else if ($spaceOutSide) {
+    // ...
+} else {
+    // ...
+}
+
+// 错误
+if($noSpaceOutSide){
+    // ...
+}else if($noSpaceOutSide){
+    // ...
+}else{
+    // ...
+}
+</pre>
+
+
+<hr />
+<p>
+在条件控制语句的条件括号内，必须用空格将操作符与其它元素隔开。如果遇到很长的逻辑判断，则鼓励用内嵌括号来分割各个逻辑。
+</p>
+
+ 
+
+<p>
+例如 ： 
+</p>
+
+<pre class="brush:php">
+if (($a != 2) and ($b == 1)) {
+    $a = $b;
+}
+</pre>
+<hr />
+
+
+<!--// commentwrap Start-->
+<!-- 加载duoshuo.com 评论插件 -->
+<div id="commentwrap">
+<h2>Leave a comment?</h2>
+<hr>
+    <div id="disqus_thread" style=""></div>
+
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'jackchim'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+
+
+        
+</div>
+<!--// commentwrap End-->
+
+</div>
+<!--// content  End-->
+<!--// footer Start-->
+<div class="clear">&nbsp;</div>
+<div id="footnote" align="center">
+	  Cheers!! Vimwiki  © Copyright 2012 Jack Chim. All Rights Reserved.
+</div>
+<!--// footer End-->
+<!-- http://blog.sonitech.org/2011/07/06/sshscp-through-gateway/ -->
+</div>
+
+</div>
+<a href="javascript:;" id="returnTop" style="bottom: 200px;">回到顶部</a>
+<script type="text/javascript">
+$(document).ready(function(){
+    initTxt();
+    //$('#returnTop').hide();
+    $(window).scroll(function(){
+        if($(document).scrollTop()>=100){
+            if($.browser.msie&&($.browser.version == "6.0")){
+                $('#returnTop').css("_top","expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight/2)-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))-0);");
+            }
+            $('#returnTop').animate({bottom:"200px"},{ queue: false, duration: 10 });
+        }else{
+            $('#returnTop').css("_top","1000");
+            $('#returnTop').animate({bottom:"-200px"},{ queue: false, duration: 10 });
+        }
+    });
+    $('#returnTop').click(function(){
+        $('html, body').animate({scrollTop:0}, 'slow');
+        return false;
+    });
+ 
+     
+});
+ 
+function initTxt(){
+    for(var i=0;i<=300;i++){
+        $("#bigBox").append("<p>这是第"+i+"行</p>");
+    }
+}
+</script>
+</body>
+</html>

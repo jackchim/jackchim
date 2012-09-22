@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim css_hack 开发笔记_高级_工程师_Blog_Wiki</title>
+<title>Jack_Chim Zend_Framework_PHP_specification 开发笔记_高级_工程师_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
@@ -129,138 +129,316 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">css_hack</a> Page</h1>
-
-
-<h2 id="toc_0.1">1、反斜线（\）</h2>
+<h1 ><a  href="">Zend_Framework_PHP_specification</a> Page</h1>
 
 <p>
-适用浏览器：IE/Mac
+从宽约束
 </p>
+
+
 
 <p>
-反斜线（\）hack利用了IE/Mac的一个bug。以\*/结束的注释在IE/Mac上是不正确关闭的，所以那些需要在IE/Mac上被忽略的语句可以放在这种注释后面。
+1.每行不超过130列
 </p>
-<pre class="brush:css">
-    /* 在IE Mac上忽略下面的语句 \*/
 
-    selector { ...styles... }
+ 
 
-    /* 忽略结束 */
+<p>
+2.类名由英文组成，首字母大写，用下划线隔开，格式：This_Class_Do
+</p>
+
+ 
+
+<p>
+3.接口类由Interface作后缀，如：Log_Adapter_Interface
+</p>
+
+ 
+
+<p>
+4.文件命名，全部小写，多词用下划线隔开
+</p>
+
+ 
+
+<p>
+5.由英文组成，不用数字和下划线，骆驼法则（首字母小写开始，其它首字母大写）
+</p>
+
+ 
+
+<p>
+6.对象的存取器由get,set作为前缀
+</p>
+
+ 
+
+<p>
+7.方法涉及到设计模式，则方法命名尽量包含设计模式名称
+</p>
+
+ 
+
+<p>
+8.变量命名也遵循骆驼法则，不提倡数字
+</p>
+
+ 
+
+<p>
+9.对于protected,private类成员变量，则以下划线开头
+</p>
+
+ 
+
+<p>
+10.函数和变量保持一定程序的详细和冗长，要有实际意义，除了临时变量
+</p>
+
+ 
+
+<p>
+11.常量使用字母、数字、下划线，且所有字母大写
+</p>
+
+ 
+
+<p>
+12.不提倡全局函数和全局常量
+</p>
+
+ 
+
+<p>
+13.纯字串赋值用单引号，如有单引号或变量则用双引号
+</p>
+
+ 
+
+<p>
+14.注意留空格，等号，分号，连接号等要留空格
+</p>
+
+ 
+
+<p>
+15.连接号对字串不留空格，对变量留空格
+</p>
+
+ 
+
+<p>
+16.长行拆分，要用空格填充，使行具有连贯性和可读性，又不影响下一行的识别
+</p>
+
+ 
+
+<p>
+17.如在数组中的各元素逗号后加空格增强可读性
+</p>
+
+ 
+
+<p>
+18.对于数组长元素，各分行，各元素按列对齐
+</p>
+
+ 
+
+<p>
+19.大括号在类名的下一行
+</p>
+
+ 
+
+<p>
+20.每个类都有一个遵守PHPDocumentor标准的注释文档块
+</p>
+
+ 
+
+<p>
+21.一个文件只允许一个类
+</p>
+
+ 
+
+<p>
+类示例
+</p>
+
+<pre class="brush:php">
+/**
+
+*文档注释块
+
+*/
+
+class SampleClass
+
+{
+
+   //类的内部代码
+
+   //必须缩进4个空格
+
+}
+
 </pre>
-<h2 id="toc_0.2">2、下划线（_）</h2>
 
 <p>
-适用浏览器：IE6及其以下版本
+22.类成员变量必须使用protected, private, public声明
 </p>
+
+ 
 
 <p>
-IE 6 及以下的版本可以识别带有下划线前缀的属性，而其它浏览器会忽略它。因此，一个属性前面加上下划线或者连字符，就成为了IE6及以下版本浏览器的专有属性。
+23.类内部函数必须使用protected, private, public声明
 </p>
 
-<pre class="brush:css">
-    #elem {
+ 
 
-    width: [W3C Model Width];
+<p>
+24.函数大括号用法与类一致，但内部的大括号则直接跟在行尾
+</p>
 
-    _width: [BorderBox Model];
+ 
 
-    }
+<p>
+函数示例：
+</p>
+<pre class="brush:php">
+
+/**
+
+*文档注释块
+
+* @param
+
+* @return
+
+*/
+
+function sampleMethod($a)
+
+{
+
+   //函数的内部内容
+
+   //必须缩进4个空格
+
+}
+
+</pre>
+
+<p>
+25.函数的各参数逗号后加空格，增加可读性
+</p>
+
+ 
+
+<p>
+26.if…else语句，
+</p>
+
+<pre class="brush:php">
+if ($a != 0) {
+
+   //内容
+
+} else {
+
+   //内容
+
+}
+</pre>
+ 
+
+ 
+
+<p>
+27.switch结构
+</p>
+<pre class="brush:php">
+switch ($numPeople) {
+
+   case 1:
+
+       break;
+
+   case 2:
+
+       break;
+
+   default:
+
+       break;
+
+}
 </pre>
 <p>
-PS:这个hack利用浏览器的bug使用了无效的CSS，因而不推荐使用。
-</p>
-
-<h2 id="toc_0.3">3、星号（*）</h2>
-
-<p>
-适用浏览器：IE7以下版本
+最后必须有一个default语句，不能省略
 </p>
 
 <p>
-除了下划线和连字符，版本7及以下的IE可以识别以非字母字符为前缀的属性，而其它浏览器会忽略。
+如需要省掉break或return与下一个case结合，那行在省掉的break处加注释
 </p>
 
-<pre class="brush:css">
-    #elem {
+ 
 
-    width: [W3C Model Width];
+<p>
+28.文件级文档块
+</p>
+<pre>
+/*
 
-    *width: [BorderBox Model];
+*关于本文件的简要说明
 
-    }
+*
+
+*关于本文件的详细描述（如果有的话）...
+
+*
+
+* @copyright Shuky
+
+* @version   CVS: $Id:$
+
+* @since     File available since Release 1.2.0
+
+* @date              2009-3-6
+
+*/
 </pre>
-<p>
-PS:这个hack利用浏览器的bug使用了无效的CSS，因而不推荐使用。
-</p>
-
-<h2 id="toc_0.4">4、星号 HTML（* html）</h2>
+ 
 
 <p>
-适用浏览器：IE4-6
+29.类级别文档块
 </p>
+<pre>
+/**
 
-<p>
-HTML元素是W3C标准DOM的根元素，但是IE 4至6的版本中还有一个神秘的父元素。完全兼容的浏览器会忽略这个* html选择器，但IE4-6却会对它正常处理。
-</p>
+*类的简单说明
 
-<pre class="brush:css">
-    * html p {font-size: 5em; }
+*
+
+*类的详细说明(如果有的话)...
+
+*
+
+* @copyright Shuky
+
+* @version   Release: @package_version@
+
+* @since     Class available since Release 1.2.0
+
+* @deprecated Class deprecated in Release 2.0.0
+
+* @date             2009-3-6
+
+*/
+
 </pre>
-<p>
-PS：这个HACK使用了完全有效的CSS。
-</p>
-
-<h2 id="toc_0.5">5、星号加号（*+）</h2>
-
-<p>
-适用浏览器：IE7
-</p>
-
-<pre class="brush:css">
-    *:first-child+html p { font-size: 5em; }
-</pre>
-<p>
-或者：
-</p>
-
-<pre class="brush:css">
-    *+html p { font-size: 5em; }
-</pre>
-<p>
-PS：只在IE7标准模型里工作正常，在怪异模式下不能用。同时，也被IE8的兼容模式（相当于IE7的标准模式）所支持。它也使用了有效的CSS。
-</p>
-
-<h2 id="toc_0.6">6、子选择器（&gt;）</h2>
-
-<p>
-适用浏览器： IE6以上版本及非IE浏览器
-</p>
-
-<p>
-IE6和早期的版本不支持“子选择器”(&gt;)，我们可以利用这个为其它浏览器指定特别的规则。
-</p>
-
-<pre class="brush:css">
-    html &gt; body p { color: blue; }
-</pre>
-<h2 id="toc_0.7">7、子选择器加注释（&gt;/**/）</h2>
-
-<p>
-适用浏览器： IE7以上版本及非IE浏览器
-</p>
-
-<p>
-虽然IE7支持对子选择器，但通过以下hack方法也可以把IE7也排除。当一个空的注释紧跟在子选择器的后面重复的时候，IE7会不识别后面的规则，就和较早版本的浏览器一样。
-</p>
-
-<pre class="brush:css">
-    html &gt;/**/ body p { color: blue; }
-</pre>
-<hr />
-<blockquote>
-我的个人博客：<a href="http://www.wuyuelan.com">http://www.wuyuelan.com</a>
-</blockquote>
 
 
 <!--// commentwrap Start-->

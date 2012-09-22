@@ -25,7 +25,7 @@
 <script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushPhp.js"></script>
 <script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushPython.js"></script>
 <script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushXml.js"></script>
-<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushPlain.js"></script>
+<script type="text/javascript" src="../syntaxhighlighter/scripts/shBrushSql.js"></script>
 
 <script type="text/javascript" src="../js/jquery.js"></script>
 
@@ -131,6 +131,81 @@
 
 <h1 ><a  href="">Cygwin</a> Page</h1>
 
+<hr />
+
+<h2 id="toc_0.1">cygwin中的crontab 不执行问题</h2>
+
+<p>
+执行检查有无开启
+</p>
+
+<p>
+<code>ps -as | grep cron</code>
+</p>
+
+<p>
+把C:\cygwin\usr\sbin\cron.exe   添加到自启动
+</p>
+
+<p>
+在注册表中添加。
+在开始——运行中输入regedit，展开HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run。在右边框中新建一个字符串的键，把名字命令为你可添加程序的名字（可以随便取），把它的键值设置这个程序的完整路径。如"C:\cygwin\usr\sbin\cron.exe"
+</p>
+
+
+
+
+
+
+
+
+
+
+<hr />
+<h2 id="toc_0.2">基础安装软件</h2>
+<pre>
+Archive
+unzip (5.52-2)
+zip (2.32-2)
+
+Devel
+autoconf (4-1 2.13-3 2.61-1)
+automake (2-1 1.10-1 1.4p6-4 1.5-2 1.63-3 1.7.9-3 1.8.5-3 1.9.6-2)
+binutils (20080624)
+cvs (1.11.22-1)
+gcc (3.4.4-3)
+gcc-core (3.4.4-3)
+gcc-g++ (3.4.4-3)
+gcc-mingw (20040810-1)
+gcc-mingw-core (20050522-1)
+gcc-mingw-g++ (20050522-1)
+gdb (6.8-2)
+gettext (0.15-1)
+gettext-devel (0.15-1)
+git (1.6.0.2-1)
+libiconv (1.11-1)
+libgcrypt-devel (1.41-4)
+libtool (1.5.27a-1)
+make (3.81-2)
+mingw-runtime (3.15.1-1)
+nasm (2.02-1)
+patchutils (0.2.31-2)
+pkg-config (0.23a-2)
+subversion (1.5.2-1)
+svn
+
+Editor
+vim (7.2-3)
+
+Libs
+expat (2.0.1-1)
+libgcrypt (1.4.1-4)
+ncurses  
+
+Web
+curl (optional: for building extras/contrib) (7.16.3-1)
+wget (optional: for building extras/contrib) (1.11.3-1)
+</pre>
 
 
 <!--// commentwrap Start-->
