@@ -131,9 +131,6 @@
 
 <h1 ><a  href="">git_help_doc</a> Page</h1>
 
-<p>
-初始化所在目录的仓库
-</p>
 
 <p>
 Git 全局配置文件
@@ -158,8 +155,15 @@ git config --global merge.tool vimdiff
 <p>
 查看远程仓库
 <code>git remote -v</code>
-<hr />
 </p>
+
+<p>
+添加远程仓库地址
+<code>git remote add origin &lt;git_link&gt;</code>
+</p>
+
+
+<hr />
 <h2 id="toc_0.1">git add</h2>
 <p>
 Add file contents to the indexqa
@@ -172,10 +176,13 @@ USAGE:
 <li>
 <code>git add &lt;file_or_dir&gt;</code>
 
+<li>
+<code>git add .</code>
+
 </ul>
 
 <p>
- 批量批评添加
+批量批评添加
 </p>
 <ul>
 <li>
@@ -281,15 +288,67 @@ Checkout a branch or paths to the working tree
 Clone a repository into a new directory
 </p>
 
-<pre class="brush:shell">
-git clone https://github.com/youname/&lt;repo&gt;.git
-</pre>
+<p>
+<code>git clone https://github.com/youname/&lt;repo&gt;.git</code>
+</p>
+
+<p>
+克隆远程分支
+<code>git clone -b &lt;branchname&gt; &lt;git_link&gt;</code>
+</p>
+
 <hr />
 <h2 id="toc_0.6">git commit</h2>
 <p>
 Record changes to the repository
 </p>
 
+<p>
+参数说明 
+</p>
+<ul>
+<li>
+-m &lt;msg&gt;, --message=&lt;msg&gt; Use the given &lt;msg&gt; as the commit message 
+
+<li>
+--cleanup=&lt;mode&gt; This option sets how the commit message is cleaned up 
+
+<ul>
+<li>
+verbatim
+
+<li>
+whitespace
+
+<li>
+strip
+
+<li>
+default 
+
+</ul>
+<li>
+--amend Used to amend the tip of the current branch.
+
+<li>
+--status
+
+<li>
+--no-status 
+
+<li>
+-a, --all Tell the command to automatically stage files that have been modified and deleted.
+
+<li>
+-p, --patch Use the interactive patch selection interface to chose which changes to commit.
+
+<li>
+--allow-empty-message 
+
+<li>
+-F &lt;file&gt;, --file=&lt;file&gt;
+
+</ul>
 
 <hr />
 <h2 id="toc_0.7">git diff</h2>
@@ -297,6 +356,116 @@ Record changes to the repository
 Show changes between commits, commit and working tree, etc
 </p>
 
+<p>
+git diff可以比较working tree同index之间，index和git directory之间，working tree和git directory之间，git directory中不同commit之间的差异
+</p>
+<ul>
+<li>
+git diff [options] [&lt;commit&gt;] [--] [&lt;path&gt;...]
+
+<li>
+git diff [options] --cached [&lt;commit&gt;] [--] [&lt;path&gt;...]
+
+<li>
+git diff [options] &lt;commit&gt; &lt;commit&gt; [--] [&lt;path&gt;...]
+
+<li>
+git diff [options] [--no-index] [--] &lt;path&gt; &lt;path&gt;
+
+</ul>
+
+<p>
+参数说明
+</p>
+<ul>
+<li>
+-p, -u, --patch  Generate patch 
+
+<li>
+-U&lt;n&gt;, --unified=&lt;n&gt; Generate diffs with &lt;n&gt; lines of context instead of the usual three
+
+<li>
+--raw Generate the raw format
+
+<li>
+--minimal Spend extra time to make sure the smallest possible diff is produced
+
+<li>
+--patience Generate a diff using the "patience diff" algorithm
+
+<li>
+--numstat Similar to --stat, but shows number of added and deleted lines in decimal notation and pathname without abbreviation
+
+<li>
+--patch-with-stat Synonym for -p --stat 
+
+<li>
+--name-only Show only names of changed files
+
+<li>
+-a, --text Treat all files as text 
+
+</ul>
+
+<p>
+example 
+</p>
+<ul>
+<li>
+<code>git diff</code> 
+
+<li>
+<code>git diff --cached</code> 
+
+<li>
+<code>git diff HEAD</code> 
+
+<li>
+<code>git diff test</code> 
+
+<li>
+<code>git diff HEAD -- ./test</code> 
+
+<li>
+<code>git diff HEAD^ HEAD</code> 
+
+<li>
+<code>git diff topic master</code> Comparing branches 
+
+<li>
+<code>git diff --name-status</code>
+
+</ul>
+
+<p>
+Possible status letters
+</p>
+<ul>
+<li>
+A: addition of a file 
+
+<li>
+C: copy of a file into a new one 
+
+<li>
+D: deletion of a file 
+
+<li>
+M: modification of the contents or mode of a file 
+
+<li>
+R: renaming of a file 
+
+<li>
+T: change in the type of the file 
+
+<li>
+U: file is unmerged 
+
+<li>
+X: "unknown" change type 
+
+</ul>
 
 <hr />
 <h2 id="toc_0.8">git fetch</h2>
@@ -306,7 +475,7 @@ Download objects and refs from another repository
 
 <p>
 Update the remote-tracking branches
-<code>git fetch origin</code>
+<code>git fetch origin master</code>
 </p>
 
 
@@ -353,6 +522,10 @@ Print lines matching a pattern
 Create an empty git repository or reinitialize an existing one
 </p>
 
+<p>
+初始化所在目录的仓库
+<code>git init</code>
+</p>
 
 
 <hr />
@@ -360,6 +533,58 @@ Create an empty git repository or reinitialize an existing one
 <p>
 Show commit logs
 </p>
+
+<p>
+参数 
+</p>
+<ul>
+<li>
+-&lt;n&gt; Limits the number of commits to show 
+
+<li>
+--no-decorate, --decorate[=short|full|no]   显示log的形式short/full/no
+
+<li>
+--source  输出所在refs
+
+<li>
+--since=&lt;date&gt;, --after=&lt;date&gt;
+
+<li>
+--until=&lt;date&gt;, --before=&lt;date&gt;
+
+<li>
+--author=&lt;pattern&gt;, --committer=&lt;pattern&gt;
+
+<li>
+--grep=&lt;pattern&gt;
+
+<li>
+--all-match 至少--grep, --author and --committer instead of ones that match at least one
+
+<li>
+--merges Print only merge commits
+
+<li>
+--branches[=&lt;pattern&gt;]
+
+<li>
+--tags[=&lt;pattern&gt;]
+
+<li>
+--remotes[=&lt;pattern&gt;]
+
+<li>
+--merge After a failed merge, show refs that touch files having a conflict and don’t exist on all heads to merge 
+
+<li>
+--boundary Output uninteresting commits at the boundary, which are usually not shown
+
+<li>
+--oneline This is a shorthand for "--pretty=oneline --abbrev-commit" used together
+
+</ul>
+
 
 
 <hr />
@@ -392,11 +617,94 @@ Fetch from and merge with another repository or a local branch
 <code>git pull origin master</code>
 </p>
 
+<p>
+参数 
+</p>
+<ul>
+<li>
+--all Fetch all remotes 
+
+<li>
+-a, --append Append ref names and object names of fetched refs to the existing contents of .git/FETCH_HEAD.
+
+<li>
+-f, --force This option overrides that check
+
+<li>
+-k, --keep Keep downloaded pack 
+
+<li>
+--rebase 
+
+</ul>
+
 <hr />
 <h2 id="toc_0.15">git push</h2>
 <p>
 Update remote refs along with associated objects
 </p>
+
+<p>
+git push [--all | --mirror | --tags] [-n | --dry-run] [--receive-pack=&lt;git-receive-pack&gt;] [--repo=&lt;repository&gt;] [-f | --force] [-v | --verbose] [-u | --set-upstream] [&lt;repository&gt; [&lt;refspec&gt;...]]
+</p>
+
+<p>
+参数说明
+</p>
+<ul>
+<li>
+--all Instead of naming each ref to push, specifies that all refs under refs/heads/ be pushed
+
+<li>
+--mirror Instead of naming each ref to push 
+
+<li>
+-n, --dry-run Do everything except actually send the updates 
+
+<li>
+--porcelain Produce machine-readable output.
+
+<li>
+--delete All listed refs are deleted from the remote repository 
+
+<li>
+--tags  All refs under refs/tags are pushed, in addition to refspecs explicitly listed on the command line. 
+
+<li>
+-f, --force 
+
+<li>
+-u, --set-upstream 
+
+</ul>
+
+<p>
+example 
+</p>
+
+<ul>
+<li>
+git push origin master 
+
+<li>
+git push origin HEAD 
+
+<li>
+git push origin master:satellite/master dev:satellite/dev 
+
+<li>
+git push origin HEAD:master 
+
+<li>
+git push origin master:refs/heads/experimental 
+
+<li>
+git push origin :experimental
+
+<li>
+git push origin +dev:master 
+
+</ul>
 
 <p>
 推送到远程master
@@ -408,6 +716,54 @@ Update remote refs along with associated objects
 <p>
 Forward-port local commits to the updated upstream head
 </p>
+<ul>
+<li>
+git rebase [-i | --interactive] [options] [--onto &lt;newbase&gt;] [&lt;upstream&gt;] [&lt;branch&gt;]
+
+<li>
+git rebase [-i | --interactive] [options] --onto &lt;newbase&gt; --root [&lt;branch&gt;]
+
+<li>
+git rebase --continue | --skip| --abort
+
+</ul>
+
+<p>
+参数说明 
+</p>
+<ul>
+<li>
+&lt;branch&gt; Working branch; defaults to HEAD 
+
+<li>
+--continue Restart the rebasing process after having resolved a merge conflict 
+
+<li>
+--skip Restart the rebasing process by skipping the current patch 
+
+<li>
+-m, --merge Use merging strategies to rebase. 
+
+<li>
+--stat Show a diffstat of what changed upstream since the last rebase. 
+
+<li>
+-f, --force-rebase 
+
+<li>
+-i, --interactive Make a list of the commits which are about to be rebased. 
+
+<li>
+-p, --preserve-merges Instead of ignoring merges, try to recreate them 
+
+</ul>
+
+<p>
+ reorder the last 5 commits 
+<code>git rebase -i HEAD~5</code>
+</p>
+
+
 
 
 <hr />
@@ -417,9 +773,35 @@ Reset current HEAD to the specified state
 </p>
 
 <p>
-恢复单个文件历史版本
-<code>git reset &lt;commit-id&gt; &lt;filename&gt;</code>
+重置指定的commit
 </p>
+
+<p>
+恢复单个文件历史版本
+<code>git reset &lt;commit-id&gt; -- &lt;filename&gt;</code>
+</p>
+
+
+<p>
+参数
+</p>
+<ul>
+<li>
+--hard
+
+<li>
+--soft index和working directory中的内容不作任何改变
+
+<li>
+--mixed 仅reset index，但是不reset working directory 
+
+</ul>
+
+<p>
+回滚最近一次commit 
+<code>git reset --soft HEAD^</code>
+</p>
+
 
 
 <hr />
@@ -428,14 +810,15 @@ Reset current HEAD to the specified state
 Remove files from the working tree and from the index
 </p>
 
+<p>
+从当前的工作目录中和索引中删除文件
+<code>git rm &lt;filename&gt;</code>
+</p>
 <ul>
 <li>
-从当前的工作目录中和索引中删除文件
+<code>-r</code> 递归删除参数
 
 </ul>
-<p>
-递归删除参数 <code>-r</code>
-</p>
 
 
 <p>
@@ -488,9 +871,68 @@ Show the working tree status
 <p>
 Create, list, delete or verify a tag object signed with GPG
 </p>
+<ul>
+<li>
+git tag [-a | -s | -u &lt;key-id&gt;] [-f] [-m &lt;msg&gt; | -F &lt;file&gt;] &lt;tagname&gt; [&lt;commit&gt; | &lt;object&gt;]
+
+<li>
+git tag -d &lt;tagname&gt;...
+
+<li>
+git tag [-n[&lt;num&gt;]] -l [--contains &lt;commit&gt;] [&lt;pattern&gt;...]
+
+<li>
+git tag -v &lt;tagname&gt;...
+
+</ul>
+
+<p>
+参数 
+</p>
+<ul>
+<li>
+-a, --annotate  Make an unsigned, annotated tag object 
+
+<li>
+-s, --sign Make a GPG-signed tag, using the default e-mail address’s key 
+
+<li>
+-u &lt;key-id&gt;, --local-user=&lt;key-id&gt; 
+
+<li>
+-f, --force Replace an existing tag with the given name 
+
+<li>
+-d, --delete Delete existing tags with the given names.
+
+<li>
+-v, --verify Verify the gpg signature of the given tag names 
+
+<li>
+-n&lt;num&gt; 
+
+<li>
+-l &lt;pattern&gt;, --list &lt;pattern&gt; List tags with names that match the given pattern 
+
+<li>
+-m &lt;msg&gt;, --message=&lt;msg&gt;  Use the given tag message
+
+<li>
+-F &lt;file&gt;, --file=&lt;file&gt; 
+
+<li>
+--cleanup=&lt;mode&gt;  This option sets how the tag message is cleaned up The &lt;mode&gt; can be one of verbatim/whitespace/strip.
+
+</ul>
+
 
 <hr />
 <h2 id="toc_0.22">git revert</h2>
+
+<p>
+回滚之前的commit 
+</p>
+
 <p>
 <code>git revert [--edit | --no-edit] [-n] [-m parent-number] [-s] &lt;commit&gt;</code>
 </p>
