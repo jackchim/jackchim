@@ -147,33 +147,36 @@ git config --global merge.tool vimdiff
 
 <p>
 列出配置列表
-git config  --list
+<code>git config  --list</code>
 </p>
 
 <p>
 配置文件
 ~/.gitconfig
+</p>
+
+<p>
+查看远程仓库
+<code>git remote -v</code>
 <hr />
 </p>
 <h2 id="toc_0.1">git add</h2>
 <p>
 Add file contents to the indexqa
 </p>
-<ul>
-<li>
-use:
 
+<p>
+USAGE:
+</p>
 <ul>
 <li>
 <code>git add &lt;file_or_dir&gt;</code>
 
 </ul>
-</ul>
 
-<ul>
-<li>
-批量批评添加
-
+<p>
+ 批量批评添加
+</p>
 <ul>
 <li>
 <code>git add Documentation/\*.txt</code>
@@ -181,48 +184,6 @@ use:
 <li>
 <code>git add git-*.sh</code>
 
-</ul>
-</ul>
-
-<ul>
-<li>
-Options
-
-<ul>
-<li>
--n, --dry-run Don't actually add the file(s), just show if they exist.
-
-<li>
--v, --verbose Be verbose.
-
-<li>
--f, --force Allow adding otherwise ignored files.
-
-<li>
--i, --interactive Add modified contents in the working tree interactively to the index. Optional path arguments may be supplied to limit operation to a subset of the working tree. See "Interactive mode" for details.
-
-<li>
--p, --patch Interactively choose hunks of patch between the index and the work tree and add them to the index. This gives the user a chance to review the difference before adding modified contents to the index.  This effectively runs add --interactive, but bypasses the initial command menu and directly jumps to the patch subcommand. See "Interactive mode" for details.
-
-<li>
--e, --edit Open the diff vs. the index in an editor and let the user edit it. After the editor was closed, adjust the hunk headers and apply the patch to the index.
-
-<li>
--u, --update Only match &lt;filepattern&gt; against already tracked files in the index rather than the working tree. That means that it will never stage new files, but that it will stage modified new contents of tracked files and that it will remove files from the index if the corresponding files in the working tree have been removed. If no &lt;filepattern&gt; is given, default to "."; in other words, update all tracked files in the current directory and its subdirectories.
-
-<li>
--A, --all  Like -u, but match &lt;filepattern&gt; against files in the working tree in addition to the index. That means that it will find new files as well as staging modified content and removing files that are no longer in the working tree.
-
-<li>
--N, --intent-to-add Record only the fact that the path will be added later. An entry for the path is placed in the index with no content. This is useful for, among other things, showing the unstaged content of such files with git diff and committing them with git commit -a.
-
-<li>
- --refresh Don't add the file(s), but only refresh their stat() information in the index.
-
-<li>
---ignore-errors If some files could not be added because of errors indexing them, do not abort the operation, but continue adding the others. The command shall still exit with non-zero status.
-
-</ul>
 </ul>
 
 <hr />
@@ -244,6 +205,16 @@ List, create, or delete branches
 </p>
 
 <p>
+查看远程分支
+<code>git branch -r</code>
+</p>
+
+<p>
+查看本地分支
+<code>git branch</code>
+</p>
+
+<p>
 删除分支
 <code>git branch -D &lt;branchname&gt;</code>
 </p>
@@ -257,8 +228,28 @@ List, create, or delete branches
 </ul>
 
 <p>
-合并指定分支到当前分支
-<code>git merge &lt;branch-name&gt;</code>
+删除远程branchname分支
+<code>git branch -d -r &lt;branchname&gt;</code>
+</p>
+
+<p>
+重命名分支
+<code>git branch -m &lt;oldbranch&gt; &lt;newbranch&gt;</code>
+</p>
+<ul>
+<li>
+-M  强制重命名
+
+</ul>
+
+<p>
+查看已合并的分支
+<code>git branch --merge</code>
+</p>
+
+<p>
+查看未合并的分支
+<code>git branch --no-merged</code>
 </p>
 
 
@@ -269,8 +260,13 @@ Checkout a branch or paths to the working tree
 </p>
 
 <p>
+切换到分支
+<code>git checkout &lt;branchname&gt;</code>
+</p>
+
+<p>
 切换到新建的分支
-<code>git checkout -b new_branch_name</code>
+<code>git checkout -b &lt;new_branch_name&gt;</code>
 </p>
 
 <p>
@@ -308,6 +304,41 @@ Show changes between commits, commit and working tree, etc
 Download objects and refs from another repository
 </p>
 
+<p>
+Update the remote-tracking branches
+<code>git fetch origin</code>
+</p>
+
+
+<p>
+参数
+</p>
+<ul>
+<li>
+--all  Fetch all remotes.
+
+<li>
+--dry-run 演示过程，不做任何修改。
+
+<li>
+-f, --force 强制 
+
+<li>
+-k, --keep  Keep downloaded pack
+
+<li>
+-p, --prune After fetching, remove any remote-tracking branches which no longer exist on the remote.
+
+<li>
+-t, --tags
+
+<li>
+-v, --verbose
+
+<li>
+--progress
+
+</ul>
 
 <hr />
 <h2 id="toc_0.9">git grep</h2>
@@ -336,6 +367,11 @@ Show commit logs
 Join two or more development histories together
 </p>
 
+<p>
+合并指定分支到当前分支
+<code>git merge &lt;branch-name&gt;</code>
+</p>
+
 
 <hr />
 <h2 id="toc_0.13">git mv</h2>
@@ -350,6 +386,10 @@ Move or rename a file, a directory, or a symlink
 Fetch from and merge with another repository or a local branch
 </p>
 
+<p>
+从远程master 拉取到本地
+<code>git pull origin master</code>
+</p>
 
 <hr />
 <h2 id="toc_0.15">git push</h2>
@@ -358,6 +398,7 @@ Update remote refs along with associated objects
 </p>
 
 <p>
+推送到远程master
 <code>git push orign master</code>
 </p>
 
@@ -372,6 +413,11 @@ Forward-port local commits to the updated upstream head
 <h2 id="toc_0.17">git reset</h2>
 <p>
 Reset current HEAD to the specified state
+</p>
+
+<p>
+恢复单个文件历史版本
+<code>git reset &lt;commit-id&gt; &lt;filename&gt;</code>
 </p>
 
 
@@ -390,16 +436,20 @@ Remove files from the working tree and from the index
 递归删除参数 <code>-r</code>
 </p>
 
+
 <p>
-<code>git rm –r *</code> （进入某个目录中，执行此语句，会删除该目录下的所有文件和子目录） 
+进入某个目录中，执行此语句，会删除该目录下的所有文件和子目录
+<code>git rm –r *</code> 
 </p>
 
 <p>
-<code>git rm f1</code>    (删除文件f1，包含本地目录和index中的此文件记录) 
+删除文件f1，包含本地目录和index中的此文件记录
+<code>git rm f1</code>  
 </p>
 
 <p>
-<code>git rm --cached f1</code> (删除文件f1，不会删除本地目录文件，只删除index中的文件记录；将已经git add的文件remove到cache中,这样commit的时候不会提交这个文件, 适用于一下子添加了很多文件, 却又想排除其中个别几个文件的情况.) 
+<code>git rm --cached f1</code> 
+删除文件f1，不会删除本地目录文件，只删除index中的文件记录；将已经git add的文件remove到cache中,这样commit的时候不会提交这个文件, 适用于一下子添加了很多文件, 却又想排除其中个别几个文件的情况.
 </p>
 
 <hr />
