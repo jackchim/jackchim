@@ -247,6 +247,19 @@ List, create, or delete branches
 删除分支
 <code>git branch -D &lt;branchname&gt;</code>
 </p>
+<ul>
+<li>
+-d：要求：被删除分支的所有修改，已经合并到当前分支；
+
+<li>
+-D：直接删除，未合并的代码，将被丢弃！
+
+</ul>
+
+<p>
+合并指定分支到当前分支
+<code>git merge &lt;branch-name&gt;</code>
+</p>
 
 
 <hr />
@@ -395,16 +408,50 @@ Remove files from the working tree and from the index
 Show various types of objects
 </p>
 
+<p>
+显示最后一次 commit 修改的内容
+<code>git show</code>
+</p>
+
+<p>
+显示指定 commit 修改的内容
+<code>git show &lt;commit-id&gt;</code>
+</p>
+
+
 <hr />
 <h2 id="toc_0.20">git status</h2>
 <p>
 Show the working tree status
 </p>
 
+<p>
+显示当前工作树下的状态
+<code>git status</code>
+</p>
+
+
+
 <hr />
 <h2 id="toc_0.21">git tag</h2>
 <p>
 Create, list, delete or verify a tag object signed with GPG
+</p>
+
+<hr />
+<h2 id="toc_0.22">git revert</h2>
+<p>
+<code>git revert [--edit | --no-edit] [-n] [-m parent-number] [-s] &lt;commit&gt;</code>
+</p>
+
+<p>
+还原最近一次提交的修改
+<code>git revert HEAD</code>
+</p>
+
+<p>
+还原指定版本的修改
+<code>git revert &lt;commit-id&gt;</code>
 </p>
 
 
