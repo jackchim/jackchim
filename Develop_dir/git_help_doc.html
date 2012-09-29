@@ -162,6 +162,11 @@ git config --global merge.tool vimdiff
 <code>git remote add origin &lt;git_link&gt;</code>
 </p>
 
+<p>
+删除远程仓库
+<code>git remote rm origin</code>
+</p>
+
 
 <hr />
 <h2 id="toc_0.1">git add</h2>
@@ -491,6 +496,9 @@ example
 <li>
 <code>git diff --name-status</code>
 
+<li>
+<code>git diff --stat master erlang</code>
+
 </ul>
 
 <p>
@@ -641,7 +649,27 @@ Show commit logs
 
 </ul>
 
+<p>
+example 
+</p>
+<ul>
+<li>
+<code>git log --oneline --graph</code>
 
+<li>
+<code>git log --author=Linus --oneline -5</code>
+
+<li>
+<code>git log --oneline --before={3.weeks.ago} --after={2010-04-18} --no-merges</code>
+
+<li>
+<code>git log --grep=P4EDITOR --no-merges</code>
+
+<li>
+<code>git log -p --no-merges -2</code>
+    *
+
+</ul>
 
 <hr />
 <h2 id="toc_0.12">git merge</h2>
@@ -665,11 +693,11 @@ Move or rename a file, a directory, or a symlink
 <hr />
 <h2 id="toc_0.14">git pull</h2>
 <p>
-Fetch from and merge with another repository or a local branch
+fetch from a remote repo and try to merge into the current branch 
 </p>
 
 <p>
-从远程master 拉取到本地
+从远程master 拉取到本地 <sup><small>危险</small></sup>
 <code>git pull origin master</code>
 </p>
 
