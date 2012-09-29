@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim Develop 开发笔记_高级_工程师_Blog_Wiki</title>
+<title>Jack_Chim git_sever 开发笔记_高级_工程师_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
@@ -129,115 +129,82 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">Develop</a> Page</h1>
+<h1 ><a  href="">git_sever</a> Page</h1>
 
-<p>
-构建/发布(Build) :   <a href="Maven.html">Maven</a> |   <a href="http://ant.apache.org/">Ant</a>
-</p>
-
-<h2 id="toc_0.1">版本管理系统</h2>
-<ol>
-<li>
-Git  
 
 <ul>
 <li>
-<a href="Git.html">Git</a> | <a href="git_help_doc.html">Git help 笔记</a> | <a href="git_help.html">Git 首次使用 </a> | <a href="github_pages.html">Github pages 页面的的设置</a>
+<a href="http://gitlabhq.com/ ">gitlabhq</a> <a href="https://github.com/gitlabhq/gitlabhq ">@github</a>
 
 <li>
-<a href="git_sever.html">git server 端的搭建</a>
+<a href="https://github.com/sitaramc/gitolite ">gitolite</a>
 
 </ul>
-<li>
- <a href="SVN.html">Subversion(SVN)</a> |   <a href="Mercurial.html">Mercurial(Hg)</a> | 
 
-</ol>
+
+<h2 id="toc_0.1">Gitolite 服务架设</h2>
 
 <p>
-svn 过渡到 git
+使用 git 下载 Gitolite 的源代码
+<code>git clone git://github.com/ossxp-com/gitolite.git</code>
 </p>
+
+<p>
+tolite/src 目录，执行安装
+</p>
+<pre class="brush:shell">
+cd gitolite/src 
+./gl-easy-install git server admin
+</pre>
+
+<p>
+命令 gl-easy-install 的第一个参数 git 是服务器上创建的专用帐号ID，第二个参数 server 是服务器IP或者域名，第三个参数 admin 是管理员ID 
+</p>
+
+<p>
+编辑 .gitolite.rc 文件
+</p>
+
+<hr />
+<h2 id="toc_0.2">管理 Gitolite</h2>
+
+<p>
+当 gitolite 安装完成后，在服务器端自动创建了一个用于 gitolite 自身管理的 git 库: gitolite-admin.git当 gitolite 安装完成后，在服务器端自动创建了一个用于 gitolite 自身管理的 git 库: gitolite-admin.git
+</p>
+
+<p>
+克隆 gitolite-admin.git 库 
+</p>
+
+<p>
+gitolite-admin 目录下有两个目录 conf/ 和 keydir/
+</p>
+
 <ul>
 <li>
-<a href="http://subgit.com ">subgit</a>
+keydir/admin.pub 文件
+
+<li>
+conf/gitolite.conf 文件 
 
 </ul>
 
 <hr />
-<h4 id="toc_0.1.0.1">代码托管服务</h4>
-<ol>
-<li>
-<a href="https://code.launchpad.net/ ">Launchpad Branches</a>
+<h2 id="toc_0.3">增加新用户</h2>
 
-<li>
-<a href="https://github.com/ ">Github</a>
-
-<li>
-<a href="http://sourceforge.net/ ">sourceforge</a>
-
-<li>
-<a href="https://bitbucket.org/ ">Bitbucket</a>
-
-<li>
-<a href="https://code.google.com/ ">Google code</a>
-
-<li>
-<a href="http://www.codeplex.com/ ">CodePlex</a>
-
-<li>
-<a href="https://launchpad.net/ ">Launchpad</a>
-
-<li>
-<a href="http://gitorious.org/ ">gitorious</a>
-
-</ol>
-<li>
- <a href="http://codereview.appspot.com/">Rietveld Code Review Tool</a>
-
-<ul>
-<li>
- <a href="http://code.google.com/p/rietveld/">@google.code</a>
-
-</ul>
-<li>
- <a href="http://j.mp/douban-javascript">豆瓣Javascript代码风格规范</a> |   <a href="http://j.mp/douban-css">豆瓣CSS开发规范</a>
-
-<li>
- <a href="http://code.msdn.microsoft.com/">MSDN 示例库</a>
-
-<li>
- <a href="http://lamp.linux.gov.cn/jinbuguo_florilegium.html">金步国作品列表</a>
-
-<li>
-<a href="http://mirrors.sohu.com/">Sohu.com Open Source Mirror Site</a>
-
-<li>
-<a href="hosts.html">hosts</a>
-
-<li>
-<a href="softwares.html">常用软件列表</a>
-
-<li>
-<a href="firefox_tools.html">常用网站开发类Firefox扩展插件</a>
 
 <hr />
-<h2 id="toc_0.2">画图</h2>
-<ol>
-<li>
-<a href="mind.html">思维导图</a> | 原型图
+<h2 id="toc_0.4">版本库授权案例</h2>
 
-<li>
-Google Sketchup | Asymptote GraphViz
 
-<li>
-Markup.io - 保存为书签，到任意一网页点击该书签，或地址栏执行其脚本，然后就可以使用右上角的工具在网页上画图了。
 
-<li>
-甘特图
 
-<li>
-Shutter 
+<hr />
+<h2 id="toc_0.5">资源参考</h2>
 
-</ol>
+<p>
+<a href="http://www.ossxp.com/doc/git/gitolite.html">http://www.ossxp.com/doc/git/gitolite.html</a>
+</p>
 
 
 <!--// commentwrap Start-->

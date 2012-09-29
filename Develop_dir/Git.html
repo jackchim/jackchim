@@ -216,8 +216,10 @@
 <li>
 <a href="git_ssh.html">git 密匙登录笔记</a>
 
-</ul>
+<li>
+<a href="http://gitref.org/index.html ">Git Reference</a>
 
+</ul>
 
 <hr />
 <h2 id="toc_0.1">Tips</h2>
@@ -483,28 +485,37 @@ git config --global core.editor gvimf.cmd
 参考 using gvim as editor on Windows
 (文本)图形化查看 log
 </p>
-<blockquote>
+
+<p>
 执行以下命令：
-</blockquote>
-<blockquote>
+</p>
+
+<p>
 &gt; git config --global alias.lg "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-</blockquote>
-<blockquote>
+</p>
+
+<p>
 或添加以下代码到 .gitconfig：
-</blockquote>
-<blockquote>
+</p>
+
+<p>
 [alias]
+</p>
+<blockquote>
 lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 </blockquote>
-<blockquote>
+
+<p>
 然后执行命令：
-</blockquote>
-<blockquote>
+</p>
+
+<p>
 &gt; git lg
-</blockquote>
-<blockquote>
+</p>
+
+<p>
 参考 pimping out git log 
-</blockquote>
+</p>
 
 
 <!--// commentwrap Start-->

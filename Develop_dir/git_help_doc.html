@@ -277,7 +277,63 @@ Checkout a branch or paths to the working tree
 </p>
 
 <p>
-切到指定版本
+参数说明
+</p>
+<ul>
+<li>
+--all Instead of naming each ref to push, specifies that all refs under refs/heads/ be pushed
+
+<li>
+--mirror Instead of naming each ref to push 
+
+<li>
+-n, --dry-run Do everything except actually send the updates 
+
+<li>
+--porcelain Produce machine-readable output.
+
+<li>
+--delete All listed refs are deleted from the remote repository 
+
+<li>
+--tags  All refs under refs/tags are pushed, in addition to refspecs explicitly listed on the command line. 
+
+<li>
+-f, --force 
+
+<li>
+-u, --set-upstream 
+
+</ul>
+
+<p>
+example 
+</p>
+
+<ul>
+<li>
+git push origin master 
+
+<li>
+git push origin HEAD 
+
+<li>
+git push origin master:satellite/master dev:satellite/dev 
+
+<li>
+git push origin HEAD:master 
+
+<li>
+git push origin master:refs/heads/experimental 
+
+<li>
+git push origin :experimental
+
+<li>
+git push origin +dev:master 切到指定版本
+
+</ul>
+<p>
 <code>git checkout -b test &lt;commit&gt; </code>
 </p>
 
@@ -412,10 +468,10 @@ example
 </p>
 <ul>
 <li>
-<code>git diff</code> 
+<code>git diff</code>  这个命令只在git add之前使用有效。如果已经add了，那么此命令输出为空
 
 <li>
-<code>git diff --cached</code> 
+<code>git diff --cached</code>  这个命令在git add之后在git commit之前有效
 
 <li>
 <code>git diff HEAD</code> 
@@ -852,6 +908,23 @@ Show various types of objects
 <code>git show &lt;commit-id&gt;</code>
 </p>
 
+<p>
+显示分支信息
+<code>git show master</code>
+</p>
+
+<p>
+使用HEAD字段可以代表当前分支的头（也就是最近一次commit)
+<code>git show HEAD</code>
+</p>
+
+<p>
+查看HEAD上溯4代的信息
+<code>git show HEAD~4</code>
+</p>
+
+
+
 
 <hr />
 <h2 id="toc_0.20">git status</h2>
@@ -860,12 +933,284 @@ Show the working tree status
 </p>
 
 <p>
-显示当前工作树下的状态
+显示当前工作树下的状态 这个命令在git commit之前有效，表示都有哪些文件发生了改动
 <code>git status</code>
 </p>
 
+<p>
+参数说明
+</p>
+<ul>
+<li>
+-s 简单状态 Give the output in the short-format 
 
+<li>
+-b, --branch Show the branch and tracking info even in short-format 
 
+<li>
+--porcelain Give the output in an easy-to-parse format for scripts.
+
+<li>
+-u[&lt;mode&gt;] Show untracked files 
+
+<ul>
+<li>
+no - Show no untracked files 
+
+<li>
+normal - Shows untracked files and directories 
+
+<li>
+all - Also shows individual files in untracked directories.
+
+</ul>
+<li>
+--ignored Show ignored files as well 
+
+<li>
+-z Terminate entries with NUL, instead of LF. This implies the --porcelain output format if no other format is given. 
+
+</ul>
+
+<p>
+short-format 格式说明
+</p>
+
+<table>
+<tr>
+<th>
+X
+</th>
+<th>
+Y
+</th>
+<th>
+Meaning
+</th>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+[MD]
+</td>
+<td>
+not updated
+</td>
+</tr>
+<tr>
+<td>
+A
+</td>
+<td>
+[ MD]
+</td>
+<td>
+added to index
+</td>
+</tr>
+<tr>
+<td>
+M
+</td>
+<td>
+[ MD]
+</td>
+<td>
+updated in index
+</td>
+</tr>
+<tr>
+<td>
+D
+</td>
+<td>
+[ M]
+</td>
+<td>
+deleted from index
+</td>
+</tr>
+<tr>
+<td>
+R
+</td>
+<td>
+[ MD]
+</td>
+<td>
+renamed in index
+</td>
+</tr>
+<tr>
+<td>
+C
+</td>
+<td>
+[ MD]
+</td>
+<td>
+copied in index
+</td>
+</tr>
+<tr>
+<td>
+[MARC]
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+index and work tree matches
+</td>
+</tr>
+<tr>
+<td>
+[ MARC]
+</td>
+<td>
+M
+</td>
+<td>
+work tree changed since index
+</td>
+</tr>
+<tr>
+<td>
+[ MARC]
+</td>
+<td>
+D
+</td>
+<td>
+deleted in work tree
+</td>
+</tr>
+<tr>
+<td>
+D
+</td>
+<td>
+D
+</td>
+<td>
+unmerged, both deleted
+</td>
+</tr>
+<tr>
+<td>
+A
+</td>
+<td>
+U
+</td>
+<td>
+unmerged, added by us
+</td>
+</tr>
+<tr>
+<td>
+U
+</td>
+<td>
+D
+</td>
+<td>
+unmerged, deleted by them
+</td>
+</tr>
+<tr>
+<td>
+U
+</td>
+<td>
+A
+</td>
+<td>
+unmerged, added by them
+</td>
+</tr>
+<tr>
+<td>
+D
+</td>
+<td>
+U
+</td>
+<td>
+unmerged, deleted by us
+</td>
+</tr>
+<tr>
+<td>
+A
+</td>
+<td>
+A
+</td>
+<td>
+unmerged, both added
+</td>
+</tr>
+<tr>
+<td>
+U
+</td>
+<td>
+U
+</td>
+<td>
+unmerged, both modified
+</td>
+</tr>
+<tr>
+<td>
+?
+</td>
+<td>
+?
+</td>
+<td>
+untracked
+</td>
+</tr>
+<tr>
+<td>
+!
+</td>
+<td>
+!
+</td>
+<td>
+ignored
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+</table>
+
+ 
 <hr />
 <h2 id="toc_0.21">git tag</h2>
 <p>
