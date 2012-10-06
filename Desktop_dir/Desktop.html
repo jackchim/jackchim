@@ -606,6 +606,18 @@ cuteFTP |
 </ol>
 
 <hr />
+<p>
+<strong>激活administrator用户</strong>
+</p>
+
+<p>
+命令行下使用<code>net user administrator /active:yes</code>
+</p>
+
+<p>
+注销系统后为 administrator 
+<hr />
+</p>
 <h2 id="toc_0.1">笔记本WIFI_hotspot</h2>
 
 <p>
@@ -631,6 +643,40 @@ netsh wlan stop hostednetwork
 :exit
 
 </pre>
+
+<hr />
+<h2 id="toc_0.2">dus tunnel</h2>
+
+<p>
+需要用到的软件  <a href="http://code.kryo.se/iodine/ ">iodine</a>
+</p>
+
+<hr />
+<h2 id="toc_0.3">SCP</h2>
+
+<p>
+<strong>复制文件</strong>
+</p>
+<ul>
+<li>
+将本地文件拷贝到 远程 <code>scp &lt;file&gt; root@192.168.124.100:/&lt;remote_dir&gt;</code>
+
+<li>
+从远程将文件拷回本地  <code>scp root@192.168.124.100:/root/&lt;file&gt; &lt;local_dir&gt;</code>
+
+</ul>
+
+<p>
+<strong>复制目录</strong>
+</p>
+<ul>
+<li>
+将本地目录拷贝到远程 <code>scp -r &lt;dir&gt; root@192.168.124.100:/&lt;remote_dir&gt;</code>
+
+<li>
+从远程将目录拷回 本地 <code>scp -r root@192.168.124.100:/&lt;local_dir&gt; &lt;dir&gt;</code>
+
+</ul>
 
 
 <!--// commentwrap Start-->

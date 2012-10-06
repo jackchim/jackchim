@@ -132,6 +132,109 @@
 <h1 ><a  href="">centos</a> Page</h1>
 
 
+<hr />
+<h2 id="toc_0.1">更新源</h2>
+
+<p>
+/etc/yum.repos.d/CentOS-Base.repo 
+</p>
+
+<p>
+版本
+</p>
+<ul>
+<li>
+<a href="http://mirrors.163.com/.help/CentOS5-Base-163.repo">http://mirrors.163.com/.help/CentOS5-Base-163.repo</a>
+
+<li>
+<a href="http://mirrors.163.com/.help/CentOS6-Base-163.repo">http://mirrors.163.com/.help/CentOS6-Base-163.repo</a>
+
+<li>
+sohu的开源镜像地址 <a href="http://mirrors.sohu.com/help/CentOS-Base-sohu.repo">http://mirrors.sohu.com/help/CentOS-Base-sohu.repo</a>
+
+<li>
+中国科技大学 <a href="http://centos.ustc.edu.cn/CentOS-Base.repo">http://centos.ustc.edu.cn/CentOS-Base.repo</a>
+
+</ul>
+
+<p>
+163源
+</p>
+
+<pre>
+[base]
+name=CentOS-$releasever - Base
+baseurl=http://mirrors.163.com/centos/6.0/os/$basearch/
+gpgcheck=1
+gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-6
+
+#released updates
+[updates]
+name=CentOS-$releasever - Updates
+baseurl=http://mirrors.163.com/centos/6.0/updates/$basearch/
+gpgcheck=1
+gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-6
+
+#packages used/produced in the build but not released
+#[addons]
+#name=CentOS-$releasever - Addons
+#baseurl=http://mirrors.163.com/centos/$releasever/addons/$basearch/
+#gpgcheck=1
+#gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-6
+#additional packages that may be useful
+[extras]
+name=CentOS-$releasever - Extras
+baseurl=http://mirrors.163.com/centos/6.0/extras/$basearch/
+gpgcheck=1
+gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-6
+#additional packages that extend functionality of existing packages
+[centosplus]
+name=CentOS-$releasever - Plus
+baseurl=http://mirrors.163.com/centos/6.0/centosplus/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=http://mirrors.163.com/centos/RPM-GPG-KEY-CentOS-6 
+</pre>
+
+
+<p>
+教育网 
+</p>
+<pre>
+[base]
+name=CentOS-$releasever - Base
+baseurl=http://mirrors.ustc.edu.cn/centos/6.0/os/$basearch/
+gpgcheck=1
+gpgkey=http://mirrors.ustc.edu.cn/centos/RPM-GPG-KEY-CentOS-6
+
+#released updates
+[updates]
+name=CentOS-$releasever - Updates
+baseurl=http://mirrors.ustc.edu.cn/centos/6.0/updates/$basearch/
+gpgcheck=1
+gpgkey=http://mirrors.ustc.edu.cn/centos/RPM-GPG-KEY-CentOS-6
+
+#packages used/produced in the build but not released
+#[addons]
+#name=CentOS-$releasever - Addons
+#baseurl=http://mirrors.ustc.edu.cn/centos/$releasever/addons/$basearch/
+#gpgcheck=1
+#gpgkey=http://mirrors.ustc.edu.cn/centos/RPM-GPG-KEY-CentOS-6
+#additional packages that may be useful
+[extras]
+name=CentOS-$releasever - Extras
+baseurl=http://mirrors.ustc.edu.cn/centos/6.0/extras/$basearch/
+gpgcheck=1
+gpgkey=http://mirrors.ustc.edu.cn/centos/RPM-GPG-KEY-CentOS-6
+#additional packages that extend functionality of existing packages
+[centosplus]
+name=CentOS-$releasever - Plus
+baseurl=http://mirrors.ustc.edu.cn/centos/6.0/centosplus/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=http://mirrors.ustc.edu.cn/centos/RPM-GPG-KEY-CentOS-6
+</pre>
+
 
 <!--// commentwrap Start-->
 <!-- 加载duoshuo.com 评论插件 -->

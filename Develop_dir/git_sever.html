@@ -145,14 +145,36 @@
 <h2 id="toc_0.1">Gitolite 服务架设</h2>
 
 <p>
-使用 git 下载 Gitolite 的源代码
-<code>git clone git://github.com/ossxp-com/gitolite.git</code>
+1.<strong>添加git用户</strong>
 </p>
+<pre>
+sudo adduser --system --shell /bin/bash --group git
+</pre>
+
+<p>
+将新建的 git 用户添加到 ssh 用户组中
+</p>
+
+<pre>
+sudo adduser git ssh 
+</pre>
+
+
+<p>
+2.<strong>Gitolite 的安装</strong>
+</p>
+
+<p>
+使用 git 下载 Gitolite 的源代码
+</p>
+<pre>
+git clone git://github.com/ossxp-com/gitolite.git 
+</pre>
 
 <p>
 tolite/src 目录，执行安装
 </p>
-<pre class="brush:shell">
+<pre>
 cd gitolite/src 
 ./gl-easy-install git server admin
 </pre>

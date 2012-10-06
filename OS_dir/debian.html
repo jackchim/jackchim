@@ -131,6 +131,34 @@
 
 <h1 ><a  href="">debian</a> Page</h1>
 
+<h2 id="toc_0.1">国内更新源</h2>
+<p>
+/etc/apt/sources.list
+</p>
+
+<p>
+版本
+</p>
+<ul>
+<li>
+<a href="http://mirrors.163.com/.help/sources.list.squeeze">http://mirrors.163.com/.help/sources.list.squeeze</a>
+
+<li>
+<a href="http://mirrors.163.com/.help/sources.list.wheezy">http://mirrors.163.com/.help/sources.list.wheezy</a>
+<pre>
+deb http://mirrors.163.com/debian squeeze main non-free contrib  
+deb http://mirrors.163.com/debian squeeze-proposed-updates main contribnon-free  
+deb http://mirrors.163.com/debian-security squeeze/updates main contrib non-free  
+
+deb-src http://mirrors.163.com/debian squeeze main non-free contrib    
+deb-src http://mirrors.163.com/debian squeeze-proposed-updates main contrib nonfree    
+deb-src http://mirrors.163.com/debian-security squeeze/updates main contrib non-free  
+
+deb http://security.debian.org/ squeeze/updates main contrib  
+deb-src http://security.debian.org/ squeeze/updates main contrib
+</pre>
+
+</ul>
 
 
 <!--// commentwrap Start-->
