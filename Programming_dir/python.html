@@ -242,6 +242,17 @@
 
 </ul>
 
+<p>
+python 获取html文本代码
+</p>
+<pre class="brush:python">
+def getHtml(url):
+    page = urllib.urlopen(url)
+    html = page.read()
+    page.close()
+    return html
+</pre>
+
 
 <!--// commentwrap Start-->
 <!-- 加载duoshuo.com 评论插件 -->

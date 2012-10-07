@@ -210,6 +210,16 @@ limit_conn perserver 100;
 </pre>
 
 
+<hr />
+<h2 id="toc_0.5">Nginx 禁止部分 User-Agrent 访问</h2>
+
+<pre>
+if ($http_user_agent ~* "qihoobot") {
+return 403;
+}
+</pre>
+
+
 <!--// commentwrap Start-->
 <!-- 加载duoshuo.com 评论插件 -->
 <div id="commentwrap">
