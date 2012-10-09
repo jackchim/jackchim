@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim OS 开发笔记_高级_工程师_Blog_Wiki</title>
+<title>Jack_Chim freebsd 开发笔记_高级_工程师_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
@@ -129,89 +129,204 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">OS</a> Page</h1>
+<h1 ><a  href="">freebsd</a> Page</h1>
+
+<ul>
+<li>
+<a href="http://www.freebsd.org/">http://www.freebsd.org/</a>
+
+<li>
+<a href="http://www.freebsd.org/doc/zh_CN/books/handbook/ ">FreeBSD 使用手册</a>
+
+<li>
+<a href="https://www.freebsdchina.org/ ">FreeBSD China</a>
+
+<li>
+<a href="http://freebsd.chinaunix.net/">http://freebsd.chinaunix.net/</a>
+
+<li>
+<a href="http://mirrors.163.com/.help/freebsd.html ">FreeBSD镜像使用帮助</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.1">修改bash 链接</h2>
 
 <p>
-操作系统(Operating System)
+<code>ln -sv /usr/local/bin/bash /bin/bash</code>
+</p>
+
+
+
+<hr />
+<h2 id="toc_0.2">更新prots</h2>
+
+<p>
+<code>portsnap fetch update</code>  以后更新时使用
+</p>
+
+<p>
+修改/etc/portsnap.conf可以修改ports更新服务
+</p>
+
+<hr />
+<h2 id="toc_0.3">修改镜像源</h2>
+
+<p>
+编辑/etc/freebsd-update.conf文件, 修改ServerName字段
+</p>
+<pre>
+ServerName freebsd-updates.mirrors.163.com 
+</pre>
+
+
+<p>
+然后执行以下命令进行更新
+</p>
+
+<p>
+<code>freebsd-update fetch</code>
+</p>
+
+<p>
+<code>freebsd-update install</code>
+</p>
+
+<hr />
+<h2 id="toc_0.4">安装软件</h2>
+<p>
+提高ports安装速度 建议安装axel
+</p>
+
+<p>
+/usr/share/examples/etc   etc sample 文件
+</p>
+
+<p>
+修改/etc/make.conf 
+</p>
+<pre>
+#axel 多点断点下载程序
+FETCH_CMD=axel
+FETCH_BEFORE_ARGS= -n 5 -a
+FETCH_AFTER_ARGS=
+DISABLE_SIZE=yes
+
+MASTER_SITE_BACKUP?=
+http://mirrors.163.com/FreeBSD/distfiles/${DIST_SUBDIR}/\
+ftp://ftp.cn.freebsd.org/pub/FreeBSD/distfiles/${DIST_SUBDIR}/\
+ftp://ftp.freebsd.org/pub/FreeBSD/distfiles/${DIST_SUBDIR}/
+MASTER_SITE_OVERRIDE?=${MASTER_SITE_BACKUP}
+BATCH=yes
+# kernel config
+KERNCONF=SL410-EKC
+CPUTYPE?=core2
+# avoid compiling profiled libraries
+NO_PROFILE=true
+#不编译32位链接库
+NO_LIB32=yes
+</pre>
+
+<p>
+/etc/make.conf文件, 修改MASTER_SITE_BACKUP字段 
+</p>
+<pre>
+MASTER_SITE_BACKUP?=http://mirrors.163.com/FreeBSD/distfiles/${DIST_SUBDIR}/
+MASTER_SITE_OVERRIDE?=${MASTER_SITE_BACKUP}
+</pre>
+
+<p>
+USEAGE:
 </p>
 <ul>
 <li>
- <a href="Linux.html">Linux</a>
+编译安装
 
 <ul>
 <li>
- <a href="Ubuntu.html">Ubuntu</a> | <a href="centos.html">Centos</a>  | <a href="debian.html">Debian</a> | <a href="Macintosh.html">Macintosh</a> | 
+查找软件 <code>whereis &lt;softname&gt;</code>
+
+<li>
+cd 到所在的目录
+
+<li>
+make install clean
 
 </ul>
 <li>
- <a href="Android.html">Android</a>
-
-<li>
- <a href="freebsd.html">FreeBSD</a>
-
-<li>
- <a href="Virtual-Machine.html">虚拟机(Virtual Machine)</a>
-
-<li>
- <a href="RAID.html">磁盘阵列</a>
-
-<li>
-<a href="Cygwin.html">Cygwin</a>
-
-<li>
-<a href="Windows.html">Windows</a>
-
-</ul>
-<hr />
-<h2 id="toc_0.1">系统清理工具</h2>
+卸载
 
 <ul>
 <li>
- <a href="http://www.piriform.com/ccleaner">CCleaner</a>
+cd 软件所在目录
 
-</ul>
-
-<hr />
-<h2 id="toc_0.2">磁盘检测工具</h2>
-
-<ul>
 <li>
- <a href="http://www.hdtune.com/">HD tune</a>
+make deinstall clean 
 
 </ul>
+</ul>
+
+<p>
+<strong>pkg_add 修改下载源</strong>
+</p>
+
+<p>
+<code>setenv PACKAGEROOT ftp://ftp.cn.freebsd.org</code>
+</p>
+
+<p>
+非编译安装 <code>pkg_add -rv &lt;name&gt;</code>
+</p>
 
 <hr />
-<h2 id="toc_0.3">内存检测工具</h2>
+<h2 id="toc_0.5">查看系统状态</h2>
 
 <ul>
 <li>
- <a href="http://www.memtest.org/">Memtest86+</a>
+fstat     #报告系统中打开文件的信息
 
 <li>
- <a href="http://cpu.rightmark.org">CPU Rightmark</a>
+pstat -T   #显示这几个系统表的状态，包括当前使用的和可以利用的系统表空,因此可以用来检查系统在当前负载下是使用多大的系统表，
+
+<li>
+systat    #缺省情况下systat是报告处理器的使用率
 
 <ul>
 <li>
- <a href="http://cpu.rightmark.org/products/rmma.shtml">RMMA</a>
+-iostat
+
+<li>
+-vmstat
+
+<li>
+-mbufs
+
+<li>
+-netstat
+
+<li>
+-ip 
+
+<li>
+-icmp 
+
+<li>
+-tcp 
+
+<li>
+-swap
 
 </ul>
 <li>
- <a href="http://oca.microsoft.com/en/mtinst.exe">mtinst.exe</a>
+kldstat -v  #显示内核加载的模块
 
 <li>
- <a href="http://blog.yiyidu.com/2009_1438.html">3个最好最权威的内存检测工具下载</a>
-
-</ul>
-
-<hr />
-<h2 id="toc_0.4">杀毒软件 &amp;amp; 防火墙</h2>
-
-<ul>
-<li>
- <a href="http://www.avast.com/zh-cn/index">Avira AntiVir</a> |   <a href="http://www.avg.com/ww-en/homepage">AVG</a>
+klsdstat -m ipfilter   #显示指定模块
 
 <li>
- <a href="http://www.filseclab.com/products/firewall.htm">费尔个人防火墙</a>
+pnpinfo    #即插即用设备
+
+<li>
+devinfo -u  #显示设备占用的IRQ和内存地址
 
 </ul>
 
