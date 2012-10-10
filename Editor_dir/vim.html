@@ -456,6 +456,92 @@ map &lt;silent&gt; &lt;F2&gt; :if &amp;guioptions =~# 'T' &lt;Bar&gt;
 <code>3@a</code>进行宏回放，重复3次录制名为a 的动作.
 </p>
 
+<p>
+en 
+</p>
+<ul>
+<li>
+1. Create the first list entry, make sure it starts with a number.
+
+<li>
+2. qa	     - start recording into register 'a'
+
+<li>
+3. Y	     - yank the entry
+
+<li>
+4. p	     - put a copy of the entry below the first one
+
+<li>
+5. CTRL-A    - increment the number
+
+<li>
+6. q	     - stop recording
+
+<li>
+7. &lt;count&gt;@a - repeat the yank, put and increment &lt;count&gt; times
+
+</ul>
+
+ 
+ 
+<hr />
+<h2 id="toc_0.10">编译支持python ruby</h2>
+
+<pre>
+cd vim73/src
+./configure --enable-multibyte --enable-xim --without-x --enable-gui=no --enable-pythoninterp --enable-python3interp  --enable-rubyinterp --enable-cscope  --with-features=huge
+make &amp;&amp; make install
+</pre>
+
+<hr />
+<p>
+make 出现错误解决
+</p>
+
+<pre>
+no terminal library found
+checking for tgetent()… configure: error: NOT FOUND!
+You need to install a terminal library; for example ncurses.
+Or specify the name of the library with –with-tlib.
+</pre>
+
+<p>
+提示没有安装terminal library，cygwin 下安装ncurses libncurses. OK!
+</p>
+
+
+<hr />
+<h2 id="toc_0.11">Ex special characters</h2>
+
+<pre>
+%		current file name
+%&lt;		current file name without extension
+#		alternate file name for current window
+#&lt;		idem, without extension
+#31		alternate file number 31
+#31&lt;		idem, without extension
+&lt;cword&gt;		word under the cursor
+&lt;cWORD&gt;		WORD under the cursor (see |WORD|)
+&lt;cfile&gt;		path name under the cursor
+&lt;cfile&gt;&lt;	idem, without extension
+</pre>
+
+
+<hr />
+
+<p>
+批量多文件修改
+</p>
+
+<p>
+:argadd	add items to the argument list
+</p>
+
+<p>
+:argdo		do a command on all items in the argument list
+</p>
+
 
 <!--// commentwrap Start-->
 <!-- 加载duoshuo.com 评论插件 -->

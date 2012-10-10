@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim git_sever 开发笔记_高级_工程师_Blog_Wiki</title>
+<title>Jack_Chim CSS-Hacks.html 开发笔记_高级_工程师_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
@@ -129,103 +129,8 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">git_sever</a> Page</h1>
+<h1 ><a  href="">CSS-Hacks.html</a> Page</h1>
 
-
-<ul>
-<li>
-<a href="http://gitlabhq.com/ ">gitlabhq</a> <a href="https://github.com/gitlabhq/gitlabhq ">@github</a>
-
-<li>
-<a href="https://github.com/sitaramc/gitolite ">gitolite</a>
-
-</ul>
-
-<h2 id="toc_0.1">Gitolite 服务架设</h2>
-
-<p>
-1.<strong>添加git用户</strong>
-</p>
-<pre>
-sudo adduser --system --shell /bin/bash --group git
-</pre>
-
-<p>
-将新建的 git 用户添加到 ssh 用户组中
-</p>
-
-<pre>
-sudo adduser git ssh 
-</pre>
-
-
-<p>
-2.<strong>Gitolite 的安装</strong>
-</p>
-
-<p>
-使用 git 下载 Gitolite 的源代码
-</p>
-<pre>
-git clone git://github.com/ossxp-com/gitolite.git 
-</pre>
-
-<p>
-tolite/src 目录，执行安装
-</p>
-<pre>
-cd gitolite/src 
-./gl-easy-install git server admin
-</pre>
-
-<p>
-命令 gl-easy-install 的第一个参数 git 是服务器上创建的专用帐号ID，第二个参数 server 是服务器IP或者域名，第三个参数 admin 是管理员ID 
-</p>
-
-<p>
-编辑 .gitolite.rc 文件
-</p>
-
-<hr />
-<h2 id="toc_0.2">管理 Gitolite</h2>
-
-<p>
-当 gitolite 安装完成后，在服务器端自动创建了一个用于 gitolite 自身管理的 git 库: gitolite-admin.git当 gitolite 安装完成后，在服务器端自动创建了一个用于 gitolite 自身管理的 git 库: gitolite-admin.git
-</p>
-
-<p>
-克隆 gitolite-admin.git 库 
-</p>
-
-<p>
-gitolite-admin 目录下有两个目录 conf/ 和 keydir/
-</p>
-
-<ul>
-<li>
-keydir/admin.pub 文件
-
-<li>
-conf/gitolite.conf 文件 
-
-</ul>
-
-<hr />
-<h2 id="toc_0.3">增加新用户</h2>
-
-
-<hr />
-<h2 id="toc_0.4">版本库授权案例</h2>
-
-
-
-
-<hr />
-<h2 id="toc_0.5">资源参考</h2>
-
-<p>
-<a href="http://www.ossxp.com/doc/git/gitolite.html">http://www.ossxp.com/doc/git/gitolite.html</a>
-</p>
 
 
 <!--// commentwrap Start-->
