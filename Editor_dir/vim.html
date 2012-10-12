@@ -132,21 +132,22 @@
 <h1 ><a  href="">Vim</a> Page</h1>
 
 <h2 id="toc_0.1">vim 的资料</h2>
-<p>
+<ul>
+<li>
 <a href="http://www.moolenaar.net/ ">Vim 作者的个人网站</a>
-</p>
 
-<p>
+<li>
 <img src="http://www.vim.org/images/vim_header.gif" />
-</p>
 
-<p>
+<li>
 <a href="http://www.openvim.com/ ">非常不错的学习 Vim 的网站</a>
-</p>
 
-<p>
-推荐参考的 vimrc 
-</p>
+<li>
+<a href="http://vimcdoc.sourceforge.net/doc/help.html ">中文在线帮助文档</a>
+
+</ul>
+
+<h2 id="toc_0.2">推荐参考的 vimrc</h2>
 
 <ul>
 <li>
@@ -182,11 +183,13 @@
 <li>
  <a href="http://vimcasts.org/ ">Vim Casts </a>
 
-</ul>
+<li>
+<a href="https://github.com/udonmai/dotfiles/blob/master/vimrc">blob</a>
 
+</ul>
 <hr />
 
-<h2 id="toc_0.2">教程</h2>
+<h2 id="toc_0.3">教程</h2>
 
 <ul>
 <li>
@@ -237,7 +240,7 @@
 </ul>
 
 <hr />
-<h2 id="toc_0.3">编码</h2>
+<h2 id="toc_0.4">编码</h2>
 
 <ul>
 <li>
@@ -246,7 +249,7 @@
 </ul>
 
 <hr />
-<h2 id="toc_0.4">Book</h2>
+<h2 id="toc_0.5">Book</h2>
 <ul>
 <li>
 <a href="http://vim.runpaint.org/ ">免费的Vim Cookbook</a>
@@ -254,12 +257,8 @@
 </ul>
 
 
-
-
-
-
 <hr />
-<h2 id="toc_0.5">字体</h2>
+<h2 id="toc_0.6">字体</h2>
 
 <ul>
 <li>
@@ -306,7 +305,7 @@ exe "startinsert"
 </pre>
 
 <hr />
-<h2 id="toc_0.6">映射(Mapping)</h2>
+<h2 id="toc_0.7">映射(Mapping)</h2>
 
 <pre>
 " Normal Mode, Visual Mode, and Select Mode,
@@ -317,7 +316,6 @@ nmap &lt;s-tab&gt; v&lt;
 vmap &lt;tab&gt; &gt;gv
 vmap &lt;s-tab&gt; &lt;gv 
 </pre>
-
 <p>
 注意：normal 模式下 &lt;Tab&gt; 键默认用于跳转到跳转列表较新的位置，我已经取消了这个设置，毕竟 normal 模式下基本是使用 &gt;&gt;。 
 </p>
@@ -387,7 +385,7 @@ map &lt;silent&gt; &lt;F2&gt; :if &amp;guioptions =~# 'T' &lt;Bar&gt;
 </p>
 
 <hr />
-<h2 id="toc_0.7">Theme,Color Scheme</h2>
+<h2 id="toc_0.8">Theme,Color Scheme</h2>
 
 <ul>
 <li>
@@ -431,9 +429,7 @@ map &lt;silent&gt; &lt;F2&gt; :if &amp;guioptions =~# 'T' &lt;Bar&gt;
 
 
 
-
-
-<h2 id="toc_0.8">删除vim中的^M字符</h2>
+<h2 id="toc_0.9">删除vim中的^M字符</h2>
 
 
 <p>
@@ -442,7 +438,7 @@ map &lt;silent&gt; &lt;F2&gt; :if &amp;guioptions =~# 'T' &lt;Bar&gt;
 </p>
 
 <hr />
-<h2 id="toc_0.9">录制动作宏</h2>
+<h2 id="toc_0.10">录制动作宏</h2>
 
 <p>
 <code>qa</code>开始录制宏，编辑器下方提示：recording
@@ -486,7 +482,7 @@ en
  
  
 <hr />
-<h2 id="toc_0.10">编译支持python ruby</h2>
+<h2 id="toc_0.11">编译支持python ruby</h2>
 
 <pre>
 cd vim73/src
@@ -512,7 +508,7 @@ Or specify the name of the library with –with-tlib.
 
 
 <hr />
-<h2 id="toc_0.11">Ex special characters</h2>
+<h2 id="toc_0.12">Ex special characters</h2>
 
 <pre>
 %		current file name
@@ -541,6 +537,170 @@ Or specify the name of the library with –with-tlib.
 <p>
 :argdo		do a command on all items in the argument list
 </p>
+
+<hr />
+<h2 id="toc_0.13">代码折叠</h2>
+<p>
+<strong>手动折叠</strong>
+</p>
+<ul>
+<li>
+zf      F-old creation (创建折叠)
+
+<li>
+zo      O-pen a fold (打开折叠)
+
+<li>
+zc      C-lose a fold (关闭折叠)
+
+</ul>
+
+<p>
+<strong>存储和恢复</strong>
+</p>
+<ul>
+<li>
+:mkview 保存折叠
+
+<li>
+:loadview 载入折叠 
+
+<li>
+保存多个折叠
+
+<ul>
+<li>
+:mkview 3
+
+<li>
+:loadview 2
+
+</ul>
+</ul>
+
+<p>
+<strong>折叠方式</strong>
+</p>
+<ul>
+<li>
+manual  手工定义折叠
+
+<li>
+indent  更多的缩进表º更高级别的折叠
+
+<li>
+expr    用表达式来定义折叠
+
+<li>
+syntax  用语法高亮来定义折叠
+
+<li>
+diff    对没有更改的文本进行折叠
+
+<li>
+marker  对文中的标志折叠
+
+</ul>
+
+<hr />
+<h2 id="toc_0.14">命令行补全</h2>
+<p>
+<strong>例子</strong>
+</p>
+<ul>
+<li>
+命令		:e&lt;Tab&gt;
+
+<li>
+ 标签		:ta scr&lt;Tab&gt;
+
+<li>
+ 选项		:set sc&lt;Tab&gt;
+
+<li>
+ 选项值	:set hf=&lt;Tab&gt;
+
+<li>
+ 文件名	:e ve&lt;Tab&gt;
+
+</ul>
+ 
+<hr />
+<h2 id="toc_0.15">插入模式的命令</h2>
+<ul>
+<li>
+CTRL-C     退出插入模式，不检查缩写，除非置位了
+
+<li>
+CTRL-[      等同于 &lt;Esc&gt;
+
+<li>
+CTRL-l     (vimrc 定义)向左一个字
+
+<li>
+CTRL-j      (vimrc 定义) 向下一行
+
+<li>
+CTRL-k     (vimrc 定义)向上一行
+
+<li>
+CTRL-o     (vimrc 定义)向下换行
+
+</ul>
+
+<p>
+<strong>补全命令</strong>
+</p>
+<ul>
+<li>
+CTRL-X CTRL-D	补全定义过的标识符
+
+<li>
+CTRL-X CTRL-E	上滚
+
+<li>
+CTRL-X CTRL-F	补全文件名
+
+<li>
+CTRL-X CTRL-I	补全标识符
+
+<li>
+CTRL-X CTRL-K	从字典补全标识符
+
+<li>
+CTRL-X CTRL-L	补全完整的行
+
+<li>
+CTRL-X CTRL-N	下一个补全
+
+<li>
+CTRL-X CTRL-O	全能 (omni) 补全
+
+<li>
+CTRL-X CTRL-P	上一个补全
+
+<li>
+CTRL-X CTRL-S	拼写建议
+
+<li>
+CTRL-X CTRL-T	从同义词词典补全标识符
+
+<li>
+CTRL-X CTRL-U	用 'completefunc' 补全
+
+<li>
+CTRL-X CTRL-V	如同 : 命令行那样补全
+
+<li>
+CTRL-X CTRL-Y	下滚
+
+<li>
+CTRL-X CTRL-]	补全标签
+
+<li>
+CTRL-X s	        拼写建议
+
+</ul>
 
 
 <!--// commentwrap Start-->
