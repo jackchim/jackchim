@@ -152,35 +152,96 @@ PHP的垃圾收集机制
 
 
 <hr />
-<h2 id="toc_0.1">面试试题</h2>
 <p>
-HTTP协议中几个状态码的含义:503 500 401 200 301 302。。。
+ <strong>HTTP协议中几个状态码的含义:503 500 401 200 301 302。。。</strong>
+</p>
+<ul>
+<li>
+503 Service Unavailable 服务器由于维护或者负载过重未能应答。
+
+<li>
+500 Internal Server Error 
+
+<li>
+401 Unauthorized 客户试图未经授权访问受密码保护的页面。
+
+<li>
+301 Moved Permanently 
+
+<li>
+302 Moved Temporatily”临时性跳转
+
+</ul>
+
+<hr />
+<p>
+ <strong>Include require include_once require_once 的区别.</strong>
+</p>
+<ul>
+<li>
+include()语句将在其被调用的位置处包含一个文件。
+
+<li>
+include_once()函数的作用与include相同，不过它会首先验证是否已经包含了该文件。如果已经包含，则不再执行include_once。
+
+<li>
+require和include之间有两点重要的区别。首先，无论require的位置如何，制定文件都将包含到出现require的脚本中。
+
+<li>
+require_once函数确保文件只包含一次。在遇到require_once后，后面再试图包含相同的文件时将被忽略。
+
+<li>
+include() 、require()语句包含并运行指定文件。对于错误的处理。require()语句在遇到包含文件不存在，或是出错的时候，就停止即行，并报错。include()则继续即行。 
+
+</ul>
+
+<pre>
+include(‘Config.php’) 包含
+include_once(‘Config.php’) 包含一次
+require(‘Config.php’) 引入
+require_once(‘Config.php’) 引入一次
+</pre>
+<hr />
+<p>
+<strong>写出一些php魔幻方法</strong>
+</p>
+<pre>
+__construct() 构造函数 ： 实例化对象时被调用，
+__destruct() 析构函数 ： 当删除一个对象或对象操作终止时被调用（程序结束后对象就摧毁）。
+__call() 对象调用某个方法，
+__get()  读取一个对象的属性时，若属性存在，则直接返回属性值;若不存在，则会调用__get函数。
+__set() 设置一个对象的属性时，若属性存在，则直接赋值;若不存在，则会调用__set函数。
+__toString() 打印一个对象的时被调用。如echo $obj;或print $obj;
+__clone() 克隆对象时被调用。如：$t=new Test();$t1=clone $t;
+__sleep() serialize之前被调用。若对象比较大，想删减一点东东再序列化，可考虑一下此函数。
+__wakeup() unserialize时被调用，做些对象的初始化工作。
+__isset() 检测一个对象的属性是否存在时被调用。如：isset($c-&gt;name)。
+__unset() unset一个对象的属性时被调用。如：unset($c-&gt;name)。
+__set_state() 用var_export时，被调用。用__set_state的返回值做为var_export的返回值。
+__autoload() 实例化一个对象时，如果对应的类不存在，则该方法被调用。
+</pre>
+
+<hr />
+<p>
+<strong>一些编译php时的configure 参数</strong>
+</p>
+
+<pre>
+--with-config-file-path=/usr/local/php/etc --with-mysql=/usr/local/mysql --with-mysqli=/usr/local/mysql/bin/mysql_config --with-iconv-dir --with-freetype-dir --with-jpeg-dir --with-png-dir --with-zlib --with-libxml-dir=/usr --enable-xml --disable-rpath --enable-discard-path --enable-magic-quotes --enable-safe-mode --enable-bcmath --enable-shmop --enable-sysvsem --enable-inline-optimization --with-curl --with-curlwrappers --enable-mbregex --enable-fastcgi --enable-fpm --enable-force-cgi-redirect --enable-mbstring --with-mcrypt --enable-ftp --with-gd --enable-gd-native-ttf --with-openssl --with-mhash --enable-pcntl --enable-sockets --with-xmlrpc --enable-zip --enable-soap --without-pear --with-gettext --with-mime-magic 
+</pre>
+
+
+<hr />
+<p>
+<strong>向php传入参数的两种方法。</strong>
 </p>
 
 <p>
-Include require include_once require_once 的区别.
+GET 和POST 
 </p>
 
-<p>
-PHP/Mysql中几个版本的进化史，比如mysql4.0到4.1，PHP 4.x到5.1的重大改进等等。
-</p>
 
-<p>
-HEREDOC介绍
-</p>
-
-<p>
-写出一些php魔幻方法;
-</p>
-
-<p>
-一些编译php时的configure 参数
-</p>
-
-<p>
-向php传入参数的两种方法。
-</p>
-
+<hr />
 <p>
 (mysql)请写出数据类型(int char varchar datetime text)的意思; 请问varchar和char有什么区别;
 </p>
@@ -213,9 +274,6 @@ Safe_mode 打开后哪些地方受限.
 Mysql 的存储引擎,myisam和innodb的区别。
 </p>
 
-<p>
-2. web 架构，安全,项目经验
-</p>
 
 <p>
 介绍xdebug,apc,eAccelerator,Xcache,Zend opt的使用经验。
@@ -245,10 +303,16 @@ MySQL数据库作发布系统的存储，一天五万条以上的增量，预计
 对于大流量的网站,您采用什么样的方法来解决各页面访问量统计问题
 </p>
 
+<hr />
 <p>
-您是否用过模板引擎? 如果有您用的模板引擎的名字是?
+<strong>您是否用过模板引擎? 如果有您用的模板引擎的名字是?</strong>
 </p>
 
+<p>
+smarty /Template Lite/XTemplate
+</p>
+
+<hr />
 <p>
 请介绍Session的原理,大型网站中Session方面应注意什么?
 </p>
@@ -265,9 +329,6 @@ MySQL数据库作发布系统的存储，一天五万条以上的增量，预计
 介绍一下常见的SSO(单点登陆)方案(比如dedecms整合discuz的passport)的原理。
 </p>
 
-<p>
-您写过的PHP框架的特点，主要解决什么问题，与其他框架的不同点。
-</p>
 
 <p>
 大型的论坛/新闻文章系统/SNS网站在性能优化上有什么区别?
@@ -297,21 +358,8 @@ flash播放。叙述要涉及的各类开源软件和简单用途。
 叫做大王。要求编程模拟此过程，输入m、n, 输出最后那个大王的编号。用程序模拟该过程。
 </p>
 
-<p>
-3. unix/linux 基本使用
-</p>
 
-<p>
-linux下查看当前系统负载信息的一些方法。
-</p>
 
-<p>
-vim的基本快捷键。
-</p>
-
-<p>
-ssh 安全增强方法;密码方式和rsa key 方式的配置。
-</p>
 
 <p>
 rpm/apt/yum/ports 装包，查询，删除的基本命令。
@@ -325,20 +373,9 @@ Makefile的基本格式，gcc 编译，连接的命令,-O0 和-O3区别。
 gdb,strace,valgrind的基本使用.
 </p>
 
-<p>
-4. 前端,HTML,JS
-</p>
 
 <p>
 css盒模型。
-</p>
-
-<p>
-javascript中的prototype。
-</p>
-
-<p>
-javascript中this对象的作用域。
 </p>
 
 <p>
@@ -353,13 +390,701 @@ IE和firefox事件冒泡的不同。
 DTD的定义
 </p>
 
+<hr />
 <p>
-IE/firefox常用hack.
+<strong>IE/firefox常用hack.</strong>
+</p>
+<pre>
+    "\9"　例："margin:0px auto\9;"这里的"\9"能区分所有IE和FireFox；
+    "*"　IE6、IE7可以识别，IE8、FireFox不能；
+    "_"　IE6可以识别，E7、IE8、FireFox不能。
+</pre>
+
+<hr />
+<p>
+<strong>firefox,IE下的前端js/css调试工具。</strong>
 </p>
 
 <p>
-firefox,IE下的前端js/css调试工具。
+firebug
 </p>
+
+<hr />
+<p>
+<strong>抓取远程图片到本地,你会用什么函数?</strong>
+</p>
+
+<p>
+fsockopen/curl
+</p>
+
+<hr />
+<p>
+<strong>把 John 新增到 users 阵列</strong>
+</p>
+
+<pre>
+    $users[] = ‘john’;   array_push($users,‘john’);
+</pre>
+
+<hr />
+<p>
+<strong>MySQL数据库存储引擎的名称</strong>
+</p>
+
+<p>
+MyISAM、InnoDB、BDB（Berkeley DB）、Merge
+</p>
+
+<hr />
+<p>
+<strong>php class中static,public,private,protected的区别</strong>
+</p>
+<pre>
+    static 静态，类名可以访问
+
+    public 表示全局，类内部外部子类都可以访问；
+
+    private表示私有的，只有内部可以使用；
+
+    protected表示受保护的，只有本类或子类或父类中可以访问；
+</pre>
+
+
+<hr />
+<p>
+<strong>全局变量定义</strong>
+</p>
+
+<p>
+以下的代码会产生什么？为什么？
+</p>
+
+<pre>
+$num =10;
+function multipl){
+    $num =$num *10;
+}
+multiply();
+echo $num;
+
+由于函式 multiply() 没有指定 $num 为全域变量（例如 global $num 或者 $_GLOBALS['num']），所以 $num 的值是 10。
+</pre>
+
+
+<hr />
+<p>
+<strong>PHP的网站主要攻击方式</strong>
+</p>
+
+<ul>
+<li>
+命令注入(Command Injection)
+
+<li>
+eval注入(Eval Injection)
+
+<li>
+客户端脚本攻击(Script Insertion)
+
+<li>
+跨网站脚本攻击(Cross Site Scripting, XSS)
+
+<li>
+SQL注入攻击(SQL injection)
+
+<li>
+跨网站请求伪造攻击(Cross Site RequesForgies, CSRF)
+
+<li>
+Session 会话劫持(Session Hijacking)
+
+<li>
+Session 固定攻击(Session Fixation)
+
+<li>
+HTTP响应拆分攻击(HTTP Response Splitting)
+
+<li>
+目录穿越漏洞(Directory Traversal)
+
+<li>
+远程文件包含攻击(Remote Inclusion)
+
+<li>
+动态函数注入攻击(Dynamic Variable Evaluation)
+
+<li>
+表单提交欺骗攻击(Spoofed Form Submissions)
+
+<li>
+HTTP请求欺骗攻击(Spoofed HTTP Requests)
+
+</ul>
+
+<hr />
+<p>
+<strong>SESSION 与 COOKIE的区别是什么</strong>
+</p>
+
+<p>
+Session是服务器端保存客户端状态信息的方案，一般保存在服务器端内存中，session超时时间在服务器端进行设置。
+Cookie是客户端保存信息的方案，一般是以文件的形式进行保存,cookie清空时间是在客户机浏览器设置。
+</p>
+
+
+<hr />
+<p>
+<strong>请写出数据类型(int char varchar datetime text)的意思</strong>
+</p>
+
+<ul>
+<li>
+Int 整数
+
+<li>
+char 定长字符
+
+<li>
+Varchar 变长字符
+
+<li>
+Datetime 日期型
+
+<li>
+Text 文本型
+
+<li>
+Varchar 与char的区别char是固定长度的字符类型，分配多少空间，就占用多长空间。
+
+<li>
+Varchar是可变长度的字符类型，内容有多大就占用多大的空间，能有效节省空间。
+
+</ul>
+
+<hr />
+<p>
+<strong>MyISAM 和 InnoDB 的基本区别</strong>
+</p>
+
+<p>
+MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持。MyISAM类型的表强调的是性能，其执行速度比InnoDB类型更快，但是不提供事务支持，而InnoDB提供事务支持以及外部键等高级数据库功能。
+</p>
+
+<hr />
+<p>
+<strong>不使用cookie向客户端发送一个cookie.</strong>
+</p>
+
+<p>
+session_start（）开启时，生成一个常量 SID，当COOKIE开启时，这个常量为空，当COOKIE关闭时，这个常量中存储了PHPSESSID的值。通过在URL后加一个SID参数来传递SESSIONID的值，从而使客户端页面可以使用SESSION里面的值。
+当客户端开启COOKIE和服务器端开启SESSION时。
+浏览器第一次请求，服务器会向浏览器端发送一个COOKIE里面存储SESSIONID.
+当浏览器第二次请求时，会把已存在的COOKIE一起提交到服å¨端。
+</p>
+
+<hr />
+<p>
+<strong>PHP的8种数据类型</strong>
+</p>
+<ul>
+<li>
+Integer（整形）— 用来表示整数
+
+<li>
+Float（浮点型，也是Double类型，双精度值，PHP是弱类型语言）—用来表示所有实数
+
+<li>
+String（字符串类型）— 用来表示字符串
+
+<li>
+Boolean（布尔类型）— 用来表示rue or false
+
+<li>
+Array（数组类型）— 用来存储多个相同类型的数据项
+
+<li>
+Object（对象）— 用来保存类的实例
+
+<li>
+NULL
+
+<li>
+RESOURCE
+
+</ul>
+
+
+
+<hr />
+<p>
+<strong>求两个日期的差数，例如2007-2-5 ~ 2007-3-6 的日期差数</strong>
+</p>
+
+<pre class="brush:php">
+$begin=strtotime(“2007-2-5″);
+$end=strtotime(“2007-3-6″);
+echo ($end-$begin)/(24*3600);
+</pre>
+
+
+<hr />
+<p>
+<strong>php遍历数组</strong>
+</p>
+
+<p>
+forecah
+</p>
+
+<hr />
+<p>
+<strong>PHP的垃圾收集机制是怎样的</strong>
+</p>
+
+<p>
+好像是采用引用计数吧，当一个变量被初始化或者赋值给另一个变量时引用计数会加1，当变量或者被赋值的变量被销毁或者被侦测到无用时引用计数会减一，当垃圾收集的进程运行时会释放掉引用计数为0的那些变量会被从内存中释放（垃圾回收期间程序会被中断）。当脚本执行完成时所有资源都会被释放。
+</p>
+
+<hr />
+<p>
+<strong>PHP里面单引号与双引号的区别</strong>
+</p>
+
+<p>
+双引号内的变量或转义符号可以被解释执行，单引号则不行。
+</p>
+
+<hr />
+<p>
+<strong>echo print print_r的区别</strong>
+</p>
+
+<p>
+Echo是PHP语句，print与print_r是函数，语句没有返回值，函数可以有返回值。
+</p>
+<ul>
+<li>
+Print只能打印简单类型变量的值。
+
+<li>
+Print_r可以打印复杂变量值（数组或对象）
+
+<li>
+Echo 输出一个或者多个字符串。
+
+</ul>
+
+
+<hr />
+<p>
+<strong>mysql_fetch_array() 与mysql_fetch_row()区别</strong>
+</p>
+
+<ul>
+<li>
+mysql_fetch_array()返回根据从结果集取得的行生成的数组，如果没有更多行，返回false除了将数据以字段做索引外，还可以用字段名作为索引。
+
+<li>
+mysql_fetch_row() 返回从结果集中取得一行作为枚举数组，返回一个数字索引的数组，偏移量从0开始。
+
+</ul>
+
+<hr />
+<p>
+<strong>GD库是做什么用的</strong>
+</p>
+
+<p>
+gd库提供了一系列用来处理图片的功能，使用GD库可以处理图片，或者生成图片。
+</p>
+
+<hr />
+<p>
+<strong>检测一个变量是否有设置的函数是?是否为空的函数是</strong>
+</p>
+<pre>
+    isset($str),empty($str);
+</pre>
+
+
+<hr />
+<p>
+<strong>取得查询结果集总数的函数是?</strong>
+</p>
+
+<p>
+mysql_num_rows($result);
+</p>
+
+<hr />
+<p>
+<strong>$arr = array(‘james’, ‘tom’, ‘symfony’); 请打印出第一个元素</strong>
+</p>
+
+<p>
+echo $arr[0];
+</p>
+
+<hr />
+<p>
+<strong>如何实现字符串翻转?</strong>
+</p>
+
+<p>
+echo strrev($a); //strrev — 颠倒字符串
+</p>
+
+<hr />
+<p>
+<strong>优化查询语句</strong>
+</p>
+
+<pre>
+    例子1:
+    SELECT * FOM order WHERE YEAR(orderDate)&lt;2008;(慢)
+    SELECT * FROM order WHERE orderDate&lt;"2008-01-01";(快)
+    例子2:
+    SELECT * FOM order WHERE addtime/7&lt;24;(慢)
+    SELECT * FROM order WHERE addtime&lt;24*7;(快)
+    例子3:
+    SELET * FROM order WHERE title like "%good%";
+    SELECT * FROM order WHERE title&gt;=”good” and name&lt;"good";
+</pre>
+
+
+<hr />
+<p>
+<strong>对于大流量的网站,您采用什么样的方法来解决访问量问题</strong>
+</p>
+
+<p>
+确认服务器硬件是否足够支持当前的流量,数据库读写分离,优化数据表,
+程序功能规则,禁止外部的盗链,控制大文件的下载,使用不同主机分流主要流量
+</p>
+
+<hr />
+<p>
+<strong>用PHP写出显示客户端IP与服务器IP的代码</strong>
+</p>
+
+<pre class="brush:php">
+echo $_SERVER[‘REMOTE_ADDR’];
+ getenv('REMOTE_ADDR');
+</pre>
+
+<hr />
+<p>
+<strong>获取网页内容</strong>
+</p>
+
+<pre class="brush:php">
+$readcontents = fopen(“http://www.php100.com/index.html”, “rb”);
+$contents = stream_get_contents($readcontents);// stream_get_contents 取得字符串赋值给$contentfclose($readcontents);
+echo $contents;
+</pre>
+
+<p>
+方法二
+</p>
+
+<pre class="brush:php">
+echo file_get_contents(“http://www.php100.com/index.html”);
+</pre>
+
+<hr />
+<p>
+<strong>foo()和@foo()之间有什么区别?</strong>
+</p>
+
+<p>
+@foo()控制错误输出
+</p>
+
+<hr />
+<p>
+<strong>如何使用下面的类,并解释下面什么意思</strong>
+</p>
+
+<pre class="brush:php">
+class test{
+    function Get_test($num){
+        $num=md5(md5($num).”En”);
+        return $num;
+    } }
+</pre>
+
+<p>
+双重md5加密 
+</p>
+
+<pre class="brush:php">
+$testObject = new test();
+$encryption = $testObject-&gt;Gettest(“xiaotian_ls”);
+</pre>
+
+<hr />
+<p>
+<strong>用什么方法来加快页面的加载速</strong>
+</p>
+
+<p>
+要用到服务器资源时才打开，及时关闭服务器资源，数据库添加索引，页面可生成静态，图片等大文件单独服务器。gzip 页面压缩
+</p>
+
+
+<hr />
+<p>
+<strong>sort()、asort()、和 ksort() 有什么分别？它们分别在什么情况下使用？</strong>
+</p>
+
+<ul>
+<li>
+sort() 根据阵列中元素的值，以英文字母顺序排序，索引键会由 0 到 n-1 重新编号。主要是当阵列索引键的值无关疼痒时用来把阵列排序。
+
+<li>
+asort() 与 sort() 一样把阵列的元素按英文字母顺序来排列，不同的是所有索引键都获得保留，特别适合替联想阵列排序。
+
+<li>
+ksort() 根据阵列中索引键的值，以英文字母顺序排序，特别适合用于希望把索引键排序的联想阵列。
+
+</ul>
+
+
+<hr />
+<p>
+<strong>写出以下程序的输出结果</strong>
+</p>
+
+<pre class="brush:php">
+&lt;?php
+$str=“cd”;
+$$str=“hotdog”;
+$$str.=“ok”;
+echo $cd;
+?&gt;
+</pre>
+
+<p>
+答案：hotdogok 
+<hr />
+<strong>给你三个数，写程序求出其最大值。</strong>
+</p>
+
+<pre class="brush:php">
+&lt;?php
+$var1=1;
+$var2=7;
+$var3=8;
+$max=$var1&gt;$var2?$var1:$var2;
+$max=$max&gt;$var3?$max:$var3;
+echo $max;
+?&gt;
+</pre>
+
+<hr />
+
+<p>
+<strong>从一个标准 url 里取出文件的扩展名</strong>
+</p>
+
+<pre class="brush:php">
+&lt;?php
+function getExt($url){
+    $arr = parse_url($url);
+
+    $file = basename($arr['path']);
+    $ext = explode(“.”,$file);
+    return $ext[1];
+}
+?&gt;
+</pre>
+
+
+<hr />
+<p>
+<strong>PHP 开发的一般流程</strong>
+</p>
+<ul>
+<li>
+1、尽量完整的需求方案，具体到每个功能点上
+
+<li>
+2、建模结构UML，通过UML工具建立专业的模或自己画一个简单ç³系图。
+
+<li>
+3、建立数据库
+
+<li>
+4、设计html
+
+<li>
+5、PHP代码的书写
+
+<li>
+6、程序的测试和修正
+
+</ul>
+
+<hr />
+<p>
+<strong>PHP中如何使用Cookie?</strong>
+</p>
+
+<pre>
+    echo $MyCookie;
+    echo $CookieArray[0;
+    echo $_COOKIE["MyCookie"];
+    echo $HTTP_COOKIE_VARS["MyCookie"];
+    要删除一个已经存在的Cookie，有两个办法：
+
+    1、SetCookie(“Cookie”, “”);
+    2、SetCookie(“Cookie”, “value” , time()-1 / tim) )
+</pre>
+
+<hr />
+<p>
+<strong>PHP里面如何定义一个常量(constant)?</strong>
+</p>
+
+<p>
+通过define()指令，例如：define(“MYCONSTANT”, 100)
+</p>
+
+
+<hr />
+<p>
+<strong>如何用PHP实现邮件发送</strong>
+</p>
+
+<pre>
+    mail($to,$subject,$message,$headers);
+</pre>
+
+<hr />
+<p>
+<strong>PHP里面的三元运算符</strong>
+</p>
+
+<p>
+a= b==c? 1 : 2 ，若b==c,则a的值为1 否则a的值为2 
+</p>
+
+<hr />
+<p>
+<strong>如何调用父类的构造方法？</strong>
+</p>
+
+<p>
+使用parent::constructor($value)
+</p>
+
+<hr />
+<p>
+<strong>_sleep和_wakeup有什么特殊含义？</strong>
+</p>
+
+<p>
+_sleep返回需要被保存的变量的数组，而_wakeup则是取得这些需要被保存的变量
+</p>
+
+<hr />
+<p>
+<strong>PHP的意思</strong>
+</p>
+
+<p>
+Hypertext Preprocessor超级文本预处理语言
+</p>
+
+<hr />
+<p>
+<strong>如何修改SESSION的生存时间</strong>
+</p>
+
+<pre class="brush:php">
+&lt;?php
+session_strt();
+// 保存一天
+$lifeTime = 24 * 3600;
+setcookie(session_name(), session_id(), time() + $lifeTime, “/”)
+?&gt;
+</pre>
+
+
+<hr />
+
+<p>
+<strong>不用新变量直接交换现有两个变量的值</strong>
+</p>
+
+<pre>
+    list($a, $b) = array($b, $a);
+</pre>
+
+<hr />
+<p>
+<strong>实现中文字串截取无乱码的方法</strong>
+</p>
+
+<pre class="brush:php">
+&lt;?PHP
+function GBsubstr($string, $start, $length) {
+    if(strlen($string)&gt;$length){
+     $str=null;
+     $len=$start+$length;
+     for($i=$start;$i&lt;$len;$i++){
+    if(ord(substr($string,$i,1))&gt;0xa0){
+     $str.=substr($string,$i,2);
+     $i++;
+    }else{
+     $str.=substr($string,$i,1);
+     }
+    }
+   return $str.'...';
+    }else{
+   return $string;
+   }
+}
+?&gt;
+</pre>
+
+
+<hr />
+<p>
+<strong>在PHP中error_reporting这个函数有什么作用</strong>
+</p>
+
+<p>
+设置错误级别与错误信息回报
+</p>
+
+<hr />
+<p>
+<strong>请写一个函数验证电子邮件的格式是否正确</strong>
+</p>
+
+<pre class="brush:php">
+&lt;?PHP
+function checkEmail($email)
+{
+$pregEmail = "/([a-z0-9]*[-_/.]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[/.][a-z]{2,3}([/.][a-z]{2})?/i";
+return preg_match($pregEmail,$email);
+}
+?&gt;
+</pre>
+
+
+<hr />
+<p>
+<strong>简述如何得到当前执行脚本路径，包括所得到参数</strong>
+</p>
+
+<pre>
+    $script_name = basename(__file__); print_r($script_name);
+</pre>
+
+<hr />
 
 
 <!--// commentwrap Start-->
