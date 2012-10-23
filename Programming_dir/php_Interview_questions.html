@@ -131,24 +131,20 @@
 
 <h1 ><a  href="">php_Interview_questions</a> Page</h1>
 
-
-<ol>
+<ul>
 <li>
-UNIX信号，并说明信号用途
+<a href="http://blog.csdn.net/phpsome/article/details/4085464">http://blog.csdn.net/phpsome/article/details/4085464</a>
+
+<li>
+<a href="http://www.mianwww.com/html/category/it-interview/php">http://www.mianwww.com/html/category/it-interview/php</a> 
 
 <li>
 所有的字符串查找算法
 
 <li>
-所有HTTP返回状态值，并说明用途
-
-<li>
-画几个你最熟悉的SERVER端模型出来（格式不重要，尽量将图画清楚，说明思路即可）
-
-<li>
 PHP的垃圾收集机制
 
-</ol>
+</ul>
 
 
 <hr />
@@ -429,15 +425,6 @@ fsockopen/curl
 
 <hr />
 <p>
-<strong>MySQL数据库存储引擎的名称</strong>
-</p>
-
-<p>
-MyISAM、InnoDB、BDB（Berkeley DB）、Merge
-</p>
-
-<hr />
-<p>
 <strong>php class中static,public,private,protected的区别</strong>
 </p>
 <pre>
@@ -622,9 +609,11 @@ RESOURCE
 </p>
 
 <pre class="brush:php">
+&lt;?php 
 $begin=strtotime(“2007-2-5″);
 $end=strtotime(“2007-3-6″);
 echo ($end-$begin)/(24*3600);
+?&gt;
 </pre>
 
 
@@ -678,20 +667,6 @@ Echo 输出一个或者多个字符串。
 
 <hr />
 <p>
-<strong>mysql_fetch_array() 与mysql_fetch_row()区别</strong>
-</p>
-
-<ul>
-<li>
-mysql_fetch_array()返回根据从结果集取得的行生成的数组，如果没有更多行，返回false除了将数据以字段做索引外，还可以用字段名作为索引。
-
-<li>
-mysql_fetch_row() 返回从结果集中取得一行作为枚举数组，返回一个数字索引的数组，偏移量从0开始。
-
-</ul>
-
-<hr />
-<p>
 <strong>GD库是做什么用的</strong>
 </p>
 
@@ -710,15 +685,6 @@ gd库提供了一系列用来处理图片的功能，使用GD库可以处理图�
 
 <hr />
 <p>
-<strong>取得查询结果集总数的函数是?</strong>
-</p>
-
-<p>
-mysql_num_rows($result);
-</p>
-
-<hr />
-<p>
 <strong>$arr = array(‘james’, ‘tom’, ‘symfony’); 请打印出第一个元素</strong>
 </p>
 
@@ -734,24 +700,6 @@ echo $arr[0];
 <p>
 echo strrev($a); //strrev — 颠倒字符串
 </p>
-
-<hr />
-<p>
-<strong>优化查询语句</strong>
-</p>
-
-<pre>
-    例子1:
-    SELECT * FOM order WHERE YEAR(orderDate)&lt;2008;(慢)
-    SELECT * FROM order WHERE orderDate&lt;"2008-01-01";(快)
-    例子2:
-    SELECT * FOM order WHERE addtime/7&lt;24;(慢)
-    SELECT * FROM order WHERE addtime&lt;24*7;(快)
-    例子3:
-    SELET * FROM order WHERE title like "%good%";
-    SELECT * FROM order WHERE title&gt;=”good” and name&lt;"good";
-</pre>
-
 
 <hr />
 <p>
@@ -1083,6 +1031,52 @@ return preg_match($pregEmail,$email);
 <pre>
     $script_name = basename(__file__); print_r($script_name);
 </pre>
+
+<hr />
+<p>
+<strong>写一个函数，能够遍历一个文件夹下的所有文件和子文件夹</strong>
+</p>
+
+<pre class="brush:php">
+&lt;?php 
+    function my_scandir($dir)
+    {
+        $files = array();
+        if ( $handle = opendir($dir) ) {
+            while ( ($file = readdir($handle)) !== false ) {
+                if ( $file != ".." &amp;&amp; $file != "." ) {
+                    if ( is_dir($dir . "/" . $file) ) {
+                        $files[$file] = scandir($dir . "/" . $file);
+                    }else {
+                        $files[] = $file;
+                    }
+                }
+            }
+            closedir($handle);
+            return $files;
+        }
+    }
+?&gt;
+</pre>
+
+
+<hr />
+<p>
+<strong>怎样在php中书写代码防止一个数据库表格中同一条记录被多人同时操作？</strong>
+</p>
+
+<p>
+数据表加1个字段，userid用来记录正在处理的人，进入php页面时，写入该字段。处理完成时，或未处理直接退出时，清空userid记录。其他人进入php页面时判断userid是否为空，不为空则禁止进入。
+</p>
+
+<hr />
+<p>
+<strong>怎样通过php中书写代码获取最后一次insert的表的ID？</strong>
+</p>
+
+<p>
+mysql_insert_id()  得到插入的id 
+</p>
 
 <hr />
 

@@ -131,6 +131,580 @@
 
 <h1 ><a  href="">mysql_Interview_questions</a> Page</h1>
 
+<hr />
+<p>
+<strong>现在因为投票人数太多，网站时常出现too many connection的错误，请提供解决方案</strong>
+</p>
+<ul>
+<li>
+方法一：加大MySql的最大连接数
+
+<li>
+方法二，不用mysql数据库，改为直接写文件，详细方法参照问题5
+
+<li>
+由于用mysql语句调用数据库时，在每次之执行语句前，会做一个临时的变量用来打开数据库，所以你在使用mysql语句的时候，记得在每次调用完mysql之后就关闭mysql临时变量
+
+</ul>
+
+<hr />
+<p>
+<strong>一张表有还是有ID自增主键,用JDBC insert一条语句之内,怎么在JAVA程序里面获得这条记录的ID.</strong>
+</p>
+
+<p>
+用JDBC得到insert时生成的key, 然后通过key去查询这个值
+</p>
+
+<hr />
+<p>
+<strong>MySQL数据库存储引擎的名称</strong>
+</p>
+
+<p>
+MyISAM、InnoDB、BDB（Berkeley DB）、Merge
+</p>
+
+<hr />
+<p>
+<strong>mysql_fetch_array() 与mysql_fetch_row()区别</strong>
+</p>
+
+<ul>
+<li>
+mysql_fetch_array()返回根据从结果集取得的行生成的数组，如果没有更多行，返回false除了将数据以字段做索引外，还可以用字段名作为索引。
+
+<li>
+mysql_fetch_row() 返回从结果集中取得一行作为枚举数组，返回一个数字索引的数组，偏移量从0开始。
+
+</ul>
+
+<hr />
+<p>
+<strong>取得查询结果集总数的函数是?</strong>
+</p>
+
+<p>
+mysql_num_rows($result);
+</p>
+
+<hr />
+<p>
+<strong>优化查询语句</strong>
+</p>
+
+<pre>
+    例子1:
+    SELECT * FOM order WHERE YEAR(orderDate)&lt;2008;(慢)
+    SELECT * FROM order WHERE orderDate&lt;"2008-01-01";(快)
+    例子2:
+    SELECT * FOM order WHERE addtime/7&lt;24;(慢)
+    SELECT * FROM order WHERE addtime&lt;24*7;(快)
+    例子3:
+    SELET * FROM order WHERE title like "%good%";
+    SELECT * FROM order WHERE title&gt;=”good” and name&lt;"good";
+</pre>
+
+
+<hr />
+<p>
+<strong>MySQL数据库，一天一万条以上的增量，怎么优化？</strong>
+</p>
+
+<hr />
+<p>
+<strong>写个函数来解决多线程同时读写一个文件的问题</strong>
+</p>
+
+<hr />
+<p>
+<strong>写5个不同的自己的函数，来截取一个全路径的文件的扩展名，允许封装php库中已有的函数</strong>
+</p>
+
+<hr />
+<p>
+<strong>怎样通过数据库的方法防止一个数据库表格中同一条记录被多人同时操作？</strong>
+</p>
+
+<p>
+lock 和 unlock
+</p>
+<pre>
+    mysql&gt; LOCK TABLES real_table WRITE, insert_table WRITE;
+    mysql&gt; INSERT INTO real_table SELECT * FROM insert_table;
+    mysql&gt; TRUNCATE TABLE insert_table;
+    mysql&gt; UNLOCK TABLES;
+</pre>
+
+<hr />
+<p>
+<strong>怎样通过数据库的方法获取最后一次insert的表的ID？</strong>
+</p>
+
+<p>
+select last_insert_id() 
+</p>
+
+<hr />
+<p>
+<strong>MYSQL支持事务吗？</strong>
+</p>
+
+<p>
+在缺省模式下，MYSQL是autocommit模式的，所有的数据库更新操作都会即时提交，所以在缺省情况下，mysql是不支持事务的。
+但是如果你的MYSQL表类型是使用InnoDB Tables 或 BDB tables的话，你的MYSQL就可以使用事务处理,使用SET AUTOCOMMIT=0就可以使MYSQL允许在非autocommit模式，
+在非autocommit模式下你必须使用COMMIT来提交你的更改，或者用ROLLBACK来回滚你的更改。
+</p>
+
+<pre class="brush:sql">
+START TRANSACTION;
+SELECT @A:=SUM(salary)FROM table1 WHERE type=1;
+UPDATE table2 SET summmary=@A WHERE type=1;
+COMMIT;
+</pre>
+
+
+<hr />
+<p>
+<strong>MYSQL相比于其他数据库有哪些特点？</strong>
+</p>
+
+<p>
+MySQL是一个小型关系型数据库管理系统，开发者为瑞典MySQL AB公司，现在已经
+被Sun公司收购，支持FreeBSD、Linux、MAC、Windows等多种操作系统
+</p>
+
+<ul>
+<li>
+可以处理拥有上千万条记录的大型数据
+
+<li>
+支持常见的SQL语句规范
+
+<li>
+可移植行高，安装简单小巧
+
+<li>
+良好的运行效率，有丰富信息的网络支持
+
+<li>
+调试、管理，优化简单（相对其他大型数据库
+
+</ul>
+
+<hr />
+<p>
+<strong>如何提高MySql的安全性？</strong>
+</p>
+
+<ul>
+<li>
+如果MYSQL客户端和服务器端的连接需要跨越并通过不可信任的网络，那么需要使用ssh隧道来加密该连接的通信。
+
+<li>
+使用set password语句来修改用户的密码
+
+<li>
+Mysql需要提防的攻击有，防偷听、篡改、回放、拒绝服务等，不涉及可用性和容错方面。对所有的连接、查询、其他操作使用基于acl即访问控制列表的安全措施来完成。也有一些对ssl连接的支持。
+
+<li>
+设置除了root用户外的其他任何用户不允许访问mysql主数据库中的user表 
+
+<li>
+使用grant和revoke语句来进行用户访问控制的工作;
+
+<li>
+不要使用明文密码，而是使用md5()和sha1()等单向的哈系函数来设置密码;
+
+<li>
+不要选用字典中的字来做密码;
+
+<li>
+采用防火墙可以去掉50%的外部危险，让数据库系统躲在防火墙后面工作，或放置在dmz区域中;
+
+<li>
+为了防止被恶意传入非法参数，例如where id=234，别人却输入where id=234 or 1=1导致全部显示，所以在web的表单中使用”或””来用字符串，在动态url中加入%22代表双引号、%23代表井号、%27代表单引号;传递未检查过的值给mysql数据库是非常危险的;
+
+<li>
+在传递数据给mysql时检查一下大小;
+
+<li>
+应用程序需要连接到数据库应该使用一般的用户帐号，开放少数必要的权限给该用户;
+
+<li>
+学会使用tcpdump和strings工具来查看传输数据的安全性，例如tcpdump -l -i eth0 -w -src or dst port 3306 strings。以普通用户来启动mysql数据库服务;
+
+<li>
+不使用到表的联结符号，选用的参数 –skip-symbolic-links;
+
+<li>
+确信在mysql目录中只有启动数据库服务的用户才可以对文件有读和写的权限;
+
+<li>
+不许将process或super权限付给非管理用户，该mysqladmin processlist可以列举出当前执行的查询文本;super权限可用于切断客户端连接、改变服务器运行参数状态、控制拷贝复制数据库的服务器;
+
+<li>
+file权限不付给管理员以外的用户，防止出现load data ‘/etc/passwd’到表中再用select 显示出来的问题;
+
+<li>
+如果不相信dns服务公司的服务，可以在主机名称允许表中只设置ip数字地址;
+
+<li>
+grant语句也支持资源控制选项;
+
+</ul>
+
+<hr />
+<p>
+<strong>系统的瓶颈</strong>
+</p>
+
+<ul>
+<li>
+磁盘搜索. 并行搜索,把数据分开存放到多个磁盘中，这样能加快搜索时间.
+
+<li>
+磁盘读写(IO) 可以从多个媒介中并行的读取数据。
+
+<li>
+CPU周期 数据存放在主内存中.这样就得增加CPU的个数来处理这些数据。
+
+<li>
+内存带宽 当CPU要将更多的数据存放到CPU的缓存中来的话,内存的带宽就成了瓶颈.
+
+</ul>
+
+<hr />
+<h2 id="toc_0.1">sql-tuning类</h2>
+<hr />
+<p>
+<strong>列举几种表连接的方式；</strong>
+</p>
+
+<p>
+mj,hj,nl
+<hr />
+<strong>不借助第三方工具，怎么看sql的执行计划；</strong>
+utotrace /utlxplan.sql 
+</p>
+
+<hr />
+<p>
+<strong>如何使用CBO,CBO与RULE的区别</strong>
+在初始化参数里面设置optimizer_mode=choose/all_rows/first_row等可以使用cbo.
+</p>
+
+<p>
+rbo会选择不合适的索引,cbo需要统计信息。
+</p>
+
+<hr />
+<p>
+<strong>如何定位重要(消耗资源多)的SQL</strong>
+</p>
+
+<p>
+根据v$sqlarea 中的逻辑读/disk_read。
+</p>
+
+<hr />
+<p>
+<strong>如何跟踪某个session的SQL</strong>
+</p>
+
+<p>
+先找出对应的'sid,serial',然后调用system_system.set_sql_trace_in_session(sid,serial,true);
+</p>
+
+<hr />
+<p>
+<strong>SQL调整最关注的是什么</strong>
+</p>
+
+<p>
+逻辑读。
+<hr />
+<strong>说说你对索引的认识(索引的结构、对dml影响、为什么提高查询性能)</strong>
+</p>
+
+<p>
+默认的索引是b-tree.
+</p>
+
+<p>
+对insert的影响.(分裂，要保证tree的平衡)
+</p>
+
+<p>
+对delete的影响.(删除行的时候要标记改节点为删除).
+</p>
+
+<p>
+对update的影响，如果更新表中的索引字段，则要相应的更æ´¢引中的键值。
+<hr />
+<strong>使用索引查询一定能提高查询的性能吗?为什么</strong>
+</p>
+
+
+<p>
+不能。如果返回的行数目较大，使用全表扫描的性能较好。
+</p>
+
+<hr />
+<p>
+<strong>绑定变量是什么?绑定变量有什么优缺点?</strong>
+通俗的说，绑定变量就是变量的一个占位符，使用绑定变量可以减少只有变量值不同的
+语句的解析。
+<hr />
+<strong>如何稳定(固定)执行计划</strong>
+</p>
+
+<p>
+使用stored outline.
+<hr />
+<strong>和排关的内存在8i和9i分别怎样调整，临时表空间的作用是什么；</strong>
+</p>
+
+<p>
+8i：使用sort_area_size，hash_area_size,每个session分配相同的值，不管有无使用。
+9i: 使用pga_aggregate来统一管理。
+</p>
+
+
+<hr />
+<p>
+<strong>存在表T(a,b,c,d),要根据字段c排序后取第21—30条记录显示，请给出sql</strong>
+</p>
+
+<pre>
+    select a,b,c,d from (select a,b,c,d from T order by c) where rownum&lt;=30
+    minus
+    select a,b,c,d from (select a,b,c,d from T order by c) where rownum &lt;=20;
+
+</pre>
+
+
+<h2 id="toc_0.2">数据库基本概念类</h2>
+
+<p>
+<strong>ctused and pctfree 表示什么含义有什么作用</strong>
+</p>
+
+<p>
+表示数据块什么时候重联接或者从freelist中删除。
+pctused:如果数据块的使用小于pctused的值，则该数据块重新 入到fresslist中。
+pctused：如果数据块的空闲空间小于pctfree的值，则该数据块从freelist中删除。
+</p>
+
+<hr />
+<p>
+<strong>简单描述table / segment / extent / block之间的关系</strong>
+</p>
+
+<ul>
+<li>
+table是一个逻辑上的概念。
+
+<li>
+segment表示结构的相同的一段空间。
+
+<li>
+extent。多个block组成一个extent，便于dbms分配。
+
+<li>
+block，多个os块组成一个block，是oracle i/o的单位。
+
+</ul>
+
+<hr />
+
+<p>
+<strong>描述tablespace和datafile之间的关系</strong>
+</p>
+
+<p>
+tablespace是逻辑上的概念，datafile是物理上的概念。
+一个tablespace可以由多个datafile组成，一个datafile不能跨越多个blespace。
+</p>
+
+<hr />
+<p>
+<strong>本地管理表空间和字典管理表空间的特点，ASSM有什么特点</strong>
+</p>
+
+<p>
+一个使用freelist管理，一个使用位图管理。
+</p>
+
+<hr />
+<p>
+<strong>回滚段的作用是什么</strong>
+</p>
+
+<p>
+保存数据的前像，保证数据读取的时间点一致性。
+</p>
+
+<hr />
+<p>
+<strong>日志的作用是什么</strong>
+</p>
+
+<p>
+纪录对数据库的操作，便与恢复。
+</p>
+
+<hr />
+<p>
+<strong>SGA主要有那些部分，主要作用是什么</strong>
+</p>
+
+<p>
+db_cache(缓存数据块),shared_pool(缓存sql,执行计划，数据字典信息等),large_pool(rman要用到),java pool(java程序时要用到)
+</p>
+
+<hr />
+<p>
+<strong>oracle系统进程主要有哪些，作用是什么</strong>
+</p>
+
+<p>
+smon（合并空间，实例恢复）,pmon（清理失败的进程）,归档进程（负责在日志切换的时候归档日志文件）,lgmr（日志书写器进程,负责写日志咯）,
+ckpt(检查点进程，触发检查点),dbwr(数据库写入器，负责把数据写入导datafile)
+</p>
+
+<h2 id="toc_0.3">备份恢复类</h2>
+
+
+<hr />
+<p>
+<strong>备份如何分类</strong>
+</p>
+
+<p>
+逻辑备份(exp)与物理备份。
+或者冷备份与热备份。
+</p>
+
+<hr />
+<p>
+<strong>归档是什么含义</strong>
+</p>
+
+<p>
+把日志文件放到另一个地方。
+</p>
+
+<hr />
+<p>
+<strong>如果一个表在2004-08-04 10:30:00 被drop，在有完善的归档和备份的情况下，如何恢复</strong>
+</p>
+
+<p>
+拷贝备份，
+recove database util time 2004-08-04 10:30:00
+alter database open resetlogs;
+</p>
+
+<hr />
+<p>
+<strong>rman是什么，有何特点</strong>
+</p>
+
+<p>
+rman叫恢复管理器.
+特点很多。
+</p>
+<ul>
+<li>
+1：热备份。
+
+<li>
+2：可以存储脚本。
+
+<li>
+3：可以增量备份。
+
+<li>
+4：自动管理备份集。
+
+</ul>
+<hr />
+<p>
+<strong>standby的特点</strong>
+</p>
+
+<p>
+利用传输重做日志来达到同步的目的。
+</p>
+
+<hr />
+<p>
+<strong>对于一个要求恢复时间比较短的系统(数据库50G,每天归档5G)，你如何设计备份策略</strong>
+</p>
+
+<p>
+每天一个全备份。
+</p>
+
+
+<h2 id="toc_0.4">系统管理类</h2>
+
+<hr />
+<p>
+<strong>对于一个存在系统性能的系统，说出你的诊断处理思路</strong>
+</p>
+
+<p>
+做一个statspack，根据top 5,system load,top sql等来做相应的调整。
+</p>
+
+<hr />
+<p>
+<strong>列举几种诊断IO、CPU、性能状况的方法</strong>
+</p>
+
+<p>
+hp-unix:iostat -x 1 5;
+top/vmstat/glance
+</p>
+
+<hr />
+<p>
+<strong>对statspack有何认识</strong>
+</p>
+
+<p>
+一个性能诊断工具而已咯，其本质就是在两个时间点采样两个系统数据。(动态性能视图)
+然后根据两个snapshot，产生一个报告。
+</p>
+
+<hr />
+<p>
+<strong>如果系统现在需要在一个很大的表上创建一个索引，你会考虑那些因素，如何做以尽量减小对应用的影响</strong>
+</p>
+
+<ul>
+<li>
+1:增大sort_area_size(8i)/pga_aggregate_target(9i)值。
+
+<li>
+2:用并行的方式来建。
+
+<li>
+3:系统空闲的时候建。
+
+</ul>
+
+
+<hr />
+<p>
+<strong>对raid10 和raid5有何认识</strong>
+</p>
+
+<p>
+raid5写入慢
+</p>
 
 
 <!--// commentwrap Start-->
