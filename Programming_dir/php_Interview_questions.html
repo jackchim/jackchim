@@ -1079,6 +1079,181 @@ mysql_insert_id()  得到插入的id
 </p>
 
 <hr />
+<p>
+<strong>PHP的简易冒泡法</strong>
+</p>
+
+<pre class="brush:php">
+&lt;?php
+    $str=array(5,8,2,6,10,0,3,12,11);
+    for ($I = 0; $I &lt;= count($str); $I++) 
+        if (in_array($I, $str)) 
+            echo $I;
+?&gt;
+</pre>
+
+
+<hr />
+<p>
+<strong>统计字符串中每种字符的个数并排序</strong>
+</p>
+
+<pre class="brush:php">
+&lt;?php
+//这个方法纯粹是背函数，不解释；
+function countStr($str){
+    $str_array=str_split($str);
+    $str_array=array_count_values($str_array);
+    arsort($str_array);
+    return $str_array;
+}
+//以下是例子；
+$str="asdfgfdas323344##$\$fdsdfg*$**$*$**$$443563536254fas";
+print_r(countStr($str));
+?&gt;
+</pre>
+
+<pre class="brush:php">
+&lt;?php
+//这个方法有些数据结构的思想，不过还是很好理解的：）
+function countStr2($str){
+    $str_array=str_split($str);
+    $result_array=array();
+    foreach($str_array as $value){//判断该字符是否是新出现的种类，是的话就设置为1，不是的话就自加；
+        if(!$result_array[$value]){
+            $result_array[$value]=1;
+        }else{
+            $result_array[$value]++;
+        }
+    }
+
+    arsort($result_array);
+    return  $result_array;
+}
+$str="asdfgfdas323344##$\$fdsdfg*$**$*$**$$443563536254fas";
+var_dump(countStr2($str))
+?&gt;
+</pre>
+
+<pre class="brush:php">
+&lt;?php
+//这个方法纯粹是解法一的蹩脚版本，先找出所有字符的总类，然后在一个一个用substr_count函数统计。
+function countStr3($str){
+        $str_array=str_split($str);
+        $unique=array_unique($str_array);
+        foreach ($unique as $v){
+            $result_array[$v]=substr_count($str,$v);
+        }
+        arsort($result_array);
+        return $result_array;
+
+    }
+
+    $str="asdfgfdas323344##$\$fdsdfg*$**$*$**$$443563536254fas";
+var_dump(countStr3($str));
+?&gt;
+</pre>
+
+
+<hr />
+<p>
+<strong>写一个函数，算出两个文件的相对路径。</strong>
+</p>
+
+<pre class="brush:php">
+&lt;?php
+//计算出 c.php相对于e.php的相对路径应该是../../12/34
+$a          = '/a/b/c/d/e.php';
+$b          = '/a/b/12/34/c.php';
+getpathinfo($a, $b);
+function getpathinfo( $a, $b ) {
+    $a2array    = explode('/', $a);
+    $b2array    = explode('/', $b);
+    $pathinfo   = '';
+    for( $i = 1; $i &lt;= count($b2array)-2; $i++ ) {
+        $pathinfo.=$a2array[$i] == $b2array[$i] ? '../' : $b2array[$i].'/';
+    }
+    print_R($pathinfo);
+}
+?&gt;
+</pre>
+
+
+<hr />
+<p>
+<strong>php得到文件扩展名</strong>
+</p>
+
+<pre class="brush:php">
+&lt;?php 
+
+$str = 'dir/upload.image.jpg';
+
+/*方法一*/
+$arr = explode('.',$str);
+echo end($arr);
+echo '&lt;br&gt;';
+/*方法二*/
+$l = strlen($str);
+$prefix =  '';
+for($i = $l - 1;$i&gt;=0;$i--)
+{
+    if($str{$i} == '.')
+    {
+        break;
+    }
+    $prefix = $str{$i} . $prefix; 
+    
+}
+echo $prefix;
+echo '&lt;br&gt;';
+/*方法三*/
+echo substr($str,strrpos($str,'.') + 1);
+
+//方法四
+echo pathinfo($str, PATHINFO_EXTENSION);
+?&gt;
+</pre>
+
+<hr />
+<p>
+<strong>替换字符串中第N次出现的字符，不用正则表达式</strong>
+</p>
+
+<pre class="brush:php">
+&lt;?php
+    /*
+     * $text是输入的文本；
+     * $word是原来的字符串；
+     * $cword是需要替换成为的字符串；
+     * $pos是指$word在$text中第N次出现的位置，从1开始算起
+     * */
+    function changeNstr($text,$word,$cword,$pos=1){
+        $text_array=explode($word,$text);
+        $num=count($text_array)-1;
+        if($pos&gt;$num){
+            return "the number is too big!or can not find the $word";
+        }
+        $result_str='';
+        for($i=0;$i&lt;=$num;$i++){
+            if($i==$pos-1){
+                $result_str.=$text_array[$i].$cword;
+            }else{
+            $result_str.=$text_array[$i].$word;}
+
+        }
+
+        return rtrim($result_str,$word);
+    }
+$text='hello world hello pig hello cat hello dog hello small boy';
+$word='hello';
+$cword='good-bye';
+echo changeNstr($text,$word,$cword,3);
+//输出：hello world hello pig good-bye cat hello dog hello small boy
+?&gt;
+</pre>
+
+<hr />
 
 
 <!--// commentwrap Start-->
