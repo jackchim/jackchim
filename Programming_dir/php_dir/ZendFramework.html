@@ -151,12 +151,20 @@
 <li>
 <a href="http://blog.csdn.net/phpsome/article/category/527884">http://blog.csdn.net/phpsome/article/category/527884</a>
 
+<li>
+<a href="http://framework.zend.com/downloads/latest">http://framework.zend.com/downloads/latest</a>
+
 </ul>
 
-
-
 <hr />
-<h2 id="toc_0.1">Books</h2>
+<h2 id="toc_0.1">github</h2>
+<ul>
+<li>
+<a href="https://github.com/zendframework">https://github.com/zendframework</a>
+
+</ul>
+<hr />
+<h2 id="toc_0.2">Books</h2>
 <ul>
 <li>
 Getting-Started-with-Zend-Framework
@@ -164,9 +172,20 @@ Getting-Started-with-Zend-Framework
 </ul>
 
 
+<hr />
+<h2 id="toc_0.3">tutorial</h2>
 
+<ul>
+<li>
+<a href="http://akrabat.com/zend-framework-2-tutorial/">ZF2 tutorial application</a>
 
+<li>
+ <a href="https://github.com/zendframework/ZendSkeletonApplication">ZendSkeletonApplication </a> 
 
+<li>
+ <a href="http://zf2.readthedocs.org/en/latest/index.html ">Programmer’s Reference Guide of Zend Framework 2</a>
+
+</ul>
 
 
 
@@ -174,12 +193,34 @@ Getting-Started-with-Zend-Framework
 
 
 <hr />
-<h2 id="toc_0.2">view</h2>
+<h2 id="toc_0.4">view</h2>
 
 <pre class="brush:php">
 &lt;?php echo $this-&gt;render('header.phtml'); ?&gt;
 
 &lt;?php echo $this-&gt;render('footer.phtml'); ?&gt;
+</pre>
+
+<hr />
+<h2 id="toc_0.5">URL Rewrite</h2>
+<p>
+<strong>nginx</strong>
+</p>
+
+<pre>
+if (!-e $request_filename) {
+rewrite ^.*$ /index.php last;
+}
+</pre>
+
+
+<p>
+<strong>apache</strong>
+</p>
+
+<pre>
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^.*$ index.php [NC,L]
 </pre>
 
 
@@ -190,17 +231,18 @@ Getting-Started-with-Zend-Framework
 <hr>
     <div id="disqus_thread" style=""></div>
 
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'jackchim'; // required: replace example with your forum shortname
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
+    var disqus_shortname = 'jackchim'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
 
 
         
