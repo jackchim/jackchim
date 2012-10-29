@@ -131,13 +131,244 @@
 
 <h1 ><a  href="">django</a> Page</h1>
 
+<ul>
+<li>
+<a href="https://www.djangoproject.com ">Django 官网</a>
+
+</ul>
+
+<hr />
 
 <p>
  Get the latest development version
 </p>
-<pre class="brush:bash">
-git clone https://github.com/django/django.git
+
+<p>
+git clone <a href="https://github.com/django/django.git">https://github.com/django/django.git</a>
+</p>
+
+<hr />
+<h2 id="toc_0.1">部署方式</h2>
+
+
+<hr />
+<h4 id="toc_0.1.0.1">FCGI</h4>
+
+<p>
+<strong>nginx conf server</strong>
+</p>
+
+<pre>
+     location ~ ^/ {  
+        # 指定 fastcgi 的主机和端口  
+        fastcgi_pass 127.0.0.1:9000;  
+        fastcgi_param PATH_INFO $fastcgi_script_name;  
+        fastcgi_param REQUEST_METHOD $request_method;  
+        fastcgi_param QUERY_STRING $query_string;  
+        fastcgi_param CONTENT_TYPE $content_type;  
+        fastcgi_param CONTENT_LENGTH $content_length;  
+        fastcgi_param SERVER_PROTOCOL $server_protocol;  
+        fastcgi_param SERVER_PORT $server_port;  
+        fastcgi_param SERVER_NAME $server_name;  
+        fastcgi_pass_header Authorization;  
+        fastcgi_intercept_errors off;  
+    }   
 </pre>
+
+
+<hr />
+<h4 id="toc_0.1.0.2">WSGI</h4>
+
+
+
+<hr />
+<h4 id="toc_0.1.0.3">uWSGI</h4>
+
+<p>
+<strong>安装uwsgi模块</strong>
+</p>
+
+<pre class="brush:shell">
+wget http://projects.unbit.it/downloads/uwsgi-1.2.tar.gz
+tar zxvf uwsgi-1.2.tar.gz
+cd uwsgi-1.2
+make
+sudo cp uwsgi /usr/bin
+</pre>
+
+<p>
+<strong>nginx conf server</strong>
+</p>
+
+<pre>
+ location /{
+　　　　uwsgi_pass 127.0.0.1:9000;
+　　　　include uwsgi_params;
+　　　　access_log off;
+　　} 
+</pre>
+
+<p>
+<strong>管理uWsgi服务</strong>
+</p>
+
+<ul>
+<li>
+启动uWsgi <code>/etc/init.d/uwsgi start</code>
+
+<li>
+停止uWsgi <code>/etc/init.d/uwsgi stop</code>
+
+<li>
+重启uWsgi <code>/etc/init.d/uwsgi restart</code>
+
+</ul>
+
+<p>
+<em>注意：每次修改Django应用之后，都需要重启uWsgi服务使新的应用生效。</em>
+</p>
+
+<p>
+<strong>配置uWSGI</strong>
+</p>
+
+<p>
+vim &lt;urlto&gt;/projectname/uwsgi.xml
+</p>
+
+<pre>
+&lt;uwsgi&gt;
+ &lt;master&gt;true&lt;/master&gt;
+    &lt;socket&gt;127.0.0.1:9000&lt;/socket&gt;
+    &lt;pythonpath&gt;..&lt;/pythonpath&gt;
+    &lt;module&gt;mysite.wsgi&lt;/module&gt;
+&lt;/uwsgi&gt; 
+</pre>
+
+<p>
+<strong>启动应用</strong>
+</p>
+
+<p>
+/etc/init.d/uwsgi -x &lt;urlto&gt;/projectname/uwsgi.xml
+</p>
+
+
+<hr />
+<h2 id="toc_0.2">django 环境搭建</h2>
+<ul>
+<li>
+<a href="https://www.djangoproject.com/download/1.4.2/tarball/">https://www.djangoproject.com/download/1.4.2/tarball/</a>
+
+<li>
+<a href="http://www.djangoproject.com/m/releases/1.4/Django-1.4.2.tar.gz">http://www.djangoproject.com/m/releases/1.4/Django-1.4.2.tar.gz</a>
+
+</ul>
+<p>
+download Django-1.4.2.tar.gz 
+</p>
+
+<p>
+install Django 
+</p>
+
+<pre>
+tar xzvf Django-1.4.2.tar.gz
+cd Django-1.4.2
+python setup.py install     
+</pre>
+
+
+<p>
+<strong>Setup Your First Project</strong>
+</p>
+
+<pre>
+django-admin.py startproject &lt;mytestprojectname&gt;  
+cd &lt;mytestprojectname&gt; 
+python manage.py runserver  
+</pre>
+ 
+<p>
+指定ip和端口运行
+</p>
+
+<p>
+<code>python manage.py runserver 192.168.146.137:8000</code>
+</p>
+
+<p>
+<strong>1.建立 Django 站点工程</strong>
+</p>
+
+<p>
+<code>django-admin.py startproject projectname</code>
+</p>
+
+<p>
+<strong>2.建立 App</strong>
+</p>
+
+<p>
+<code>python manage.py startapp &lt;appname&gt;</code>
+</p>
+
+<p>
+<strong>3.验证 Model</strong>
+</p>
+
+<p>
+<code>python manage.py validate</code>
+</p>
+
+<p>
+<strong>4.生成相应的database</strong>
+</p>
+
+<p>
+<code>python manage.py syncdb</code>
+</p>
+
+
+
+<hr />
+<h2 id="toc_0.3">错误解决</h2>
+
+
+<pre>
+  django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module: N
+</pre>
+
+<p>
+需安装MySQL-python <code>yum -y install MySQL-python </code>
+</p>
+
+
+<hr />
+<h2 id="toc_0.4">apps</h2>
+<ul>
+<li>
+<a href="http://ddtcms.com/news/2012/02/18/tui-jian-35-ge-zhi-de-yi-shi-de-django-apps/">推荐35个值得一试的django apps</a>
+
+<li>
+<a href="https://www.django-cms.org/ ">django-cms</a>
+
+<li>
+<a href="http://github.com/eldarion/biblion ">Biblion</a> -- Bilion是eldarion.com的一个已经被提取和开源的blog程序
+
+<li>
+<a href="http://bitbucket.org/codekoala/django-articles/ ">Django-article</a> -- 基于django开发的博客引擎
+
+<li>
+<a href="http://www.oschina.net/p/cartridge ">cartridge</a> -- 一款开源的购物车应用，同样建立在Django上。
+
+<li>
+<a href="http://www.oschina.net/p/mezzanine ">开源内容管理平台Mezzanine</a>
+
+<li>
+<a href="code.google.com/p/ddtcms .html">ddtcms</a> DDTCMS 是一个基于Django的内容管理系统（CMS）
+
+</ul>
 
 
 <!--// commentwrap Start-->
@@ -147,17 +378,18 @@ git clone https://github.com/django/django.git
 <hr>
     <div id="disqus_thread" style=""></div>
 
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'jackchim'; // required: replace example with your forum shortname
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
+    var disqus_shortname = 'jackchim'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
 
 
         

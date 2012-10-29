@@ -219,6 +219,31 @@ return 403;
 }
 </pre>
 
+<hr />
+<p>
+<strong>多级proxy获取用户真视IP</strong>
+</p>
+
+<p>
+–with-http_realip_module
+</p>
+
+
+<pre>
+location / { 
+        proxy_pass_header Server;
+        proxy_pass_header Set-Cookie;
+        proxy_cache_key $host$uri$is_args$args;
+        proxy_pass http://www.baidu.com;
+        proxy_redirect off;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forward-For $remote_addr;
+        proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
+        proxy_set_header Host $host;
+ 
+    }        
+</pre>
+
 
 <!--// commentwrap Start-->
 <!-- 加载duoshuo.com 评论插件 -->
@@ -227,17 +252,18 @@ return 403;
 <hr>
     <div id="disqus_thread" style=""></div>
 
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'jackchim'; // required: replace example with your forum shortname
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function() {
-                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
+    var disqus_shortname = 'jackchim'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
 
 
         
