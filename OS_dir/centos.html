@@ -239,8 +239,29 @@ enabled=0
 gpgkey=http://mirrors.ustc.edu.cn/centos/RPM-GPG-KEY-CentOS-6
 </pre>
 
+
 <hr />
-<h2 id="toc_0.2">卸载安装包</h2>
+<h2 id="toc_0.2">配置本地源</h2>
+
+<p>
+支持rsync 协议源
+</p>
+
+<p>
+<a href="http://www.centos.org/modules/tinycontent/index.php?id=32">http://www.centos.org/modules/tinycontent/index.php?id=32</a>
+</p>
+
+<p>
+同步源到本地服务器
+</p>
+
+<pre>
+rsync -avzLP --delete --exclude=SRPMS/ --exclude=x86_64/ --exclude=isos/ rsync://mirrors.sohu.com/centos/6.0/ /opt/centos/i386/
+</pre>
+
+
+<hr />
+<h2 id="toc_0.3">卸载安装包</h2>
 
 <p>
 例：
@@ -249,6 +270,30 @@ gpgkey=http://mirrors.ustc.edu.cn/centos/RPM-GPG-KEY-CentOS-6
 <p>
 rpm -Uvh --force mysql-5.0.77-4.el5_5.4.i386.rpm
 </p>
+
+<hr />
+<h2 id="toc_0.4">rpm 命令</h2>
+
+<p>
+常用命令组合
+</p>
+<ul>
+<li>
+rpm -qa | grep httpd　　 ＃[搜索指定rpm包是否安装]--all搜索 httpd
+
+<li>
+rpm -ql httpd　　 　　　＃[搜索rpm包]--list所有文件安装目录
+
+<li>
+rpm -qpR file.rpm　　 ＃[查看包]依赖关
+
+<li>
+rpm -e file.rpm         ＃[删除一个rpm包]--erase
+
+<li>
+rpm -ivh file.rpm 　  ＃[安装新的rpm]
+
+</ul>
 
 
 <!--// commentwrap Start-->
