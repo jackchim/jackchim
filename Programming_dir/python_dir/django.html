@@ -15,7 +15,7 @@
 <script type="text/javascript" src="../../syntaxhighlighter/scripts/shCore.js"></script>
 <link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shCore.css"/>
 <!-- for SyntaxHighlighter theme -->
-<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shThemeMidnight.css"/>
+<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shThemeDefault.css"/>
 <!-- for SyntaxHighlighter syntax -->
 <script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushBash.js"></script>
 <script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushCpp.js"></script>
@@ -188,10 +188,14 @@ git clone <a href="https://github.com/django/django.git">https://github.com/djan
 <strong>安装uwsgi模块</strong>
 </p>
 
+<p>
+需安装python-devel <code>yum insall python-devel</code>
+</p>
+
 <pre class="brush:shell">
-wget http://projects.unbit.it/downloads/uwsgi-1.3.tar.gz 
-tar zxvf uwsgi-1.3.tar.gz
-cd uwsgi-1.3
+wget http://projects.unbit.it/downloads/uwsgi-1.2.6.tar.gz 
+tar zxvf uwsgi-1.2.6.tar.gz
+cd uwsgi-1.2.6
 make
 cp uwsgi /usr/bin
 </pre>
@@ -206,8 +210,8 @@ listen    80;
 server_name 192.168.146.137;  
 root /home/&lt;app_dir&gt;; 
 
-access_log /home/logs/nginx_django_access.log;
-error_log /home/logs/nginx_django_error.log; 
+access_log /home/wwwlogs/nginx_django_access.log;
+error_log /home/wwwlogs/nginx_django_error.log; 
 
  location /{
 　　　　uwsgi_pass 127.0.0.1:8000;
@@ -218,55 +222,108 @@ error_log /home/logs/nginx_django_error.log;
 </pre>
 
 <p>
-<strong>管理uWsgi服务</strong>
-</p>
-
-<ul>
-<li>
-启动uWsgi <code>/etc/init.d/uwsgi start</code>
-
-<li>
-停止uWsgi <code>/etc/init.d/uwsgi stop</code>
-
-<li>
-重启uWsgi <code>/etc/init.d/uwsgi restart</code>
-
-</ul>
-
-<p>
-<em>注意：每次修改Django应用之后，都需要重启uWsgi服务使新的应用生效。</em>
-</p>
-
-<p>
 <strong>配置uWSGI</strong>
 </p>
 
 <p>
-vim &lt;urlto&gt;/projectname/uwsgi.xml
+vim /home/www/hello/uwsgi.xml
 </p>
 
-<pre>
+<pre class="brush:xml">
 &lt;uwsgi&gt;
- &lt;master&gt;true&lt;/master&gt;
+    &lt;master&gt;true&lt;/master&gt;
     &lt;socket&gt;127.0.0.1:8000&lt;/socket&gt;
-    &lt;processes&gt;4&lt;/processes&gt;
-    &lt;profiler&gt;true&lt;/profiler&gt;  
-    &lt;memory-report&gt;true&lt;/memory-report&gt;  
-    &lt;enable-threads&gt;true&lt;/enable-threads&gt;  
-     &lt;logdate&gt;true&lt;/logdate&gt; 
-    &lt;pythonpath&gt;..&lt;/pythonpath&gt;
-    &lt;module&gt;mysite.wsgi&lt;/module&gt;
+    &lt;processes&gt;8&lt;/processes&gt;
+    &lt;profiler&gt;true&lt;/profiler&gt;
+    &lt;max-requests&gt;2048000&lt;/max-requests&gt;
+    &lt;buffer-size&gt;8192&lt;/buffer-size&gt;
+    &lt;module&gt;wsgi_app&lt;/module&gt;
+    &lt;limit-as&gt;256&lt;/limit-as&gt;
+    &lt;pythonpath&gt;/home/www/hello&lt;/pythonpath&gt;
+    &lt;chdir&gt;/home/www/hello&lt;/chdir&gt;
+    &lt;memory-report&gt;true&lt;/memory-report&gt;
+    &lt;enable-threads&gt;true&lt;/enable-threads&gt;
+    &lt;logdate&gt;true&lt;/logdate&gt;
+    &lt;pidfile&gt;/tmp/uwsgi.pid&lt;/pidfile&gt;
+    &lt;daemonize&gt;/var/log/uwsgi_app.log&lt;/daemonize&gt;
 &lt;/uwsgi&gt; 
+
 </pre>
+
+<p>
+vim /home/www/hello/wsgi_app.py 
+</p>
+
+<pre class="brush:python">
+#!/usr/bin/python
+import os
+os.environ['DJANGO_SETTINGS_MODULE'] = 'hello.settings'
+import django.core.handlers.wsgi
+application = django.core.handlers.wsgi.WSGIHandler()
+</pre>
+
+
+
+
+<p>
+<strong>stop uWsgi</strong>
+</p>
+
+
+<p>
+<code>uwsgi --stop /tmp/uwsgi.pid</code>
+</p>
+
+<p>
+<strong>reload uWsgi</strong>
+</p>
+
+<p>
+<code>uwsgi --reload  /tmp/uwsgi.pid</code>
+</p>
+
+
 
 <p>
 <strong>启动应用</strong>
 </p>
 
 <p>
-uwsgi -x &lt;urlto&gt;/projectname/uwsgi.xml
+<code>uwsgi -x /home/www/hello/uwsgi.xml</code>
 </p>
 
+<p>
+<strong>查看端口情况</strong>
+</p>
+
+<p>
+<code>netstat -tunlp |grep 8000</code>
+</p>
+
+<p>
+<strong>进程列表</strong>
+</p>
+
+<p>
+<code>ps aux | grep uwsgi</code>
+</p>
+
+
+<p>
+<em>注意：每次修改Django应用之后，都需要重启uWsgi服务使新的应用生效。</em>
+</p>
+
+<p>
+<strong>参考资料</strong>
+</p>
+<ul>
+<li>
+<a href="http://projects.unbit.it/uwsgi/wiki/Doc">http://projects.unbit.it/uwsgi/wiki/Doc</a>
+
+<li>
+<a href="http://projects.unbit.it/uwsgi/wiki/Example">http://projects.unbit.it/uwsgi/wiki/Example</a>
+
+</ul>
 
 <hr />
 <h2 id="toc_0.2">django 环境搭建</h2>
