@@ -192,28 +192,110 @@ chkconfig mysqld on
 <h2 id="toc_0.5">基本命令</h2>
 
 <p>
+<strong>库的操作</strong>
+</p>
+<ul>
+<li>
 显示数据库 <code>SHOW DATABASES;</code>
-</p>
 
-<p>
+<li>
 使用数据库 <code>USE &lt;DATABASENAME&gt;;</code>
-</p>
+
+<li>
+删库 <code>drop database 库名;</code>
+
+<li>
+删除名为test的数据库 <code>DROP DATABASE TEST;</code>
+
+<li>
+创建数据库 <code>CREATE DATABASE &lt;NAME&gt;;</code>
+
+</ul>
 
 <p>
-查看数据库中已存在的表 <code>SHOW TABLES;</code>
+<strong>表的操作</strong>
 </p>
+<ul>
+<li>
+查看数据库中已存在的表 <code>SHOW TABLES;</code>
+
+<li>
+显示数据表的结构 <code>describe 表名;</code>
+
+<li>
+显示表中的记录 <code>select * from 表名;</code>
+
+<li>
+建表 <code>use 库名；</code>  <code>create table 表名;</code>
+
+<li>
+删表 <code>drop table 表名；</code>
+
+<li>
+将表中记录清空 <code>delete from 表名;</code>
+
+<li>
+重命名表 <code>alter table t1 rename t2;</code>
+
+</ul>
+
+<p>
+<strong>字段操作</strong>
+</p>
+<ul>
+<li>
+增加一个字段 <code>alter table table_name add column column_name type default value; </code>
+
+<li>
+更改一个字段名字 <code>alter table table_name change sorce_col_name dest_col_name type default value;</code>
+
+<li>
+改变一个字段的默认值 <code>alter table book alter flag set default '0';</code>
+
+<li>
+改变一个字段的数据类型 <code>alter table userinfo change column username username varchar(20);</code>
+
+<li>
+删除字段 <code>alter table form1 drop column 列名;</code>
+
+</ul>
+
+<p>
+<strong>mysql 信息</strong>
+</p>
+<ul>
+<li>
+查询时间 <code>select now();</code>
+
+<li>
+查询当前用户 <code>select user();</code>
+
+<li>
+查询数据库版本 <code>select version();</code>
+
+<li>
+查询当前使用的数据库 <code>select database();</code>
+
+</ul>
+
+
+
 
 <p>
 设置root密码 <code>set password for root@localhost=password('root');</code>
 </p>
 
+<h4 id="toc_0.5.0.1">导出&amp;导入</h4>
+
 <p>
-删除名为test的数据库 <code>DROP DATABASE TEST;</code>
+导入数据 <code>mysql -uroot -p dbname  &lt; db.sql</code>
 </p>
 
 <p>
-创建数据库 <code>CREATE DATABASE &lt;NAME&gt;;</code>
+导出数据 <code>mysql -uroot -p dbname  &gt; db.sql</code>
 </p>
+
+
 
 
 <hr />

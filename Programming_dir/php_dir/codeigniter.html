@@ -133,6 +133,21 @@
 
 
 
+<hr />
+<h2 id="toc_0.1">rewrite-rules</h2>
+
+<p>
+<strong>nginx</strong>
+</p>
+
+<pre>
+    if (!-e $request_filename)
+    {
+        rewrite ^/(.*)$ /index.php?/$1 last;
+    }
+</pre>
+
+
 <!--// commentwrap Start-->
 <!-- 加载duoshuo.com 评论插件 -->
 <div id="commentwrap">
