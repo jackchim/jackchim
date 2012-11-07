@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim PostgreSQL 开发笔记_高级_工程师_Blog_Wiki</title>
+<title>Jack_Chim pg_restore 开发笔记_高级_工程师_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
@@ -129,515 +129,58 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">PostgreSQL</a> Page</h1>
+<h1 ><a  href="">pg_restore</a> Page</h1>
 
-<ol>
-<li>
-<a href="http://www.postgresql.org/">PostgreSQL</a> -  官网
 
-<li>
-<a href="http://www.postgresql.org/docs/9.2/interactive/index.html">PostgreSQL 9.2.1 Documentation</a>
-
-<li>
-<a href="http://wiki.postgresql.org/">PostgreSQL wiki</a>
-
-</ol>
-<hr />
-<h2 id="toc_0.1">Tools</h2>
-<p>
-PostgreSQL 自带工具
-</p>
-<ul>
-<li>
-<a href="pg_dump.html">pg_dump</a>
-
-<li>
-<a href="pg_restore.html">pg_restore</a>
-
-<li>
-<a href="pg_ctl.html">pg_ctl</a>
-
-</ul>
-
-<p>
-<a href="phppgadmin.html">phppgadmin</a> - web管理
-</p>
-
-<p>
-pgBadger - PostgreSQL日志分析程序 
-</p>
-
-<p>
-<strong>监控</strong>
-</p>
-<ul>
-<li>
-<a href="ptop.html">ptop</a>
-
-<li>
-<a href="pg_top.html">pg_top</a>
-
-</ul>
 
 
 <hr />
-<h2 id="toc_0.2">yum 安装</h2>
-<pre>
-      yum install postgresql 
-</pre>
-
-<p>
-版本
-</p>
-<ul>
-<li>
-postgresql - client libraries and client binaries
-
-<li>
-postgresql-server - core database server
-
-<li>
-postgresql-contrib - additional supplied modules
-
-<li>
-postgresql-devel - libraries and headers for C language development
-
-</ul>
-
-<hr />
-<h2 id="toc_0.3">编译安装</h2>
-
-<p>
-依赖的库 
-</p>
-<ul>
-<li>
-libperl
-
-<li>
-perl
-
-<li>
-libpython
-
-<li>
-libxml
-
-<li>
-readline-devel
-
-</ul>
+<h2 id="toc_0.1">help doc</h2>
 
 <pre>
-      yum -y install libperl perl libpython libxml readline-devel readline
-</pre>
+Usage:
+  pg_restore [OPTION]... [FILE]
 
-<p>
-configure参数
-</p>
-<pre>
-      ./configure --prefix=/usr/local/pgsql --bindir=/usr/local/pgsql/bin --with-python  --with-libxml 
-</pre>
+General options:
+  -d, --dbname=NAME        connect to database name
+  -f, --file=FILENAME      output file name
+  -F, --format=c|d|t       backup file format (should be automatic)
+  -l, --list               print summarized TOC of the archive
+  -v, --verbose            verbose mode
+  -V, --version            output version information, then exit
+  -?, --help               show this help, then exit
 
-<p>
-configure 帮助 <code>./configure -h</code>
-</p>
+Options controlling the restore:
+  -a, --data-only              restore only the data, no schema
+  -c, --clean                  clean (drop) database objects before recreating
+  -C, --create                 create the target database
+  -e, --exit-on-error          exit on error, default is to continue
+  -I, --index=NAME             restore named index
+  -j, --jobs=NUM               use this many parallel jobs to restore
+  -L, --use-list=FILENAME      use table of contents from this file for
+                               selecting/ordering output
+  -n, --schema=NAME            restore only objects in this schema
+  -O, --no-owner               skip restoration of object ownership
+  -P, --function=NAME(args)    restore named function
+  -s, --schema-only            restore only the schema, no data
+  -S, --superuser=NAME         superuser user name to use for disabling triggers
+  -t, --table=NAME             restore named table
+  -T, --trigger=NAME           restore named trigger
+  -x, --no-privileges          skip restoration of access privileges (grant/revoke)
+  -1, --single-transaction     restore as a single transaction
+  --disable-triggers           disable triggers during data-only restore
+  --no-data-for-failed-tables  do not restore data of tables that could not be
+                               created
+  --no-security-labels         do not restore security labels
+  --no-tablespaces             do not restore tablespace assignments
+  --section=SECTION            restore named section (pre-data, data, or post-data)
+  --use-set-session-authorization
+                               use SET SESSION AUTHORIZATION commands instead of
+                               ALTER OWNER commands to set ownership
 
-<p>
-编译安装命令
-</p>
-<pre>
-cd path_to_postgresql/
-./configure --prefix=/usr/local/pgsql --bindir=/usr/local/pgsql/bin --with-python  --with-libxml 
-gmake
-su 
-gmake install 
-adduser postgres 
-mkdir /usr/local/pgsql/data 
-chown postgres /usr/local/pgsql/data 
-su - postgres 
-/usr/local/pgsql/bin/initdb -D /usr/local/pgsql/data 
-/usr/local/pgsql/bin/postgres -D /usr/local/pgsql/data &gt;logfile 2&gt;&amp;1 &amp;
-/usr/local/pgsql/bin/createdb test 
-/usr/local/pgsql/bin/psql test
 
 
 </pre>
-
-<p>
-默认数据
-</p>
-<ul>
-<li>
-doc /usr/local/doc/postgresql 
-
-<li>
-监听端口默认为5432
-
-</ul>
-
-
-<hr />
-<h2 id="toc_0.4">Environment Variables</h2>
-
-<p>
-设置环境变量和共享库路径
-</p>
-
-<p>
-编辑添加postgres用户的
-</p>
-
-<p>
-<strong>~/.bash_profile</strong>
-</p>
-<pre>
-     PATH=/usr/local/pgsql/bin:$PATH 
-     export PATH
-</pre>
-
-<p>
-全局则添加到/etc/profile文件中
-</p>
-
-<p>
-<strong>~/.bashrc alias</strong>
-</p>
-
-<pre>
-      alias pgstart='pg_ctl -D /usr/local/pgsql/data start'
-      alias pgstop='kill `cat /usr/local/pgsql/data/postmaster.pid`'
-      alias pgreload='pg_ctl reload -D /usr/local/pgsql/data '
-      alias pgstatus='pg_ctl status -D /usr/local/pgsql/data'
-</pre>
-
-<hr />
-<h2 id="toc_0.5">操作命令 SQL commands</h2>
-
-<p>
-<strong>库操作</strong>
-</p>
-<ul>
-<li>
-建立数据库 <code>createdb db_name</code>
-
-</ul>
-
-<p>
-<strong>表操作</strong>
-</p>
-<ul>
-<li>
-建立表 <code>CREATE TABLE TABLE_NAME ( id varchar(20), name varchar(30));</code>
-
-<li>
-显示表内容 <code>SELECT * FROM TABLE_NAME;</code>
-
-</ul>
-
-<p>
-创建用户 <code>createuser -d -a -P root</code>
-</p>
-
-<table>
-<tr>
-<th>
-参数
-</th>
-<th>
-说明
-</th>
-</tr>
-<tr>
-<td>
--d, --createdb
-</td>
-<td>
-role can create new databases
-</td>
-</tr>
-<tr>
-<td>
--c, --connection-limit=N
-</td>
-<td>
-connection limit for role (default: no limit)
-</td>
-</tr>
-<tr>
-<td>
--D, --no-createdb
-</td>
-<td>
-role cannot create databases (default)
-</td>
-</tr>
-<tr>
-<td>
--e, --echo
-</td>
-<td>
-show the commands being sent to the server
-</td>
-</tr>
-<tr>
-<td>
--E, --encrypted
-</td>
-<td>
-encrypt stored password
-</td>
-</tr>
-<tr>
-<td>
--i, --inherit
-</td>
-<td>
-role inherits privileges of roles it is a member of (default)
-</td>
-</tr>
-<tr>
-<td>
--I, --no-inherit
-</td>
-<td>
-role does not inherit privileges
-</td>
-</tr>
-<tr>
-<td>
--l, --login
-</td>
-<td>
-role can login (default)
-</td>
-</tr>
-<tr>
-<td>
--L, --no-login
-</td>
-<td>
-role cannot login
-</td>
-</tr>
-<tr>
-<td>
--N, --unencrypted
-</td>
-<td>
-do not encrypt stored password
-</td>
-</tr>
-<tr>
-<td>
--P, --pwprompt
-</td>
-<td>
-assign a password to new role
-</td>
-</tr>
-<tr>
-<td>
--r, --createrole
-</td>
-<td>
-role can create new roles
-</td>
-</tr>
-<tr>
-<td>
--R, --no-createrole
-</td>
-<td>
-role cannot create roles (default)
-</td>
-</tr>
-<tr>
-<td>
--s, --superuser
-</td>
-<td>
-role will be superuser
-</td>
-</tr>
-<tr>
-<td>
--S, --no-superuser
-</td>
-<td>
-role will not be superuser (default)
-</td>
-</tr>
-<tr>
-<td>
---interactive
-</td>
-<td>
-prompt for missing role name and attributes rather than using defaults
-</td>
-</tr>
-<tr>
-<td>
---replication
-</td>
-<td>
-role can initiate replication
-</td>
-</tr>
-<tr>
-<td>
---no-replication
-</td>
-<td>
-role cannot initiate replication
-</td>
-</tr>
-</table>
-
-
-
-<hr />
-<h2 id="toc_0.6">管理命令</h2>
-<p>
-stop server 
-</p>
-
-<pre>
-kill `cat /usr/local/pgsql/data/postmaster.pid`
-</pre>
-
-<p>
-启动postgresql
-</p>
-
-<p>
-<code>service postgresql start</code>
-</p>
-
-<p>
-查看状态
-</p>
-
-<p>
-<code>ps aux | grep postgre</code>
-</p>
-
-<p>
-查看监听端口
-</p>
-
-<p>
-<code>netstat -ano | grep 5432</code>
-</p>
-
-<p>
-链接数据库 
-</p>
-<ul>
-<li>
-<code>psql testdb</code>
-
-<li>
-<code>psql -U root -W test_db</code>
-
-</ul>
-<p>
-参数 
-</p>
-<ul>
-<li>
--h, --host=HOSTNAME       database server host or socket directory
-
-<li>
--p, --port=PORT           database server port
-
-<li>
--U, --username=USERNAME   user name to connect as (not the one to create)
-
-<li>
--w, --no-password         never prompt for password
-
-<li>
--W, --password            force password prompt
-
-</ul>
-
-<p>
-退出 psql <code>\q</code>
-</p>
-
-
-
-<hr />
-<h2 id="toc_0.7">PostgreSQL集群</h2>
-<ol>
-<li>
-<a href="Postgres-XC.html">Postgres-XC</a>
-
-<li>
-pgcluster
-
-<li>
-Bucardo
-
-</ol>
-
-
-<p>
-资料
-</p>
-<ul>
-<li>
-<a href="http://www.oschina.net/question/12_5491">http://www.oschina.net/question/12_5491</a>
-
-<li>
-<a href="http://blog.osdba.net/?post=72">http://blog.osdba.net/?post=72</a>
-
-</ul>
-
-
-<hr />
-<h2 id="toc_0.8">postgresql.conf 配置文件优化</h2>
-
-<p>
-内存相关的参数配置
-</p>
-<ul>
-<li>
-shared_buffers(integer) 推荐将该值设置为系统内存的25%
-
-<li>
-work_mem(integer)
-
-<li>
-maintence_work_mem(integer)
-
-</ul>
-
-<hr />
-<h2 id="toc_0.9">Books</h2>
-<ul>
-<li>
-PostgreSQL 9 High Performance.pdf
-
-<li>
-PostgreSQL 9 Administration Cookbook.pdf
-
-</ul>
-
-<hr />
-<h2 id="toc_0.10">doc</h2>
-<ul>
-<li>
-<a href="http://blog.csdn.net/xiaocaoqiqi/article/details/1824305">http://blog.csdn.net/xiaocaoqiqi/article/details/1824305</a>
-
-<li>
-<a href="http://www.cnblogs.com/stephen-liu74/category/343171.html">http://www.cnblogs.com/stephen-liu74/category/343171.html</a>
-
-<li>
-<a href="https://www.braintreepayments.com/braintrust/scaling-postgresql-at-braintree-four-years-of-evolution">https://www.braintreepayments.com/braintrust/scaling-postgresql-at-braintree-four-years-of-evolution</a>
-
-</ul>
 
 
 <!--// commentwrap Start-->
