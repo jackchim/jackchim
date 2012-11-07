@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim Server 开发笔记_高级_工程师_Blog_Wiki</title>
+<title>Jack_Chim pg_ctl 开发笔记_高级_工程师_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
@@ -129,125 +129,52 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">Server</a> Page</h1>
-
-<h2 id="toc_0.1">Web Server</h2>
-<ul>
-<li>
-<a href="Apache.html">Apache</a> |   <a href="Tomcat.html">Tomcat</a> |   <a href="http://www.caucho.com/">Resin</a> |  <a href="nginx.html">nginx</a> |  <a href="uWSGI.html">uWSGI</a> | <a href="http://www.appservnetwork.com/">AppServ Open Project</a>
-
-</ul>
-
-<ul>
-<li>
- <a href="XAMPP.html">XAMPP_ </a> 
-
-</ul>
-<h2 id="toc_0.2">Apps Engine</h2>
-<ol>
-<li>
- <a href="Google-App-Engine.html">Google-App-Engine</a>
-
-<li>
- <a href="http://open.taobao.com/">淘宝网开放平台</a>
-
-<li>
- <a href="http://opensrc.alipay.net/">支付宝外部接口资源平台</a>
-
-<li>
- <a href="http://sae.sina.com.cn/">Sina App Engine</a>
-
-</ol>
-
-<hr />
-<h2 id="toc_0.3">DNS System</h2>
-
-<p>
-DNS 
-</p>
-<ul>
-<li>
-<a href="BIND.html">BIND</a> | <a href="PowerDNS.html">PowerDNS</a> | <a href="MaraDNS.html">MaraDNS</a>
-
-</ul>
-
-<hr />
-<h2 id="toc_0.4">Cache System</h2>
-
-<ol>
-<li>
-<a href="varnish.html">Varnish</a>
-
-<li>
-<a href="Memcached.html">Memcached</a>
-
-</ol>
-<hr />
-<h2 id="toc_0.5">系统监控</h2>
-
-<ul>
-<li>
-<a href="zabbix.html">分布式系统监视 zabbix</a>
-
-<li>
-<a href="https://launchpad.net/graphite">Graphite</a> <a href="http://graphite.wikidot.com/ ">wiki</a>
-
-</ul>
-<hr />
-<h2 id="toc_0.6">均衡负载</h2>
-<ul>
-<li>
-<a href="HAproxy.html">HAproxy</a>
-
-<li>
-<a href="trafficserver.html">trafficserver</a>
-
-</ul>
-
-<hr />
-<h2 id="toc_0.7">Mail server</h2>
-<ol>
-<li>
-<a href="postfix.html">postfix</a>
-
-</ol>
-
-<hr />
-<h2 id="toc_0.8">VPS</h2>
-<p>
-论坛/blog:
-</p>
-
-<p>
-  <a href="http://www.webhostingtalk.com/ ">webhostingtalk</a> |  <a href="http://www.hostloc.com ">Hostloc</a> | <a href="http://www.lowendbox.com/ ">Low End Box</a>
-</p>
-
-<p>
-IDC:
-</p>
-
-<p>
-  <a href="http://www.linode.com/ ">Linode</a>  |  <a href="http://budgetvm.com ">BudgetVM</a> | <a href="https://hostigation.com ">Hostigation</a> | <a href="https://123systems.net ">123Systems</a>
-</p>
-  
-
-<hr />
-<h2 id="toc_0.9">资源links</h2>
-<ul>
-<li>
-<a href="http://www.server-world.info">http://www.server-world.info</a>
-
-</ul>
+<h1 ><a  href="">pg_ctl</a> Page</h1>
 
 
 <hr />
-<h2 id="toc_0.10">架构</h2>
+<h2 id="toc_0.1">help doc</h2>
+<pre>
+Usage:
+  pg_ctl start   [-w] [-t SECS] [-D DATADIR] [-s] [-l FILENAME] [-o "OPTIONS"]
+  pg_ctl stop    [-W] [-t SECS] [-D DATADIR] [-s] [-m SHUTDOWN-MODE]
+  pg_ctl restart [-w] [-t SECS] [-D DATADIR] [-s] [-m SHUTDOWN-MODE]
+                 [-o "OPTIONS"]
+  pg_ctl reload  [-D DATADIR] [-s]
+  pg_ctl status  [-D DATADIR]
+  pg_ctl kill    SIGNALNAME PID
 
-<ul>
-<li>
-<a href="architecture/architecture.html">架构研究</a>
+Common options:
+  -D, --pgdata DATADIR   location of the database storage area
+  -s, --silent           only print errors, no informational messages
+  -t SECS                seconds to wait when using -w option
+  -w                     wait until operation completes
+  -W                     do not wait until operation completes
+  --help                 show this help, then exit
+  --version              output version information, then exit
+(The default is to wait for shutdown, but not for start or restart.)
 
-</ul>
+If the -D option is omitted, the environment variable PGDATA is used.
+
+Options for start or restart:
+  -c, --core-files       allow postgres to produce core files
+  -l, --log FILENAME     write (or append) server log to FILENAME
+  -o OPTIONS             command line options to pass to postgres
+                         (PostgreSQL server executable)
+  -p PATH-TO-POSTGRES    normally not necessary
+
+Options for stop or restart:
+  -m SHUTDOWN-MODE   can be "smart", "fast", or "immediate"
+
+Shutdown modes are:
+  smart       quit after all clients have disconnected
+  fast        quit directly, with proper shutdown
+  immediate   quit without complete shutdown; will lead to recovery on restart
+
+Allowed signal names for kill:
+  HUP INT QUIT ABRT TERM USR1 USR2
+
+</pre>
 
 
 <!--// commentwrap Start-->

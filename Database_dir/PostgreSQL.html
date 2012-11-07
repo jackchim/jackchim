@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim Server 开发笔记_高级_工程师_Blog_Wiki</title>
+<title>Jack_Chim PostgreSQL 开发笔记_高级_工程师_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
@@ -129,123 +129,182 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">Server</a> Page</h1>
-
-<h2 id="toc_0.1">Web Server</h2>
-<ul>
-<li>
-<a href="Apache.html">Apache</a> |   <a href="Tomcat.html">Tomcat</a> |   <a href="http://www.caucho.com/">Resin</a> |  <a href="nginx.html">nginx</a> |  <a href="uWSGI.html">uWSGI</a> | <a href="http://www.appservnetwork.com/">AppServ Open Project</a>
-
-</ul>
-
-<ul>
-<li>
- <a href="XAMPP.html">XAMPP_ </a> 
-
-</ul>
-<h2 id="toc_0.2">Apps Engine</h2>
-<ol>
-<li>
- <a href="Google-App-Engine.html">Google-App-Engine</a>
-
-<li>
- <a href="http://open.taobao.com/">淘宝网开放平台</a>
-
-<li>
- <a href="http://opensrc.alipay.net/">支付宝外部接口资源平台</a>
-
-<li>
- <a href="http://sae.sina.com.cn/">Sina App Engine</a>
-
-</ol>
-
-<hr />
-<h2 id="toc_0.3">DNS System</h2>
-
-<p>
-DNS 
-</p>
-<ul>
-<li>
-<a href="BIND.html">BIND</a> | <a href="PowerDNS.html">PowerDNS</a> | <a href="MaraDNS.html">MaraDNS</a>
-
-</ul>
-
-<hr />
-<h2 id="toc_0.4">Cache System</h2>
+<h1 ><a  href="">PostgreSQL</a> Page</h1>
 
 <ol>
 <li>
-<a href="varnish.html">Varnish</a>
+<a href="http://www.postgresql.org/">PostgreSQL</a> -  官网
 
 <li>
-<a href="Memcached.html">Memcached</a>
+<a href="http://www.postgresql.org/docs/9.2/interactive/index.html">PostgreSQL 9.2.1 Documentation</a>
 
 </ol>
-<hr />
-<h2 id="toc_0.5">系统监控</h2>
 
-<ul>
-<li>
-<a href="zabbix.html">分布式系统监视 zabbix</a>
-
-<li>
-<a href="https://launchpad.net/graphite">Graphite</a> <a href="http://graphite.wikidot.com/ ">wiki</a>
-
-</ul>
-<hr />
-<h2 id="toc_0.6">均衡负载</h2>
-<ul>
-<li>
-<a href="HAproxy.html">HAproxy</a>
-
-<li>
-<a href="trafficserver.html">trafficserver</a>
-
-</ul>
 
 <hr />
-<h2 id="toc_0.7">Mail server</h2>
+<h2 id="toc_0.1">Tools</h2>
 <ol>
 <li>
-<a href="postfix.html">postfix</a>
+<a href="pg_ctl.html">pg_ctl</a>
+
+<li>
+<a href="phppgadmin.html">phppgadmin</a> - web管理
 
 </ol>
 
-<hr />
-<h2 id="toc_0.8">VPS</h2>
 <p>
-论坛/blog:
+<strong>监控</strong>
 </p>
-
-<p>
-  <a href="http://www.webhostingtalk.com/ ">webhostingtalk</a> |  <a href="http://www.hostloc.com ">Hostloc</a> | <a href="http://www.lowendbox.com/ ">Low End Box</a>
-</p>
-
-<p>
-IDC:
-</p>
-
-<p>
-  <a href="http://www.linode.com/ ">Linode</a>  |  <a href="http://budgetvm.com ">BudgetVM</a> | <a href="https://hostigation.com ">Hostigation</a> | <a href="https://123systems.net ">123Systems</a>
-</p>
-  
-
-<hr />
-<h2 id="toc_0.9">资源links</h2>
 <ul>
 <li>
-<a href="http://www.server-world.info">http://www.server-world.info</a>
+<a href="ptop.html">ptop</a>
+
+<li>
+<a href="pg_top.html">pg_top</a>
 
 </ul>
 
 
 <hr />
-<h2 id="toc_0.10">架构</h2>
+<h2 id="toc_0.2">yum 安装</h2>
+<pre>
+      yum install postgresql 
+</pre>
 
+<p>
+版本
+</p>
 <ul>
 <li>
-<a href="architecture/architecture.html">架构研究</a>
+postgresql - client libraries and client binaries
+
+<li>
+postgresql-server - core database server
+
+<li>
+postgresql-contrib - additional supplied modules
+
+<li>
+postgresql-devel - libraries and headers for C language development
+
+</ul>
+
+<hr />
+<h2 id="toc_0.3">编译安装</h2>
+
+<pre>
+groupadd pgsql
+useradd pgsql -g pgsql 
+./configure --prefix=/usr/local/postgresql --enable-profiling
+make
+make install
+cd /usr/local/postgresql
+chown -R pgsql .
+chown -R pgsql data
+chown -R pgsql data/.
+su - pgsql
+/usr/local/postgresql/bin/initdb --encoding=utf8 -D /usr/local/postgresql/data
+</pre>
+
+
+<hr />
+<h2 id="toc_0.4">常用命令</h2>
+
+<p>
+<strong>库操作</strong>
+</p>
+<ul>
+<li>
+建立数据库 <code>createdb db_name</code>
+
+</ul>
+
+<p>
+<strong>表操作</strong>
+</p>
+<ul>
+<li>
+建立表 <code>CREATE TABLE TABLE_NAME ( id varchar(20), name varchar(30));</code>
+
+<li>
+显示表内容 <code>SELECT * FROM TABLE_NAME;</code>
+
+</ul>
+
+
+
+
+<hr />
+<h2 id="toc_0.5">管理命令</h2>
+
+<p>
+启动postgresql
+</p>
+
+<p>
+<code>service postgresql start</code>
+</p>
+
+<p>
+查看状态
+</p>
+
+<p>
+<code>ps aux | grep postgre</code>
+</p>
+
+<p>
+/usr/local/postgresql/bin/createuser -d -a -P root
+</p>
+
+<p>
+/usr/local/postgresql/bin/createdb test_db
+</p>
+
+<p>
+/sr/local/postgresql/bin/psql -U root -W test_db
+</p>
+
+<p>
+退出 psql 
+</p>
+
+<p>
+<code>/q</code>
+</p>
+
+
+
+<hr />
+<h2 id="toc_0.6">PostgreSQL集群</h2>
+
+
+<p>
+资料
+</p>
+<ul>
+<li>
+<a href="http://www.oschina.net/question/12_5491">http://www.oschina.net/question/12_5491</a>
+
+</ul>
+
+
+<hr />
+<h2 id="toc_0.7">Books</h2>
+<ul>
+<li>
+PostgreSQL 9 High Performance.pdf
+
+<li>
+PostgreSQL 9 Administration Cookbook.pdf
+
+</ul>
+
+<hr />
+<h2 id="toc_0.8">doc</h2>
+<ul>
+<li>
+<a href="http://blog.csdn.net/xiaocaoqiqi/article/details/1824305">http://blog.csdn.net/xiaocaoqiqi/article/details/1824305</a>
 
 </ul>
 
