@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Jack_Chim postfix 开发笔记_高级_工程师_Blog_Wiki</title>
+<title>Jack_Chim Roundcube 开发笔记_高级_工程师_Blog_Wiki</title>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen" />
@@ -129,153 +129,57 @@
 <!--// content Start-->
 <div id="content">
 
-<h1 ><a  href="">postfix</a> Page</h1>
+<h1 ><a  href="">Roundcube</a> Page</h1>
 
 
-<ul>
-<li>
-<a href="http://www.postfix.org/">http://www.postfix.org/</a>
-
-<li>
-<a href="ftp://ftp.cuhk.edu.hk/pub/packages/mail-server/postfix/index.html">download</a>
-
-</ul>
-
-<hr />
-<h2 id="toc_0.1">解决方案</h2>
-<ul>
-<li>
-Postfix + Dovecot + Postfixadmin + Roundcubemail 邮件系统解决方案
-
-<li>
-postfix+dovecot+openwebmail
-
-</ul>
-
-<hr />
-<h2 id="toc_0.2">hostname &amp; MX record</h2>
-
-<p>
-vim /etc/sysconfig/network
-</p>
-<pre>
-      HOSTNAME=name.com
-</pre>
-
-<p>
-vim /etc/hosts 
-</p>
-<pre>
-      127.0.0.1    name.com localhost localhost.localdomain
-</pre>
-
-<hr />
-<h2 id="toc_0.3">setup  bind</h2>
-
-<pre>
-         IN    MX   10 dama8.com.
-         IN    A    198.71.90.13
-</pre>
-
-<hr />
-<h2 id="toc_0.4">install</h2>
-
-<h4 id="toc_0.4.0.1">yum 安装</h4>
-
-<p>
-<code>yum -y install postfix</code>
-</p>
-
-
-<p>
-vim /etc/postfix/main.cf 
-</p>
-<pre>
-     queue_directory = /var/spool/postfix 
-     command_directory = /usr/sbin 
-     daemon_directory = /usr/libexec/postfix 
-     data_directory = /var/lib/postfix 
-     mail_owner = postfix 
-     myhostname = name.com 
-     mydomain = name.com 
-     inet_interfaces = localhost 
-
-
-</pre>
-
-<p>
-启动postfix <code>service postfix start</code>
-</p>
-
-
-<hr />
-<h2 id="toc_0.5">Tools</h2>
 <ol>
 <li>
-<a href="postfixadmin.html">postfixadmin</a>
-
-<li>
-<a href="Roundcube.html">Roundcube</a>
+<a href="http://roundcube.net/">http://roundcube.net/</a> 
 
 </ol>
 
+<hr />
+<h2 id="toc_0.1">theme</h2>
+<ol>
+<li>
+MobileCube - <a href="http://sourceforge.net/projects/mobilecube">http://sourceforge.net/projects/mobilecube</a>
 
+</ol>
 
 <hr />
-<h2 id="toc_0.6">Dovecot</h2>
+<h2 id="toc_0.2">Install</h2>
+
+
 
 <p>
-安装 dovecot
-</p>
-      
-<p>
-<code>yum -y install dovecot</code>
-</p>
-
-<p>
-vim /etc/dovecot/dovecot.conf
+setup mysql 
 </p>
 <pre>
-      protocols = imap pop3 
+      CREATE DATABASE roundcubemail /*!40101 CHARACTER SET utf8 COLLATE utf8_general_ci */;
+      GRANT ALL PRIVILEGES ON roundcubemail.* TO roundcube@localhost IDENTIFIED BY '654321';
+      FLUSH PRIVILEGES;
+</pre>
+
+<p>
+导入数据
+</p>
+
+<p>
+<code>mysql -uroot -ppassword roundcubemail &lt; SQL/mysql.initial.sql</code>
+</p>
+
+<p>
+vim config/db.inc.php 
+</p>
+<pre>
+$rcmail_config['db_dsnw'] = 'mysql://root:password@localhost/roundcubemail';
 </pre>
 
 
 
 <p>
-vim /etc/sysconfig/iptables 
+point your browser to  <a href="http://url-to-roundcube/installer/">http://url-to-roundcube/installer/</a> to start the install wizard
 </p>
-<pre>
-      -A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 110 -j ACCEPT
-      -A RH-Firewall-1-INPUT -m state --state NEW -m tcp -p tcp --dport 143 -j ACCEPT
-</pre>
-
-<p>
-重新启动防火墙 <code>service iptables restart</code>
-</p>
-
-<p>
-添加自启动 
-</p>
-<pre>
-      chkconfig --add dovecot 
-      chkconfig dovecot on
-      chkconfig --list dovecot
-</pre>
-
-<p>
-启动dovecot <code>service dovecot start</code>
-</p>
-
-<hr />
-<h2 id="toc_0.7">资料</h2>
-<ul>
-<li>
-<a href="http://my.oschina.net/duxuefeng/blog/28964">http://my.oschina.net/duxuefeng/blog/28964</a>
-
-<li>
-<a href="http://my.oschina.net/chen106106/blog/44967">http://my.oschina.net/chen106106/blog/44967</a>
-
-</ul>
 
 
 <!--// commentwrap Start-->
