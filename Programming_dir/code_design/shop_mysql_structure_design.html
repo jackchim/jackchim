@@ -1,0 +1,1037 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Jack_Chim shop_mysql_structure_design 开发笔记_高级_工程师_Blog_Wiki</title>
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<link rel="stylesheet" type="text/css" href="../../css/style.css" media="screen" />
+<!-- <link rel="shortcut icon" href="" /> -->
+<link rel='stylesheet' id='wp-pagenavi-css'  href='../../css/pagenavi-css.css' type='text/css' media='all' />
+<script type='text/javascript' src='../../js/jquery.js'></script>
+
+
+<!-- for SyntaxHighlighter core -->
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shCore.js"></script>
+<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shCore.css"/>
+<!-- for SyntaxHighlighter theme -->
+<link type="text/css" rel="stylesheet" href="../../syntaxhighlighter/styles/shThemeDefault.css"/>
+<!-- for SyntaxHighlighter syntax -->
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushJava.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushXml.js"></script>
+<script type="text/javascript" src="../../syntaxhighlighter/scripts/shBrushSql.js"></script>
+
+<script type="text/javascript" src="../../js/jquery.js"></script>
+
+<!-- for SyntaxHighlighter execute -->
+<!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+<script type="text/javascript">
+     SyntaxHighlighter.all()
+</script>
+<meta name="generator" content="" />
+</head>
+
+<body>
+<div align="center">
+<div id="wrapper">
+<!--// header Start-->
+<div id="hd">
+	<div id="sitemeta">
+		<ul>
+			<li class="rss"><a href="http://feed.feedsky.com/">Subscribe to articles using RSS Feed</a></li>
+  		</ul>
+	</div>
+	<div id="titlewrapper">
+		<div id="blogtitle">
+			<h1><a href="../../index.html">Jack Chim'Code Notes</a></h1>
+		</div>
+		<div id="menu">
+			<ul>
+				<li><div id="blogdescription"> Keep It Simple and Stupid.</div></li>
+				<li><a href="../../index.html">Home</a></li>
+				<li class="page_item page-item-2"><a href="../../about.html">About</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="clear">&nbsp;</div>
+
+	<div class="clear">&nbsp;</div>
+</div>
+<!--// header End-->
+
+
+<!--// sidebar Start-->
+<div id="sidebar" class="yui-b">
+<ul class="sidebar">
+<li id="search-3" class="widget widget_search"><form method="get" id="searchform" action="">
+<input type="text" size="14" value="" name="s" id="s" class="s" />
+<input type="submit" id="searchsubmit" value="GO" />
+</form>
+<BR><BR></li>
+<li id="tag_cloud-3" class="widget widget_tag_cloud"><h2 class="widgettitle">Me</h2>
+<br>
+<div class="tagcloud">
+
+	<span class="icons_github"></span> <a href='https://github.com/ziikii' target="_blank"  >GitHub </a><br>
+	<span class="icons_twitter"></span> <a href='https://twitter.com/jack_chim'  target="_blank" >Twitter </a> <br>
+	<span class="icons_linkedin"></span> <a href='http://www.linkedin.com/in/jackchim' target="_blank"  >Linkedin </a><br>
+	<span class="icons_sinaweibo"></span> <a href='http://weibo.com/u/1893763090' target="_blank" >Sina Weibo</a><br>
+	<span class="icons_mail"></span>     <a href='#'  target="_blank" >Mail:ziikii1#qq.com</a><br>
+
+</div>
+</li>
+<br>
+<li id="categories-4" class="widget widget_categories"><h2 class="widgettitle">Categories</h2>
+		<ul>
+<li class="cat-item cat-item-67"><a href="../../Programming_dir/Programming.html" >Programming</a></li>
+<li class="cat-item cat-item-6"><a href="../../Security_dir/Security.html" >Security</a></li>
+<li class="cat-item cat-item-6"><a href="../../Database_dir/Database.html" >Database</a></li>
+<li class="cat-item cat-item-6"><a href="../../Docs_dir/Docs.html" >Docs</a></li>
+<li class="cat-item cat-item-6"><a href="../../Desktop_dir/Desktop.html" >Desktop</a></li>
+<li class="cat-item cat-item-6"><a href="../../OS_dir/OS.html" >OS</a></li>
+<li class="cat-item cat-item-6"><a href="../../Web_dir/Web.html" >Web</a></li>
+<li class="cat-item cat-item-6"><a href="../../Develop_dir/Develop.html" >Develop/Tools</a></li>
+<li class="cat-item cat-item-6"><a href="../../Server_dir/Server.html" >Server</a></li>
+<li class="cat-item cat-item-6"><a href="../../Editor_dir/Editor.html" >Editor</a></li>
+<li class="cat-item cat-item-6"><a href="../../Design_dir/Design.html" >Design</a></li>
+<li class="cat-item cat-item-6"><a href="../../English_dir/English.html" >English notes</a></li>
+
+		</ul>
+</li>
+
+<li id="archives-4" class="widget widget_archive"><h2 class="widgettitle"><a href="../../diary/diary.html" target="_blank">Diary</a></h2>
+		<ul>
+	<li><a href='../../diary/2012.html' title=''>2012 Year</a></li>
+	<li><a href='../../diary/2011.html' title=''>2011 Year</a></li>
+		</ul>
+</li>
+<li id="linkcat-2" class="widget widget_links"><h2 class="widgettitle">Site & Tools</h2>
+
+	<ul class='xoxo blogroll'>
+<li><a href="http://stackoverflow.com/" target="_blank">Stackoverflow </a></li>
+<li><a href="http://www.ostools.net/">ostools</a></li>
+
+	</ul>
+</li>
+
+</ul>
+</div>
+<!--// sidebar End-->
+
+
+
+<!--// content Start-->
+<div id="content">
+
+<h1 ><a  href="">shop_mysql_structure_design</a> Page</h1>
+
+<div class="toc">
+<ul>
+<li><a href="#toc_0.1">shop_order</a>
+<li><a href="#toc_0.2">shop_order_history</a>
+<li><a href="#toc_0.3">shop_order_option</a>
+<li><a href="#toc_0.4">shop_order_product</a>
+<li><a href="#toc_0.5">shop_order_status</a>
+<li><a href="#toc_0.6">shop_category</a>
+<li><a href="#toc_0.7">shop_category_description</a>
+<li><a href="#toc_0.8">shop_product</a>
+<li><a href="#toc_0.9">shop_product_description</a>
+<li><a href="#toc_0.10">shop_product_discount</a>
+<li><a href="#toc_0.11">shop_product_image</a>
+<li><a href="#toc_0.12">shop_product_option_value</a>
+<li><a href="#toc_0.13">shop_product_special</a>
+<li><a href="#toc_0.14">shop_product_tag</a>
+<li><a href="#toc_0.15">shop_product_to_category</a>
+<li><a href="#toc_0.16">shop_product_collection</a>
+<li><a href="#toc_0.17">shop_product_comment</a>
+<li><a href="#toc_0.18">shop_setting</a>
+<li><a href="#toc_0.19">shop_user</a>
+<li><a href="#toc_0.20">shop_user_group</a>
+<li><a href="#toc_0.21">shop_user_ip</a>
+<li><a href="#toc_0.22">shop_address</a>
+<li><a href="#toc_0.23">shop_affiliate</a>
+<li><a href="#toc_0.24">shop_affiliate_transaction</a>
+<li><a href="#toc_0.25">shop_city</a>
+<li><a href="#toc_0.26">shop_coupon</a>
+<li><a href="#toc_0.27">shop_coupon_history</a>
+<li><a href="#toc_0.28">shop_coupon_product</a>
+<li><a href="#toc_0.29">shop_pages</a>
+<li><a href="#toc_0.30">shop_pages_content</a>
+<li><a href="#toc_0.31">shop_language</a>
+<li><a href="#toc_0.32">shop_brand</a>
+<li><a href="#toc_0.33">shop_friend_link</a>
+</ul>
+</ul>
+</div>
+
+
+<hr />
+<h2 id="toc_0.1">shop_order</h2>
+
+<p>
+shop_order
+</p>
+<pre class="brush:sql">
+--shop_order
+DROP TABLE IF EXISTS `shop_order`;
+CREATE TABLE `shop_order` (
+  `order_id` int(11) NOT NULL AUTO_INCREMENT,
+  `invoice_no` int(11) NOT NULL DEFAULT '0',
+  `invoice_prefix` varchar(10) COLLATE utf8_bin NOT NULL,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  `store_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `store_url` varchar(255) COLLATE utf8_bin NOT NULL,
+  `customer_id` int(11) NOT NULL DEFAULT '0',
+  `customer_group_id` int(11) NOT NULL DEFAULT '0',
+  `firstname` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `lastname` varchar(32) COLLATE utf8_bin NOT NULL,
+  `email` varchar(96) COLLATE utf8_bin NOT NULL,
+  `telephone` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `fax` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `shipping_firstname` varchar(32) COLLATE utf8_bin NOT NULL,
+  `shipping_lastname` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `shipping_company` varchar(32) COLLATE utf8_bin NOT NULL,
+  `shipping_address_1` varchar(128) COLLATE utf8_bin NOT NULL,
+  `shipping_address_2` varchar(128) COLLATE utf8_bin NOT NULL,
+  `shipping_city` varchar(128) COLLATE utf8_bin NOT NULL,
+  `shipping_postcode` varchar(10) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `shipping_country` varchar(128) COLLATE utf8_bin NOT NULL,
+  `shipping_country_id` int(11) NOT NULL,
+  `shipping_zone` varchar(128) COLLATE utf8_bin NOT NULL,
+  `shipping_zone_id` int(11) NOT NULL,
+  `shipping_address_format` text COLLATE utf8_bin NOT NULL,
+  `shipping_method` varchar(128) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `payment_firstname` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `payment_lastname` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `payment_company` varchar(32) COLLATE utf8_bin NOT NULL,
+  `payment_address_1` varchar(128) COLLATE utf8_bin NOT NULL,
+  `payment_address_2` varchar(128) COLLATE utf8_bin NOT NULL,
+  `payment_city` varchar(128) COLLATE utf8_bin NOT NULL,
+  `payment_postcode` varchar(10) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `payment_country` varchar(128) COLLATE utf8_bin NOT NULL,
+  `payment_country_id` int(11) NOT NULL,
+  `payment_zone` varchar(128) COLLATE utf8_bin NOT NULL,
+  `payment_zone_id` int(11) NOT NULL,
+  `payment_address_format` text COLLATE utf8_bin NOT NULL,
+  `payment_method` varchar(128) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `comment` text COLLATE utf8_bin NOT NULL,
+  `total` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `reward` int(8) NOT NULL,
+  `order_status_id` int(11) NOT NULL DEFAULT '0',
+  `affiliate_id` int(11) NOT NULL,
+  `commission` decimal(15,4) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `currency_id` int(11) NOT NULL,
+  `currency_code` varchar(3) COLLATE utf8_bin NOT NULL,
+  `currency_value` decimal(15,8) NOT NULL,
+  `date_added` datetime NOT NULL,
+  `date_modified` datetime NOT NULL,
+  `ip` varchar(15) COLLATE utf8_bin NOT NULL DEFAULT '',
+  PRIMARY KEY (`order_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+</pre>
+
+
+<hr />
+<h2 id="toc_0.2">shop_order_history</h2>
+
+<p>
+shop_order_history 
+</p>
+<pre class="brush:sql">
+--shop_order_history
+DROP TABLE IF EXISTS `shop_order_history`;
+CREATE TABLE `shop_order_history` (
+  `order_history_id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) NOT NULL,
+  `order_status_id` int(5) NOT NULL,
+  `notify` tinyint(1) NOT NULL DEFAULT '0',
+  `comment` text COLLATE utf8_bin NOT NULL,
+  `date_added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`order_history_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+
+<hr />
+<h2 id="toc_0.3">shop_order_option</h2>
+<p>
+shop_order_option
+</p>
+<pre class="brush:sql">
+--shop_order_option
+DROP TABLE IF EXISTS `shop_order_option`;
+CREATE TABLE `oc_order_option` (
+  `order_option_id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) NOT NULL,
+  `order_product_id` int(11) NOT NULL,
+  `product_option_id` int(11) NOT NULL,
+  `product_option_value_id` int(11) NOT NULL DEFAULT '0',
+  `name` varchar(255) COLLATE utf8_bin NOT NULL,
+  `value` text COLLATE utf8_bin NOT NULL,
+  `type` varchar(32) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`order_option_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+</pre>
+
+
+<hr />
+<h2 id="toc_0.4">shop_order_product</h2>
+<p>
+shop_order_product 
+</p>
+<pre class="brush:sql">
+--shop_order_product
+DROP TABLE IF EXISTS `shop_order_product`;
+CREATE TABLE `oc_order_product` (
+  `order_product_id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_bin NOT NULL,
+  `model` varchar(24) COLLATE utf8_bin NOT NULL,
+  `quantity` int(4) NOT NULL,
+  `price` decimal(15,2) NOT NULL DEFAULT '0.00',
+  `market_price` decimal(10,2) unsigned NOT NULL DEFAULT '0.00',
+  `total` decimal(15,2) NOT NULL DEFAULT '0.00',
+  `tax` decimal(15,2) NOT NULL DEFAULT '0.00',
+  `product_sn` varchar(60) NOT NULL default '',
+  PRIMARY KEY (`order_product_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+</pre>
+
+
+<hr />
+<h2 id="toc_0.5">shop_order_status</h2>
+<p>
+shop_order_status 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_order_status`;
+CREATE TABLE `shop_order_status` (
+  `order_status_id` int(11) NOT NULL AUTO_INCREMENT,
+  `language_id` int(11) NOT NULL,
+  `name` varchar(32) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`order_status_id`,`language_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+<hr />
+<h2 id="toc_0.6">shop_category</h2>
+<p>
+shop_category 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_category`;
+CREATE TABLE `shop_category` (
+  `category_id` int(11) NOT NULL AUTO_INCREMENT,
+  `image` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `parent_id` int(11) NOT NULL DEFAULT '0',
+  `top` tinyint(1) NOT NULL,
+  `column` int(3) NOT NULL,
+  `sort_order` int(3) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`category_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+<p>
+添加是否显示
+</p>
+<pre class="brush:sql">
+`is_show` tinyint(1) unsigned NOT NULL default '1',
+</pre>
+
+<hr />
+<h2 id="toc_0.7">shop_category_description</h2>
+<p>
+shop_category_description 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_category_description`;
+CREATE TABLE `shop_category_description` (
+  `category_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `description` text COLLATE utf8_bin NOT NULL,
+  `meta_description` varchar(255) COLLATE utf8_bin NOT NULL,
+  `meta_keyword` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`category_id`,`language_id`),
+  KEY `name` (`name`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+</pre>
+
+
+<hr />
+<h2 id="toc_0.8">shop_product</h2>
+<p>
+shop_product 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_product`;
+CREATE TABLE `shop_product` (
+  `product_id` int(11) NOT NULL AUTO_INCREMENT,
+  `model` varchar(64) COLLATE utf8_bin NOT NULL,
+  `sku` varchar(64) COLLATE utf8_bin NOT NULL,
+  `upc` varchar(12) COLLATE utf8_bin NOT NULL,
+  `location` varchar(128) COLLATE utf8_bin NOT NULL,
+  `quantity` int(4) NOT NULL DEFAULT '0',
+  `stock_status_id` int(11) NOT NULL,
+  `image` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `manufacturer_id` int(11) NOT NULL,
+  `shipping` tinyint(1) NOT NULL DEFAULT '1',
+  `price` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `points` int(8) NOT NULL DEFAULT '0',
+  `tax_class_id` int(11) NOT NULL,
+  `date_available` date NOT NULL,
+  `weight` decimal(5,2) NOT NULL DEFAULT '0.00',
+  `weight_class_id` int(11) NOT NULL DEFAULT '0',
+  `length` decimal(5,2) NOT NULL DEFAULT '0.00',
+  `width` decimal(5,2) NOT NULL DEFAULT '0.00',
+  `height` decimal(5,2) NOT NULL DEFAULT '0.00',
+  `length_class_id` int(11) NOT NULL DEFAULT '0',
+  `subtract` tinyint(1) NOT NULL DEFAULT '1',
+  `minimum` int(11) NOT NULL DEFAULT '1',
+  `sort_order` int(11) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '0',
+  `date_added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `date_modified` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `viewed` int(5) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`product_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+</pre>
+
+
+<hr />
+<h2 id="toc_0.9">shop_product_description</h2>
+<p>
+shop_product_description 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_product_description`;
+CREATE TABLE `shop_product_description` (
+  `product_id` int(11) NOT NULL AUTO_INCREMENT,
+  `language_id` int(11) NOT NULL,
+  `name` varchar(255) COLLATE utf8_bin NOT NULL,
+  `description` text COLLATE utf8_bin NOT NULL,
+  `meta_description` varchar(255) COLLATE utf8_bin NOT NULL,
+  `meta_keyword` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`product_id`,`language_id`),
+  KEY `name` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+</pre>
+
+<hr />
+<h2 id="toc_0.10">shop_product_discount</h2>
+<p>
+shop_product_discount 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_product_discount`;
+CREATE TABLE `shop_product_discount` (
+  `product_discount_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `customer_group_id` int(11) NOT NULL,
+  `quantity` int(4) NOT NULL DEFAULT '0',
+  `priority` int(5) NOT NULL DEFAULT '1',
+  `price` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `date_start` date NOT NULL DEFAULT '0000-00-00',
+  `date_end` date NOT NULL DEFAULT '0000-00-00',
+  PRIMARY KEY (`product_discount_id`),
+  KEY `product_id` (`product_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+</pre>
+
+
+<hr />
+<h2 id="toc_0.11">shop_product_image</h2>
+<p>
+shop_product_image 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_product_image`;
+CREATE TABLE `shop_product_image` (
+  `product_image_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `image` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`product_image_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+
+<hr />
+<h2 id="toc_0.12">shop_product_option_value</h2>
+<p>
+shop_product_option_value 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_product_option_value`;
+CREATE TABLE `shop_product_option_value` (
+  `product_option_value_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_option_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `option_id` int(11) NOT NULL,
+  `option_value_id` int(11) NOT NULL,
+  `quantity` int(3) NOT NULL,
+  `subtract` tinyint(1) NOT NULL,
+  `price` decimal(15,4) NOT NULL,
+  `price_prefix` varchar(1) COLLATE utf8_bin NOT NULL,
+  `points` int(8) NOT NULL,
+  `points_prefix` varchar(1) COLLATE utf8_bin NOT NULL,
+  `weight` decimal(15,8) NOT NULL,
+  `weight_prefix` varchar(1) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`product_option_value_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+</pre>
+
+<hr />
+<h2 id="toc_0.13">shop_product_special</h2>
+<p>
+shop_product_special 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_product_special`;
+CREATE TABLE `shop_product_special` (
+  `product_special_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `customer_group_id` int(11) NOT NULL,
+  `priority` int(5) NOT NULL DEFAULT '1',
+  `price` decimal(15,4) NOT NULL DEFAULT '0.0000',
+  `date_start` date NOT NULL DEFAULT '0000-00-00',
+  `date_end` date NOT NULL DEFAULT '0000-00-00',
+  PRIMARY KEY (`product_special_id`),
+  KEY `product_id` (`product_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+<hr />
+<h2 id="toc_0.14">shop_product_tag</h2>
+<p>
+shop_product_tag 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_product_tag`;
+CREATE TABLE `shop_product_tag` (
+  `product_tag_id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `tag` varchar(32) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`product_tag_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+</pre>
+
+
+<hr />
+<h2 id="toc_0.15">shop_product_to_category</h2>
+<p>
+shop_product_to_category 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_product_to_category`;
+CREATE TABLE `shop_product_to_category` (
+  `product_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  PRIMARY KEY (`product_id`,`category_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+</pre>
+
+<hr />
+<h2 id="toc_0.16">shop_product_collection</h2>
+<p>
+shop_product_collection 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_product_collection`;
+CREATE TABLE `shop_product_collection` (
+  `collection_id` mediumint(8) unsigned NOT NULL auto_increment,
+  `user_id` mediumint(8) unsigned NOT NULL default '0',
+  `product_id` mediumint(8) unsigned NOT NULL default '0',
+  `add_time` int(11) unsigned NOT NULL default '0',
+  `is_attention` TINYINT( 1 ) NOT NULL DEFAULT '0',
+  PRIMARY KEY  (`collection_id`),
+  KEY `user_id` (`user_id`),
+  KEY `product_id` (`product_id`),
+  KEY `is_attention` (`is_attention`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+<hr />
+<h2 id="toc_0.17">shop_product_comment</h2>
+<p>
+shop_product_comment 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_product_comment`;
+CREATE TABLE `shop_product_comment` (
+  `comment_id` int(10) unsigned NOT NULL auto_increment,
+  `comment_type` tinyint(3) unsigned NOT NULL default '0',
+  `id_value` mediumint(8) unsigned NOT NULL default '0',
+  `email` varchar(60) NOT NULL default '',
+  `user_name` varchar(60) NOT NULL default '',
+  `content` text NOT NULL,
+  `comment_rank` tinyint(1) unsigned NOT NULL default '0',
+  `add_time` int(10) unsigned NOT NULL default '0',
+  `ip` varchar(15) NOT NULL default '',
+  `status` tinyint(3) unsigned NOT NULL default '0',
+  `parent_id` int(10) unsigned NOT NULL default '0',
+  `user_id` int(10) unsigned NOT NULL default '0',
+  PRIMARY KEY  (`comment_id`),
+  KEY `parent_id` (`parent_id`),
+  KEY `id_value` (`id_value`)
+)  ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+</pre>
+
+
+<hr />
+<h2 id="toc_0.18">shop_setting</h2>
+<p>
+shop_setting 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_setting`;
+CREATE TABLE `shop_setting` (
+  `setting_id` int(11) NOT NULL AUTO_INCREMENT,
+  `store_id` int(11) NOT NULL DEFAULT '0',
+  `group` varchar(32) COLLATE utf8_bin NOT NULL,
+  `key` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `value` text COLLATE utf8_bin NOT NULL,
+  `serialized` tinyint(1) NOT NULL,
+  PRIMARY KEY (`setting_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+<hr />
+<h2 id="toc_0.19">shop_user</h2>
+<p>
+shop_user 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_user`;
+CREATE TABLE `shop_user` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_group_id` int(11) NOT NULL,
+  `username` varchar(20) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `password` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `firstname` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `lastname` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `email` varchar(96) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `code` varchar(32) COLLATE utf8_bin NOT NULL,
+  `ip` varchar(15) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `status` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`user_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+</pre>
+
+<hr />
+<h2 id="toc_0.20">shop_user_group</h2>
+
+<p>
+shop_user_group 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_user_group`;
+CREATE TABLE `shop_user_group` (
+  `user_group_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `permission` text COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`user_group_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+<hr />
+<h2 id="toc_0.21">shop_user_ip</h2>
+<p>
+shop_user_ip 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_user_ip`;
+CREATE TABLE `shop_user_ip` (
+  `user_ip_id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `ip` varchar(15) COLLATE utf8_bin NOT NULL,
+  `date_added` datetime NOT NULL,
+  PRIMARY KEY (`customer_ip_id`),
+  KEY `ip` (`ip`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+</pre>
+
+<hr />
+<h2 id="toc_0.22">shop_address</h2>
+<p>
+shop_address 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_address`;
+CREATE TABLE `shop_address` (
+  `address_id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_id` int(11) NOT NULL,
+  `firstname` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `lastname` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `company` varchar(32) COLLATE utf8_bin NOT NULL,
+  `address_1` varchar(128) COLLATE utf8_bin NOT NULL,
+  `address_2` varchar(128) COLLATE utf8_bin NOT NULL,
+  `city` varchar(128) COLLATE utf8_bin NOT NULL,
+  `postcode` varchar(10) COLLATE utf8_bin NOT NULL,
+  `country_id` int(11) NOT NULL DEFAULT '0',
+  `zone_id` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`address_id`),
+  KEY `customer_id` (`customer_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+</pre>
+
+
+<hr />
+<h2 id="toc_0.23">shop_affiliate</h2>
+<p>
+shop_affiliate 
+</p>
+<pre class="brush:sql">
+
+DROP TABLE IF EXISTS `shop_affiliate`;
+CREATE TABLE `shop_affiliate` (
+  `affiliate_id` int(11) NOT NULL AUTO_INCREMENT,
+  `firstname` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `lastname` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `email` varchar(96) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `telephone` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `fax` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `password` varchar(40) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `company` varchar(32) COLLATE utf8_bin NOT NULL,
+  `website` varchar(255) COLLATE utf8_bin NOT NULL,
+  `address_1` varchar(128) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `address_2` varchar(128) COLLATE utf8_bin NOT NULL,
+  `city` varchar(128) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `postcode` varchar(10) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `country_id` int(11) NOT NULL,
+  `zone_id` int(11) NOT NULL,
+  `code` varchar(64) COLLATE utf8_bin NOT NULL,
+  `commission` decimal(4,2) NOT NULL DEFAULT '0.00',
+  `tax` varchar(64) COLLATE utf8_bin NOT NULL,
+  `payment` varchar(6) COLLATE utf8_bin NOT NULL,
+  `cheque` varchar(100) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `paypal` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `bank_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `bank_branch_number` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `bank_swift_code` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `bank_account_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `bank_account_number` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `ip` varchar(15) COLLATE utf8_bin NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `approved` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL,
+  PRIMARY KEY (`affiliate_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+</pre>
+
+<hr />
+<h2 id="toc_0.24">shop_affiliate_transaction</h2>
+<p>
+shop_affiliate_transaction 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_affiliate_transaction`;
+CREATE TABLE `shop_affiliate_transaction` (
+  `affiliate_transaction_id` int(11) NOT NULL AUTO_INCREMENT,
+  `affiliate_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `description` text COLLATE utf8_bin NOT NULL,
+  `amount` decimal(15,4) NOT NULL,
+  `date_added` datetime NOT NULL,
+  PRIMARY KEY (`affiliate_transaction_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+
+</pre>
+
+
+<hr />
+<h2 id="toc_0.25">shop_city</h2>
+<p>
+shop_city
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_city`;
+CREATE TABLE `shop_city` (
+  `city_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(128) COLLATE utf8_bin NOT NULL,
+  `iso_code_2` varchar(2) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `address_format` text COLLATE utf8_bin NOT NULL,
+  `postcode_required` tinyint(1) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`country_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+
+<hr />
+<h2 id="toc_0.26">shop_coupon</h2>
+<p>
+shop_coupon 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_coupon`;
+CREATE TABLE `shop_coupon` (
+  `coupon_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(128) COLLATE utf8_bin NOT NULL,
+  `code` varchar(10) COLLATE utf8_bin NOT NULL,
+  `type` char(1) COLLATE utf8_bin NOT NULL,
+  `discount` decimal(15,4) NOT NULL,
+  `logged` tinyint(1) NOT NULL,
+  `shipping` tinyint(1) NOT NULL,
+  `total` decimal(15,4) NOT NULL,
+  `date_start` date NOT NULL DEFAULT '0000-00-00',
+  `date_end` date NOT NULL DEFAULT '0000-00-00',
+  `uses_total` int(11) NOT NULL,
+  `uses_customer` varchar(11) COLLATE utf8_bin NOT NULL,
+  `status` tinyint(1) NOT NULL,
+  `date_added` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`coupon_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+<hr />
+<h2 id="toc_0.27">shop_coupon_history</h2>
+<p>
+shop_coupon_history 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_coupon_history`;
+CREATE TABLE `shop_coupon_history` (
+  `coupon_history_id` int(11) NOT NULL AUTO_INCREMENT,
+  `coupon_id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `amount` decimal(15,4) NOT NULL,
+  `date_added` datetime NOT NULL,
+  PRIMARY KEY (`coupon_history_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+
+<hr />
+<h2 id="toc_0.28">shop_coupon_product</h2>
+<p>
+shop_coupon_product 
+</p>
+<pre class="brush:sql">
+
+DROP TABLE IF EXISTS `shop_coupon_product`;
+CREATE TABLE `shop_coupon_product` (
+  `coupon_product_id` int(11) NOT NULL AUTO_INCREMENT,
+  `coupon_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  PRIMARY KEY (`coupon_product_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+<hr />
+<h2 id="toc_0.29">shop_pages</h2>
+<p>
+shop_pages 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_pages`;
+CREATE TABLE `shop_pages` (
+  `pages_id` int(11) NOT NULL AUTO_INCREMENT,
+  `sort_order` int(3) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`pages_id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+</pre>
+<hr />
+<h2 id="toc_0.30">shop_pages_content</h2>
+<p>
+shop_pages_content 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_pages_content`;
+CREATE TABLE `shop_pages_content` (
+  `pages_id` int(11) NOT NULL,
+  `language_id` int(11) NOT NULL,
+  `title` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `content` text COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`pages_id`,`language_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+</pre>
+
+
+
+<hr />
+<h2 id="toc_0.31">shop_language</h2>
+<p>
+shop_language 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_language`;
+CREATE TABLE `shop_language` (
+  `language_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `code` varchar(5) COLLATE utf8_bin NOT NULL,
+  `locale` varchar(255) COLLATE utf8_bin NOT NULL,
+  `image` varchar(64) COLLATE utf8_bin NOT NULL,
+  `directory` varchar(32) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `filename` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `sort_order` int(3) NOT NULL DEFAULT '0',
+  `status` tinyint(1) NOT NULL,
+  PRIMARY KEY (`language_id`),
+  KEY `name` (`name`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+<hr />
+<h2 id="toc_0.32">shop_brand</h2>
+<p>
+shop_brand 
+</p>
+<pre class="brush:sql">
+
+DROP TABLE IF EXISTS `shop_brand`;
+CREATE TABLE `shop_brand` (
+  `brand_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `image` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `site_url` varchar(255) COLLATE utf8_bin  NOT NULL default '',
+  `sort_order` int(3) NOT NULL,
+  `is_show` tinyint( 1 ) unsigned NOT NULL default '1',
+  PRIMARY KEY (`brand_id`),
+  KEY `is_show` (`is_show`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+<hr />
+<h2 id="toc_0.33">shop_friend_link</h2>
+<p>
+shop_friend_link 
+</p>
+<pre class="brush:sql">
+DROP TABLE IF EXISTS `shop_friend_link`;
+CREATE TABLE `shop_friend_link` (
+  `link_id` smallint(5) unsigned NOT NULL auto_increment,
+  `link_name` varchar(255) NOT NULL default '',
+  `link_url` varchar(255) NOT NULL default '',
+  `link_logo` varchar(255) NOT NULL default '',
+  `show_order` tinyint(3) unsigned NOT NULL default '50',
+  PRIMARY KEY  (`link_id`),
+  KEY `show_order` (`show_order`)
+)  ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+</pre>
+
+
+<!--// commentwrap Start-->
+<!-- 加载duoshuo.com 评论插件 -->
+<!-- <div id="commentwrap"> -->
+<!-- <h2>Leave a comment?</h2> -->
+<!-- <hr> -->
+    <!-- <div id="disqus_thread" style=""></div> -->
+
+<!-- <script type="text/javascript"> -->
+    <!-- /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */ -->
+
+    <!-- var disqus_shortname = 'jackchim'; // required: replace example with your forum shortname -->
+
+    <!-- /* * * DON'T EDIT BELOW THIS LINE * * */ -->
+    <!-- (function() { -->
+        <!-- var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true; -->
+        <!-- dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js'; -->
+        <!-- (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq); -->
+    <!-- })(); -->
+<!-- </script> -->
+
+
+        
+</div>
+<!--// commentwrap End-->
+
+</div>
+<!--// content  End-->
+<!--// footer Start-->
+<div class="clear">&nbsp;</div>
+<div id="footnote" align="center">
+	  Cheers!! Vimwiki  © Copyright 2012 Jack Chim. All Rights Reserved.
+</div>
+<!--// footer End-->
+<!-- http://blog.sonitech.org/2011/07/06/sshscp-through-gateway/ -->
+</div>
+
+</div>
+<a href="javascript:;" id="returnTop" style="bottom: 200px;">回到顶部</a>
+<script type="text/javascript">
+$(document).ready(function(){
+    initTxt();
+    //$('#returnTop').hide();
+    $(window).scroll(function(){
+        if($(document).scrollTop()>=100){
+            if($.browser.msie&&($.browser.version == "6.0")){
+                $('#returnTop').css("_top","expression(eval(document.documentElement.scrollTop+(document.documentElement.clientHeight/2)-this.offsetHeight-(parseInt(this.currentStyle.marginTop,10)||0)-(parseInt(this.currentStyle.marginBottom,10)||0))-0);");
+            }
+            $('#returnTop').animate({bottom:"200px"},{ queue: false, duration: 10 });
+        }else{
+            $('#returnTop').css("_top","1000");
+            $('#returnTop').animate({bottom:"-200px"},{ queue: false, duration: 10 });
+        }
+    });
+    $('#returnTop').click(function(){
+        $('html, body').animate({scrollTop:0}, 'slow');
+        return false;
+    });
+ 
+     
+});
+ 
+function initTxt(){
+    for(var i=0;i<=300;i++){
+        $("#bigBox").append("<p>这是第"+i+"行</p>");
+    }
+}
+</script>
+</body>
+</html>
